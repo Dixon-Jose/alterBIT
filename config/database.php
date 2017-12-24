@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,9 +80,16 @@ return [
 
         'mongodb' => [
           'driver' => 'mongodb',
-          'dsn' => env('DB_DSN'),
-          'database' => env('DB_DATABASE'),
+          'dsn' => env('MONGO_DSN'),
+          'database' => env('MONGO_DATABASE'),
         ],
+
+        'mongolocal' => [
+            'driver' => 'mongodb',
+            'host' => env('MDB_HOST', '127.0.0.1'),
+            'port' => env('MDB_PORT', '3306'),
+            'database' => env('MDB_DATABASE'),
+          ],
 
     ],
 
