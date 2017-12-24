@@ -15,14 +15,14 @@ Route::get('/', function () {
 
     return view('welcome', compact('name'));
 });
-//
-//
-// Route::post('Homepage',[
-//   'uses' => 'entityController@index',
-// ])->name('Home_Page');
 
 
-Route::post('Homepage',function()
-{
-  return view('user_pages.homepage');
-})->name('Home_Page');
+Route::post('Homepage',[
+  'uses' => 'entityController@index',
+])->name('Home_Page');
+
+
+// Route::post('Homepage',function()
+// {
+//   return view('user_pages.homepage');
+// })->name('Home_Page');

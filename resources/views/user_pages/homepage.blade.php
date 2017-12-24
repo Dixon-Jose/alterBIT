@@ -16,9 +16,9 @@
 </div>
 
 <div class="element">
-  <h2>Element Name</h2>
+  <h2>{{$entities->name}}</h2>
   <div class="ele-desc">
-    <p>Eyyy Kaun hai? Lorem Ipsum</p>
+    <p>{{$entities->description}}</p>
   </div>
 </div>
 <div class="partition">
