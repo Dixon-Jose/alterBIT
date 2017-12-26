@@ -22,15 +22,21 @@
 
     </head>
     <body>
-         <input type="button" onclick="getfocus()" value="alterBiT" >
 
+      <div class="row">
+        <div class="col-5 src"></div>
+        <div class="col-3 src">
+         <input type="button" onclick="getfocus()" value="alterBiT">
+     </div>
+   </div>
 
-                <div class="search">
-                  <form method="post" action="{{ route('Home_Page') }}">
-                        {{ csrf_field() }}
-                        <input type="text" id="search" name="entity" placeholder="Search for an unconventional way of life">
-                  </form>
-                </div>
-
+     <div class="row">
+           <div class="col-12 search">
+             <form method="post" action="{{ route('Home_Page') }}">
+                   {{ csrf_field() }}
+                   <input type="text" id="search" name="entity" placeholder="Search.">
+             </form>
+           </div>
+        </div>
     </body>
 </html>
