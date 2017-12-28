@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-5 src"></div>
         <div class="col-3 src">
-         <input type="button" onclick="getfocus()" value="alterBiT">
+         <input type="button" class="welcome-search" onclick="getfocus()" value="alterBiT">
      </div>
    </div>
 

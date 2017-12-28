@@ -2,7 +2,6 @@
 @font-color:#636b6f;
 @import "fonts";
 @import "small";
-
 * {
     box-sizing: border-box;
 }
@@ -25,7 +24,6 @@
 [class*="col-"] {
    float: left;
    padding: 15px;
-   // border: 1px solid red;
 }
 
 
@@ -42,30 +40,18 @@ html, body {
     margin: 0;
 }
 
+body ::-moz-selection{
+    background: #d4e6f1;
+    color:@font-color;
+}
+
+
 
 /****** WELCOME ******/
 
 
-/************* Media queries for full screen welcome page************/
-@media only screen and (min-width:990px) {
-.src{
-  margin-left: -1%;
-  height: 7em;
-  margin-top: 10%;
-}
-
-input[type=button]
-{
-  font-size: 400%;
-}
-
-input[type=text] {
-  font-size: 400%;
-}
-
-}
-
 /* For mobile devices */
+
 @media only screen and (max-width: 990px) {
 
 [class*="col-"] {
@@ -84,12 +70,55 @@ input[type=text] {
   font-size: 250%;
 }
 
+.menu-bar {
+
+  height: 4em;
+  a{
+    margin-left: auto;
+    font-size: 250%;
+  }
+
+  }
+
+  .element{
+    margin-top:2em;
+    h2{
+      font-size: 170%;
+      }
+    }
+
+    .partition h2{
+      width: 107%;
+      padding-left:1em;
+      margin-left: auto;
+      .h2-setting;
+      font-size: 180%;
+      margin-left:-1em;
+
+    }
+
+    .alter{
+      margin-top: 5em;
+    }
 }
+
+@media only screen and (max-width:565px) {
+  span{
+    visibility:hidden;
+  }
+}
+
+@media only screen and (max-width:320px) {
+  .partition h2{
+    font-size: 150%;
+  }
+}
+
 
 
 /* WELCOME PAGE: MAIN CONTENT*/
 
-input[type=button]{
+.welcome-search{
   padding-left: 0%;
   width: 100%;
   height: 100%;
@@ -120,7 +149,6 @@ input[type=button]{
 
         &:focus{
           transition: width 4s ease;
-
           text-align:left;
           background-color: @body-color;
           position: absolute;
@@ -146,108 +174,115 @@ input[type=button]{
 
 /***** Home Page ******/
 
+/** top panel **/
 
-/******* top panel *******/
-.menu-bar {
-    background-color: @body-color;
-    position: fixed;
-    width: 100%;
-    min-width: 50%;
-    min-height:7%;
-    z-index: 1;
-    margin-top: 0%;
-    margin-left: -2%;
-    padding: 1%;
-    padding-left: 35%;
+.menu{
+  background-color:@body-color;
+  position:fixed;
+  z-index: 1;
+  margin-top:4em;
 
-  .menu-title  {
-      overflow:auto;
-      padding: .5%;
-      width: 37%;
-
-      a{
-        color: @font-color;
-        font-weight: lighter;
-        .open-sans;
-        font-size: 220%;
-        text-decoration: none;
+  input[type=search]{
+      width:100%;
+      margin-left: 0%;
+      border: transparent;
+      border-bottom: 1px solid @font-color;
+      text-align: center;
+      background-color: @body-color;
+      .raleway;
+      color: @font-color;
+      font-size: 100%;
+      &:focus{
+        transition: height 4s ease;
+        font-size: 150%;
       }
-      .title-span{
-        .roboto;
-        font-size:70%;
-        font-weight: normal;
-     }
+  }
+}
 
-    }
+.menu-bar{
+  background-color:@body-color;
+  position: fixed;
+  z-index:1;
+
+  a{
+    color: @font-color;
+    font-weight: lighter;
+    .open-sans;
+    text-decoration: none;
+    span{
+      .roboto;
+      font-size:70%;
+      font-weight: lighter;
+   }
+  }
 
 }
 
 
-/**** End: Top Panel *****/
 
-/*Element Image*/
+/** End: Top Panel **/
+
+/** Element - info **/
+
 
 .element{
-  position: absolute;
-  top:14%;
-  height: 60%;
-  width: 100%;
-  background-color:  #f7f9f9 ;
+  z-index: 1;
+  background-color:@body-color;
   h2{
-        position: absolute;
-        top:0%;
-        left: 43%;
-        .h2-setting;
+    .h2-setting();
+    color: @font-color;
   }
-
-  /*background-color:#f2f3f4;*/
+  p{
+    .raleway;
+    text-align: justify;
+  }
+  p:first-of-type::first-letter{
+    font-size: 170%;
+    .raleway;
+    font-weight: bolder;
+  }
 }
-
-.ele-desc {
-    position: absolute;
-    top: 14%;
-    left: 23%;
-    margin-right:15%;
-    font-weight: normal;
-    font-size: 130%;
-    p:first-of-type::first-letter{
-      font-size: 170%;
-      .raleway;
-      font-weight: bolder;
-    }
-
-}
-
 
 .partition{
-    position: absolute;
-    top: 74%;
-    height: 20%;
-    width: 100%;
-    background-color:#f4f6f7;
     h2{
-     position: absolute;
-     top: 16%;
-     left: 38%;
-     .h2-setting;
-   }
-
-
-}
-
-
-.alter{
-  position: absolute;
-  top:115%;
-  height: 60%;
-  width: 100%;
-  h2{
+      background-color: white;
+    }
     position: absolute;
-    top:0%;
-    left: 43%;
-    .h2-setting;
+    color:@font-color;
   }
 
+.alter{
+  color: white;
+  background:linear-gradient(to bottom left,#f093fb,#f5576c);
+  width: 100%;
+  height:25em;
+
+
 }
+
+.footer{
+  background-color:#e3eeff;
+  a{
+    text-decoration: none;
+    color: @font-color;
+    }
+    a:hover{
+      color: black;
+    }
+
+    a[title="github"]::after{
+            content:url("../GitHub.png");
+    }
+    a[title="design"]{
+      font-family: 'Permanent Marker', sans-serif;
+      font-size: 145%;
+    }
+
+
+}
+
+
+/** End : Element **/
+
 
 /***** Home Page End *******/

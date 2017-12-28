@@ -15,6 +15,7 @@ class entityController extends Controller
     public function index(Request $request)
     {
       $elements=Entity::where('name',$request->input('entity'))->first();
+      // $elements="geela";
       return view ('user_pages.homepage',['entities' => $elements]);
 
     }
