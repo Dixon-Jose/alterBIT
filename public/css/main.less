@@ -1,5 +1,5 @@
 @body-color: #fff;
-@font-color:#636b6f;
+@font-color:black;
 @import "fonts";
 @import "small";
 * {
@@ -41,6 +41,10 @@ html, body {
 }
 
 body ::-moz-selection{
+    background: #d4e6f1;
+    color:@font-color;
+}
+body ::-webkit-selection{
     background: #d4e6f1;
     color:@font-color;
 }
@@ -105,14 +109,13 @@ input[type=text] {
 @media only screen and (max-width:565px) {
   span{
     visibility:hidden;
-  }
 }
-
+}
 @media only screen and (max-width:320px) {
-  .partition h2{
-    font-size: 150%;
+    .partition h2{
+      font-size: 150%;
+    }
   }
-}
 
 
 
@@ -192,9 +195,10 @@ input[type=text] {
       .raleway;
       color: @font-color;
       font-size: 100%;
+      transition: 1s ease-out 50ms;
+
       &:focus{
-        transition: height 4s ease;
-        font-size: 150%;
+        transform: scale(1.5);
       }
   }
 }
@@ -229,10 +233,11 @@ input[type=text] {
   z-index: 1;
   background-color:@body-color;
   h2{
-    .h2-setting();
-    color: @font-color;
+    font-family: 'Righteous', cursive;
+    color:black;
   }
   p{
+    color:#2c3e50;
     .raleway;
     text-align: justify;
   }
@@ -241,6 +246,11 @@ input[type=text] {
     .raleway;
     font-weight: bolder;
   }
+  .card-img{
+    img{
+    max-width: 100%;
+  }
+}
 }
 
 .partition{
@@ -252,19 +262,63 @@ input[type=text] {
   }
 
 .alter{
-  color: white;
-  background:linear-gradient(to bottom left,#f093fb,#f5576c);
   width: 100%;
   height:25em;
+  padding-top:2%;
+  padding-bottom: 2%;
+
+  .card{
+          margin-left: 2%;
+          background-color: @body-color;
+          height: 75%;
+          border-left: 2px solid #e6e9f0;
+          border-right: 2px solid #e6e9f0;
+          transition: 500ms ease-in 50ms;
+          border-radius:2%;
+          color: @font-color;
+
+          &:hover{
+            border-left: 2px solid black;
+            border-right: 2px solid black;
+
+          }
+
+          h3 {
+            .open-sans;
+          }
+          p{
+            .raleway;
+          }
+
+          a{
+            .roboto;
+            text-decoration:underline;
+            text-decoration-style:solid;
+            color:#2c3e50;
+            transition: 1s ease 50ms;
+            }
+            a:hover{
+              color: black;
+            }
+        }
 
 
 }
 
 .footer{
-  background-color:#e3eeff;
+
+  background-color: #e6e9f0;
+  p{
+    color: #2c3e50;
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 145%;
+    margin-top: 0%;
+  }
+
   a{
     text-decoration: none;
-    color: @font-color;
+    color: #2c3e50;
+    transition: 1s ease 50ms;
     }
     a:hover{
       color: black;
