@@ -10,4 +10,8 @@ class Entity extends Moloquent
   protected $primaryKey = '_id';
   protected $connection = 'mongodb';
 
+  public function getNameAttribute($value){
+    return strtolower($value);
+  }
+
 }

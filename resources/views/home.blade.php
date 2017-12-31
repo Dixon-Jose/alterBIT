@@ -29,6 +29,9 @@
          <input type="button" class="welcome-search" onclick="getfocus()" value="alterBiT">
      </div>
    </div>
+   @if(isset($message))
+   <h3>{{$message}}</h3>
+    @endif
 
      <div class="row">
            <div class="col-12 search">

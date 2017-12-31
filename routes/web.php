@@ -11,22 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-
-    return view('home', compact('name'));
-});
+Route::get('/', function(){
+  return view('home');
+})->name('home');
 
 
 Route::get('search',[
   'uses' => 'entityController@index',
 ])->name('search');
 
-Route::get('entity', function(){
-  return view('entity');
-});
+Route::get('entity/{id}','entityController@show')->name('entity');
 
-
-// Route::post('Homepage',function()
-// {
-//   return view('user_pages.homepage');
-// })->name('Home_Page');
