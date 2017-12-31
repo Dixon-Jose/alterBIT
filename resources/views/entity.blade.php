@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <head>
   <title>alterBIT | The unconventional way of life</title>
-  @extends('user_pages.fonts')
-  <link rel="stylesheet/less" type="text/css" href="{{ URL::to('css/main.less')}}">
+  @extends('includes.fonts')
+  <link rel="stylesheet/less" type="text/css" href="css/main.less">
   <!-- <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css-" -->
-  <script src="{{URL::to('js/less.js')}}" type="text/javascript">
+  <script src="/js/less.js" type="text/javascript">
   </script>
   <script>
   function getfocus() {
@@ -30,7 +30,7 @@
   <div class="col-2 element" style="background-color:#fff"></div>
             <div class="col-8 element">
               <div class="card-img">
-                <img src="../index.jpeg">
+                <img src="images/index.jpeg">
               </div>
           <h2>Firefox Focus</h2>
           <p>

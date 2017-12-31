@@ -13,13 +13,17 @@
 
 Route::get('/', function () {
 
-    return view('welcome', compact('name'));
+    return view('home', compact('name'));
 });
 
 
-Route::post('Homepage',[
+Route::get('search',[
   'uses' => 'entityController@index',
-])->name('Home_Page');
+])->name('search');
+
+Route::get('entity', function(){
+  return view('entity');
+});
 
 
 // Route::post('Homepage',function()
