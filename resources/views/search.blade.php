@@ -13,14 +13,33 @@
 </head>
 <body>
     <!-- {{$entities}} -->
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10 src-page">
+                  <h1>Search results:</h1>
+        </div>
+    </div>
+
     @foreach($entities as $entity)
-    <div class="row src-page" >
-        <div class="col-3"></div>
-        <div class="col-6 card" title="src">
-              <h3>{{$entity->name}}</h3>
+    <div class="row " >
+        <div class="col-2"></div>
+        <div class="col-5 search-result" title="src">
+          <img src="/images/index.jpeg">
+              <h2>{{$entity->name}}</h2>
+              <p>{{$entity->description}}</p>
               <a href="{{route('entity',['id'=> $entity->_id])}}">view</a>
         </div>
-          <div class="col-3">
+          <div class="col-2"></div>
+          <div class="col-3 search-tags">
+                  <h2>TAGS</h2>
+                  <a href="">Tags here</a>
+                  <div class="similar">
+                  <h3>Similar searches</h3>
+                  <ul>
+                  <li><a href="">Search Name here.</a></li>
+                  <li><a href="">Search Name here.</a></li>
+                </ul>
+                </div>
           </div>
   </div>
   @endforeach
