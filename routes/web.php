@@ -21,8 +21,6 @@ Route::post('Homepage',[
   'uses' => 'entityController@index',
 ])->name('Home_Page');
 
-
-// Route::post('Homepage',function()
-// {
-//   return view('user_pages.homepage');
-// })->name('Home_Page');
+Route::get('Test', function(){
+  return view('user_pages.test');
+})->name('Test');
