@@ -111,9 +111,9 @@ input[type=text] {
     }
 }
 
-/* WELCOME PAGE: MAIN CONTENT*/
+/* Home PAGE: MAIN CONTENT*/
 
-#welcome-search{
+.welcome-search{
   padding-left: 0%;
   width: 100%;
   height: 100%;
@@ -160,11 +160,16 @@ input[type=text] {
 
 }
 
+h3[title="message"]{
+    .roboto;
+    font-weight: lighter;
+    font-size: 150%;
+}
+
 /****** MAIN PAGE END ******/
 
-/***** Home Page ******/
 
-/** top panel **/
+/** Navbar **/
 
 .menu{
   background-color:@body-color;
@@ -210,7 +215,9 @@ input[type=text] {
 
 }
 
-/** End: Top Panel **/
+/** Navbar End**/
+
+/***** Entity Page ******/
 
 /** Element - info **/
 
@@ -223,10 +230,24 @@ input[type=text] {
         color:black;
     }
 
+    h2::first-letter{
+        text-transform: capitalize;
+    }
+
   p{
         color:#2c3e50;
-        .raleway;
-        text-align: justify;
+        .roboto;
+        font-weight:normal;
+        text-align:justify;
+  }
+  p[title="entity"]{
+        color:#2c3e50;
+        .roboto;
+        font-size: 50%;
+        font-weight:normal;
+        text-align:justify;
+
+
   }
 
   p:first-of-type::first-letter{
@@ -254,49 +275,48 @@ input[type=text] {
   height:25em;
   padding-top:2%;
   padding-bottom: 2%;
+}
+.card{
+        margin-left: 2%;
+        background-color: @body-color;
+        height: 75%;
+        border-left: 2px solid #e6e9f0;
+        border-right: 2px solid #e6e9f0;
+        transition: 500ms ease-in 50ms;
+        border-radius:2%;
+        color: @font-color;
 
-  .card{
-          margin-left: 2%;
-          background-color: @body-color;
-          height: 75%;
-          border-left: 2px solid #e6e9f0;
-          border-right: 2px solid #e6e9f0;
-          transition: 500ms ease-in 50ms;
-          border-radius:2%;
-          color: @font-color;
+        &:hover{
+          border-left: 2px solid black;
+          border-right: 2px solid black;
 
-          &:hover{
-            border-left: 2px solid black;
-            border-right: 2px solid black;
-
-          }
-
-          h3 {
-            .open-sans;
-          }
-
-          p{
-            .raleway;
-          }
-
-          a{
-            .roboto;
-            text-decoration:underline;
-            text-decoration-style:solid;
-            color:#2c3e50;
-            transition: 1s ease 50ms;
-            }
-            a:hover{
-              color: black;
-            }
         }
 
+        h3 {
+          .open-sans;
+        }
 
-}
+        p{
+          .raleway;
+        }
+
+        a{
+          .roboto;
+          text-decoration:underline;
+          text-decoration-style:solid;
+          color:#2c3e50;
+          transition: 1s ease 50ms;
+          }
+          a:hover{
+            color: black;
+          }
+      }
+
+
 
 .footer{
 
-  background-color: #e6e9f0;
+  background-color: #fff;
   p{
         color: #2c3e50;
         font-family: 'Permanent Marker', sans-serif;
@@ -315,7 +335,7 @@ input[type=text] {
     }
 
     a[title="github"]::after{
-            content:url("../GitHub.png");
+            content:url("../images/GitHub.png");
     }
 
     a[title="design"]{
@@ -326,4 +346,11 @@ input[type=text] {
 
 /** End : Element **/
 
-/***** Home Page End *******/
+/***** Entity End *******/
+
+
+/***** Search Page *****/
+
+.src-page{
+  margin-top: 10em;
+}

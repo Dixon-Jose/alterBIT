@@ -12,11 +12,14 @@ class entityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     
     public function index(Request $request)
     {
-      $elements=Entity::where('name',$request->input('entity'))->first();
-      // $elements="geela";
-      return view ('user_pages.homepage',['entities' => $elements]);
+      $elements=Entity::where('name','like','%'.strtolower($request->input("entity")).'%')->get();
+      if(count($elements)===0){
+        return view ('home',['message' => 'No results found matching \''.$request->input('entity').'\'']);
+      }
+      return view ('search',['entities' => $elements]);
 
     }
 
@@ -49,7 +52,10 @@ class entityController extends Controller
      */
     public function show($id)
     {
-        //
+        if($id==0)
+        return view ('entity');
+        else
+        return view ('entity',['entity' => Entity::find($id)]);
     }
 
     /**
