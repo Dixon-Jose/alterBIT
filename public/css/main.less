@@ -1,7 +1,7 @@
 @body-color: #fff;
 @font-color:black;
 @import "fonts";
-@import "small";
+@import "fullscreen";
 
 * {
     box-sizing: border-box;
@@ -84,6 +84,18 @@ input[type=text] {
           font-size: 170%;
       }
 }
+.comment{
+  height:30em;
+  input[name="email"]{
+    float: left;
+  }
+
+  input[type="submit"]{
+    margin-top: 15em;
+    float: left;
+    margin-left: -15em;
+    }
+}
 
 .partition h2{
       width: 107%;
@@ -98,11 +110,29 @@ input[type=text] {
 .alter{
       margin-top: 5em;
 }
+.card{
+  height: 10em;
+  margin-left: 0%;
+  border-left: 0 solid #fff;
+  border-right: 0 solid #fff;
+
+}
+.search-tags{
+  a[name="tags"]{
+        font-size: 75%;
+    }
+  }
+
 }
 
 @media only screen and (max-width:565px) {
   span{
         visibility:hidden;
+    }
+.card{
+    margin-left:0%;
+    border-left: 2px solid #e6e9f0;
+    border-right: 2px solid #e6e9f0;
     }
 }
 @media only screen and (max-width:320px) {
@@ -262,6 +292,44 @@ h3[title="message"]{
       }
 }
 
+hr{
+   border: 0;
+   height: 1px;
+    background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.comment{
+  padding-left: 3%;
+  height: 16em;
+  h4{
+    margin-top: -2%;
+      .open-sans;
+  }
+  input[type="email"]{
+    color: black;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+textarea{
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 2.5%;
+    font-size: 120%;
+    height:5em;
+    width:100%;
+    resize: none;
+    }
+input[type="submit"]{
+  .roboto;
+  color:white;
+}
+
+}
+
+
 .partition{
     h2{
           background-color: white;
@@ -277,11 +345,7 @@ h3[title="message"]{
   padding-bottom: 2%;
 }
 .card{
-        margin-left: 2%;
         background-color: @body-color;
-        height: 75%;
-        border-left: 2px solid #e6e9f0;
-        border-right: 2px solid #e6e9f0;
         transition: 500ms ease-in 50ms;
         border-radius:2%;
         color: @font-color;
@@ -313,10 +377,9 @@ h3[title="message"]{
       }
 
 
-
 .footer{
 
-  background-color: #fff;
+  background-color:#d6dbdf;
   p{
         color: #2c3e50;
         font-family: 'Permanent Marker', sans-serif;
@@ -344,6 +407,10 @@ h3[title="message"]{
     }
 }
 
+.footer[name="src-foot"]{
+  margin-top: 1em;
+}
+
 /** End : Element **/
 
 /***** Entity End *******/
@@ -357,6 +424,7 @@ h3[title="message"]{
 }
 
 .search-result{
+  margin-top: -2em;
   box-shadow: 0 0 3px black;
   transition: 500ms ease-out;
   &:hover{
@@ -392,21 +460,26 @@ h3[title="message"]{
 
 .search-tags{
   padding-left: 2%;
-  border-left: 1px solid black;
-  a{
+  border-left: 1px solid lightgrey;
+  a[name="tags"]{
       text-decoration: none;
       color:#2e4053;
-      background-color:  #d6dbdf;
+      background-color:#d6dbdf;
       padding:2%;
       &:hover{
         color:black;
       }
   }
-
-  .similar{
-    margin-top: 20%;
+}
+.similar{
+  li {
     a{
-      background-color: transparent;
-    }
+        text-decoration: none;
+        color:#2e4053;
+        &:hover{
+          color:black;
+        }
+      }
+
   }
 }

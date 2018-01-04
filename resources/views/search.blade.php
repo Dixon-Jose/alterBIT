@@ -21,18 +21,18 @@
     </div>
 
     @foreach($entities as $entity)
-    <div class="row " >
+    <div class="row " style="padding:1.5%;">
         <div class="col-2"></div>
         <div class="col-5 search-result" title="src">
           <img src="/images/index.jpeg">
               <h2>{{$entity->name}}</h2>
               <p>{{$entity->description}}</p>
-              <a href="{{route('entity',['id'=> $entity->_id])}}">view</a>
+              <a href="{{route('entity',['id'=> $entity->_id])}}">View</a>
         </div>
           <div class="col-2"></div>
           <div class="col-3 search-tags">
                   <h2>TAGS</h2>
-                  <a href="">Tags here</a>
+                  <a href="" name="tags">Tags here</a>
                   <div class="similar">
                   <h3>Similar searches</h3>
                   <ul>
@@ -43,5 +43,14 @@
           </div>
   </div>
   @endforeach
+
+  <div class="row footer" name="src-foot">
+      <div class="col-10 footer" >
+          <p>Designed by: <a href="">&nbsp;Aniruddha</a>&nbsp;and<a href="">&nbsp;Dixon</a></p>
+      </div>
+      <div class="col-2 footer">
+          <a href="https://github.com/Dixon-Jose/alterBIT" title="github"></a>
+      </div>
+  </div>
 </body>
 </html>
