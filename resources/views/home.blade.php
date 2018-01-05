@@ -34,13 +34,15 @@
      <div class="row">
            <div class="col-12 search">
              <form method="get" action="{{ route('search') }}">
-                   <input type="text" id="search" name="entity" placeholder="Search.">
+                   <input type="text" id="search" name="q" placeholder="
+                   @if(isset($q))
+                    {{$q}}
+                   @else
+                   "Search.
+                   @endif
+                   ">
              </form>
            </div>
         </div>
-
-
-              <script type="text/javascript" src="../jquery-3.2.1.js"></script>
-              <script type="text/javascript" src="../jquery-learn.js"></script>
     </body>
 </html>

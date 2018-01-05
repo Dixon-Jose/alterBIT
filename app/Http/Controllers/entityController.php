@@ -15,12 +15,19 @@ class entityController extends Controller
 
     public function index(Request $request)
     {
-      $elements=Entity::where('name','like','%'.strtolower($request->input("entity")).'%')->get();
-      if(count($elements)===0){
-        return view ('home',['message' => 'No match on \''.$request->input('entity').'\''.'. Please try again.']);
-      }
+      if($request->input('q')){
+        $elements=Entity::where('name','like','%'.strtolower($request->input("q")).'%')->get();
+        
+        if(count($elements)===0){
+            $error=array(
+                'message'=> 'No match on \''.$request->input('q').'\''.'. Please try again.',
+                'q'=>$request->input('q')
+            );
+            return view ('home')->with($error);
+        }
       return view ('search',['entities' => $elements]);
-
+    }
+    return view('home');
     }
 
     /**
