@@ -12,12 +12,12 @@ class entityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     
+
     public function index(Request $request)
     {
       $elements=Entity::where('name','like','%'.strtolower($request->input("entity")).'%')->get();
       if(count($elements)===0){
-        return view ('home',['message' => 'No results found matching \''.$request->input('entity').'\'']);
+        return view ('home',['message' => 'No match on \''.$request->input('entity').'\''.'. Please try again.']);
       }
       return view ('search',['entities' => $elements]);
 

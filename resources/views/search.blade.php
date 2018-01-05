@@ -23,7 +23,7 @@
     @foreach($entities as $entity)
     <div class="row " style="padding:1.5%;">
         <div class="col-2"></div>
-        <div class="col-5 search-result" title="src">
+        <div class="col-5 search-result">
           <img src="/images/index.jpeg">
               <h2>{{$entity->name}}</h2>
               <p>{{$entity->description}}</p>

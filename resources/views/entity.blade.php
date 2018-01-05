@@ -4,7 +4,6 @@
   @extends('includes.fonts')
   @include('includes.navbar')
   <link rel="stylesheet/less" type="text/css" href="/css/main.less">
-  <!-- <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css-" -->
   <script src="/js/less.js" type="text/javascript">
   </script>
   <script>

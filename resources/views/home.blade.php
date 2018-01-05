@@ -34,7 +34,6 @@
      <div class="row">
            <div class="col-12 search">
              <form method="get" action="{{ route('search') }}">
-                   {{ csrf_field() }}
                    <input type="text" id="search" name="entity" placeholder="Search.">
              </form>
            </div>
