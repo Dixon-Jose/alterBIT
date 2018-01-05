@@ -61,8 +61,18 @@ class entityController extends Controller
     {
         if($id==0)
         return view ('entity');
-        else
-        return view ('entity',['entity' => Entity::find($id)]);
+        else{
+        $entity=Entity::find($id);
+        foreach($entity->alternates as $key => $alter){
+            $alternative=Entity::find($alter);
+            $alternatives[$key]=array(
+                "id"=>$alternative->_id,
+                "name"=>$alternative->name,
+                "description"=>$alternative->description
+            );
+        }
+        return view ('entity',['entity' => $entity,'alternatives'=>$alternatives]);
+        }
     }
 
     /**

@@ -25,6 +25,7 @@
             <h2>{{$entity->name}}
             <p title="entity">{{$entity->description}}</p>
             @else
+        {{--  replace the else statement with redirect to home  --}}
             <div class="card-img">
                 <img src="/images/index.jpeg">
             </div>
@@ -41,17 +42,19 @@
           <h2>The Alternatives are:</h2>
     </div>
 </div>
-
+@foreach($alternatives as $alternative)
 <div class="row">
     <div class="col-12 alter">
       <div class="col-2"></div>
           <div class="col-2 card">
-            <h3>Alternate Name</h3>
-            <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <a href="">Check out</a>
-          </div>
+            <h3>{{$alternative['name']}}</h3>
+            <p>  {{substr($alternative['description'],0,100)}}</p>
+              <a href="{{route('entity',['id'=> $alternative['id']])}}">Check out</a>
+            </div>
       </div>
-    </div>
+    </div>  
+@endforeach
+    {{--  whats the below section for ?  --}}
 <div class="row">
   <div class="col-2"></div>
     <div class="col-8"><hr/></div>
