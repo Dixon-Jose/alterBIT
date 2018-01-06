@@ -25,7 +25,7 @@
         <div class="col-5 search-result">
           <img src={{$entity->imgurl}}>
               <h2>{{$entity->name}}</h2>
-              <p>{{$entity->description}}</p>
+              <p>{{substr($entity->description,0,100)}}</p>
               <a href="{{route('entity',['id'=> $entity->_id])}}">View</a>
         </div>
           <div class="col-2"></div>

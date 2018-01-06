@@ -42,19 +42,18 @@
           <h2>The Alternatives are:</h2>
     </div>
 </div>
-@foreach($alternatives as $alternative)
 <div class="row">
     <div class="col-12 alter">
-      <div class="col-2"></div>
-          <div class="col-2 card">
-            <h3>{{$alternative['name']}}</h3>
-            <p>  {{substr($alternative['description'],0,100)}}</p>
-              <a href="{{route('entity',['id'=> $alternative['id']])}}">Check out</a>
+        <div class="col-2"></div>
+        @foreach($alternatives as $alternative)
+            <div class="col-2 card">
+                <h3>{{$alternative['name']}}</h3>
+                <p>  {{substr($alternative['description'],0,100)}}</p>
+                <a href="{{route('entity',['id'=> $alternative['id']])}}">Check out</a>
             </div>
+            @endforeach
       </div>
     </div>  
-@endforeach
-    {{--  whats the below section for ?  --}}
 <div class="row">
   <div class="col-2"></div>
     <div class="col-8"><hr/></div>
