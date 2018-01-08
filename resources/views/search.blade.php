@@ -31,7 +31,9 @@
           <div class="col-2"></div>
           <div class="col-3 search-tags">
                   <h2>TAGS</h2>
-                  <a href="" name="tags">Tags here</a>
+                  @foreach($entity->tags as $tags)
+                  <a href="" name="tags">{{$tags}}</a>
+                  @endforeach
                   <div class="similar">
                   <h3>Similar searches</h3>
                   <ul>
