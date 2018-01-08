@@ -73,7 +73,7 @@ input[type=text] {
 h3[title="message"]{
   font-size: 115%;
   margin-left: 35%;
-  margin-top:-5%;
+  margin-top:-2em;
 }
 
 .menu-bar {
@@ -132,6 +132,13 @@ h3[title="message"]{
 
 }
 
+@media only screen and (max-width:750px)
+{
+  h3[title="message"]{
+    margin-left:30%;
+  }
+}
+
 @media only screen and (max-width:565px) {
   span{
         visibility:hidden;
@@ -141,6 +148,15 @@ h3[title="message"]{
     border-left: 2px solid #e6e9f0;
     border-right: 2px solid #e6e9f0;
     }
+    h3[title="message"]{
+      margin-left:25%;
+    }
+}
+
+@media only screen and (max-width:470px){
+  h3[title="message"]{
+    margin-left:10%;
+  }
 }
 @media only screen and (max-width:320px) {
     .partition h2{
@@ -294,6 +310,7 @@ h3[title="message"]{
   .card-img{
     img{
           max-width: 100%;
+          max-height: 75%;
         }
       }
 }

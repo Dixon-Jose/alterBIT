@@ -47,6 +47,16 @@
             <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             <a href="">Check out</a>
           </div>
+          <div class="col-2 card">
+            <h3>Alternate Name</h3>
+            <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <a href="">Check out</a>
+          </div>
+          <div class="col-2 card">
+            <h3>Alternate Name</h3>
+            <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <a href="">Check out</a>
+          </div>
       </div>
     </div>
 <div class="row">
@@ -68,7 +78,7 @@
 
       <div class="row footer">
           <div class="col-10 footer" >
-              <p>Designed by: <a href="">&nbsp;Aniruddha</a>&nbsp;and<a href="">&nbsp;Dixon</a></p>
+              <p>Designed by: <a href="">&nbsp;Aniruddha</a>&nbsp;and<a href="https://github.com/Dixon-Jose" target="_blank">&nbsp;Dixon</a></p>
           </div>
           <div class="col-2 footer">
               <a href="https://github.com/Dixon-Jose/alterBIT" title="github"></a>
