@@ -12,7 +12,6 @@
     </script>
 </head>
 <body>
-    <!-- {{$entities}} -->
     <div class="row">
         <div class="col-2"></div>
         <div class="col-10 src-page">
@@ -24,9 +23,9 @@
     <div class="row " style="padding:1.5%;">
         <div class="col-2"></div>
         <div class="col-5 search-result">
-          <img src="/images/index.jpeg">
+          <img src={{$entity->imgurl}}>
               <h2>{{$entity->name}}</h2>
-              <p>{{$entity->description}}</p>
+              <p>{{substr($entity->description,0,100)}}</p>
               <a href="{{route('entity',['id'=> $entity->_id])}}">View</a>
         </div>
           <div class="col-2"></div>

@@ -15,12 +15,19 @@ class entityController extends Controller
 
     public function index(Request $request)
     {
-      $elements=Entity::where('name','like','%'.strtolower($request->input("entity")).'%')->get();
-      if(count($elements)===0){
-        return view ('home',['message' => 'No match on \''.$request->input('entity').'\''.'. Please try again.']);
-      }
+      if($request->input('q')){
+        $elements=Entity::where('name','like','%'.strtolower($request->input("q")).'%')->get();
+        
+        if(count($elements)===0){
+            $error=array(
+                'message'=> 'No match on \''.$request->input('q').'\''.'. Please try again.',
+                'q'=>$request->input('q')
+            );
+            return view ('home')->with($error);
+        }
       return view ('search',['entities' => $elements]);
-
+    }
+    return view('home');
     }
 
     /**
@@ -54,8 +61,18 @@ class entityController extends Controller
     {
         if($id==0)
         return view ('entity');
-        else
-        return view ('entity',['entity' => Entity::find($id)]);
+        else{
+        $entity=Entity::find($id);
+        foreach($entity->alternates as $key => $alter){
+            $alternative=Entity::find($alter);
+            $alternatives[$key]=array(
+                "id"=>$alternative->_id,
+                "name"=>$alternative->name,
+                "description"=>$alternative->description
+            );
+        }
+        return view ('entity',['entity' => $entity,'alternatives'=>$alternatives]);
+        }
     }
 
     /**
