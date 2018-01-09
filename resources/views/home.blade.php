@@ -5,7 +5,7 @@
         <!-- Fonts -->
         @extends('includes.fonts')
         <link rel="stylesheet/less" type="text/css" href="{{ URL::to('css/main.less')}}">
-        <link rel="stylesheet/less" type="text/css" href="{{ URL::to('js/jqueryUI/jquery-ui.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
         <script src="{{URL::to('js/less.js')}}" type="text/javascript"></script>
     </head>
     <body>

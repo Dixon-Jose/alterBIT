@@ -23,7 +23,7 @@ class entityController extends Controller
               $elements=Entity::all();
           }else
         $elements=Entity::where('name','like','%'.strtolower($request->input("q")).'%')->get();
-        
+
         if(count($elements)===0){
             $error=array(
                 'message'=> 'No match on \''.$request->input('q').'\''.'. Please try again.',
@@ -59,7 +59,7 @@ class entityController extends Controller
     public function show($id)
     {
         //get the id from the search view and return the view with all the data of elemetents
-        // + parse the alternatives into array within a array 
+        // + parse the alternatives into array within a array
 
         if(isset($id)){
         $entity=Entity::find($id);

@@ -140,6 +140,9 @@ h3[title="message"]{
 }
 
 @media only screen and (max-width:565px) {
+  a[title="homelink"]{
+    font-size: 200%;
+  }
   span{
         visibility:hidden;
     }
@@ -278,7 +281,7 @@ h3[title="message"]{
   background-color:@body-color;
 
   h2{
-        font-family: 'Righteous', cursive;
+        font-family: 'Playfair Display', serif;
         color:black;
     }
 
@@ -295,7 +298,6 @@ h3[title="message"]{
   p[title="entity"]{
         color:#2c3e50;
         .roboto;
-        font-size: 50%;
         font-weight:normal;
         text-align:justify;
 
@@ -303,8 +305,8 @@ h3[title="message"]{
   }
 
   p:first-of-type::first-letter{
-        font-size: 170%;
-        font-weight: bolder;
+      text-transform: capitalize;
+      font-weight: bold;
   }
 
   .card-img{
@@ -420,7 +422,7 @@ input[type="submit"]{
           color: black;
     }
 
-    a[title="github"]::after{
+    a[title="github"]::before{
             content:url("../images/GitHub.png");
     }
 
@@ -431,7 +433,7 @@ input[type="submit"]{
 }
 
 .footer[name="src-foot"]{
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 /** End : Element **/
@@ -441,68 +443,74 @@ input[type="submit"]{
 
 /***** Search Page *****/
 
-.src-page{
-  margin-top:7em;
-
+.src-page-bar{
+  input[type="search"]{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    margin-top:2em;
+    font-size: 250%;
+    .roboto;
+    background: transparent;
+    color: @font-color;
+  }
 }
 
+.src-tags{
+  a{
+    text-decoration: none;
+    color:grey;
+    margin-left: 1em;
+    &:hover{
+      color: @font-color;
+    }
+  }
+}
+
+.src-head{
+  border: none;
+  border-top: 1px solid  #eaecee ;
+  h3{
+    margin-top: -1%;
+    .h2-setting;
+    color: grey;
+  }
+}
+
+
 .search-result{
-  margin-top: -2em;
-  box-shadow: 0 0 3px black;
+  margin-top: 1em;
+  border: none;
+  border-bottom: 1px solid lightgrey;
   transition: 500ms ease-out;
   &:hover{
     transform: scale(1.005);
-    box-shadow: 0 0 5px black;
   }
+.src-img{
   img{
-    max-width: 100%;
+    border-radius: 2%;
+      max-width: 100%;
   }
-  h2{
-      .h2-setting;
-      font-weight: bolder;
+}
 
+  h2{
+        color: black;
+        .h2-setting;
   }
+
   h2::first-letter{
     text-transform: capitalize;
   }
-  a{
-    float: right;
-    .roboto;
-    text-decoration:none;
-    text-decoration-style:solid;
-    color:black;
-    transition: 1s ease 50ms;
-    }
-    a:hover{
-      text-decoration:underline;
-    }
+
     p{
+      margin-top: -2%;
       color:#2e4053;
-    }
-}
-
-.search-tags{
-  padding-left: 2%;
-  border-left: 1px solid lightgrey;
-  a[name="tags"]{
       text-decoration: none;
-      color:#2e4053;
-      background-color:#d6dbdf;
-      padding:2%;
-      &:hover{
-        color:black;
-      }
-  }
-}
-.similar{
-  li {
-    a{
-        text-decoration: none;
-        color:#2e4053;
-        &:hover{
-          color:black;
-        }
-      }
 
-  }
+    }
+
+    p::first-letter{
+      text-transform: capitalize;
+    }
+
 }

@@ -2,8 +2,10 @@
 <head>
   <title>alterBIT | The unconventional way of life</title>
   @extends('includes.fonts')
-  @include('includes.navbar')
+  <!-- @include('includes.navbar') -->
   <link rel="stylesheet/less" type="text/css" href="/css/main.less">
+  <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
+
   <script src="/js/less.js" type="text/javascript">
   </script>
   <script>
@@ -15,6 +17,27 @@
   </script>
 </head>
 <body>
+  <div class="row">
+      <div class="col-12 menu-bar">
+            <a title="homelink" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
+      </div>
+      <!-- <div class="col-12 menu">
+          <form method="get" action="{{ route('search') }}">
+          <input type="search" placeholder="Search" id="search" name="q">
+          </form>
+      </div> -->
+  </div>
+
+
+      <div class="row">
+          <div class="col-1"></div>
+            <div class="col-10 src-page-bar">
+                    <form method="get" action="{{ route('search') }}">
+                    <input type="search" placeholder="Search" id="search" name="q">
+                    </form>
+            </div>
+    </div>
+
 <div class="row">
   <div class="col-2 element"></div>
     <div class="col-8 element">
@@ -22,7 +45,7 @@
             <div class="card-img">
                 <img src={{$entity->imgurl}}>
             </div>
-            <h2>{{$entity->name}}
+            <h2>{{$entity->name}}</h2>
             <p title="entity">{{$entity->description}}</p>
             @endif
             <hr/>
@@ -71,5 +94,21 @@
               <a href="https://github.com/Dixon-Jose/alterBIT" title="github"></a>
           </div>
       </div>
+      
+        <script src="/js/jquery.js" type="text/javascript"></script>
+        <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
+       <script>
+            function getfocus() {
+                document.getElementById("search").value="";
+                document.getElementById("search").focus();
+            }
+    $( "#search" ).autocomplete({
+        source: "{{route('autocomplete')}}",
+        select: function(event,ui){
+            window.location.href="{{route('search')}}?q=" + ui.item.value;
+        }
+    });
+        </script>
+        
 </body>
 </html>
