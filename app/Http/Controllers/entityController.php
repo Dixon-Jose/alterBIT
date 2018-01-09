@@ -15,7 +15,11 @@ class entityController extends Controller
 
     public function index(Request $request)
     {
+        // find using keyword and return search view or an error message
       if($request->input('q')){
+          if($request->input('q')==='all'){
+              $elements=Entity::all();
+          }else
         $elements=Entity::where('name','like','%'.strtolower($request->input("q")).'%')->get();
         
         if(count($elements)===0){
@@ -59,10 +63,14 @@ class entityController extends Controller
      */
     public function show($id)
     {
-        if($id==0)
-        return view ('entity');
-        else{
+        //get the id from the search view and return the view with all the data of elemetents
+        // + parse the alternatives into array within a array 
+
+        if(isset($id)){
         $entity=Entity::find($id);
+        if(empty($entity)){
+            return view('home');
+        }else{
         foreach($entity->alternates as $key => $alter){
             $alternative=Entity::find($alter);
             $alternatives[$key]=array(
@@ -72,7 +80,7 @@ class entityController extends Controller
             );
         }
         return view ('entity',['entity' => $entity,'alternatives'=>$alternatives]);
-        }
+        }}
     }
 
     /**
