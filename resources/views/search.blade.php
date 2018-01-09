@@ -3,7 +3,6 @@
 <head>
   <title>alterBIT|Search</title>
   @extends('includes.fonts')
-  @include('includes.navbar')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,48 +11,55 @@
     </script>
 </head>
 <body>
+
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10 src-page">
-                  <h1>Search results:</h1>
+        <div class="col-12 menu-bar">
+              <a title="homelink" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
         </div>
     </div>
 
-    @foreach($entities as $entity)
-    <div class="row " >
-        <div class="col-2"></div>
-        <a href="{{route('entity',['id'=> $entity->_id])}}">
-            <div class="col-5 search-result">
-              <div class="row">
-                <div class="col-6 src-img">
-                      <img src="{{$entity->imgurl }}">
-                  </div>
-                <div class="col-6">
-                    <h2>{{$entity->name}}</h2>
-                    <p>{{substr($entity->description,0,100)}}</p>
-                </div>
-              </div>
-              </div>
-          </a>
-
-          <div class="col-2"></div>
-          <div class="col-3 search-tags">
-                  <h2>TAGS</h2>
-                  @foreach($entity->tags as $tags)
-                  <a href="" name="tags">{{$tags}}</a>
-                  @endforeach
-                  <div class="similar">
-                  <h3>Similar searches</h3>
-                  <ul>
-                  <li><a href="">Search Name here.</a></li>
-                  <li><a href="">Search Name here.</a></li>
-                </ul>
-                </div>
+    <div class="row">
+        <div class="col-1"></div>
+          <div class="col-10 src-page-bar">
+                  <form method="get" action="{{ route('search') }}">
+                  <input type="search" placeholder="Search" id="search" name="q">
+                  </form>
           </div>
+  </div>
+
+@foreach($entities as $entity)
+  <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 src-tags">
+            <!-- <p>Tags:</p> -->
+              @foreach($entity->tags as $tags)
+              <a href="">{{$tags}}</a>
+              @endforeach
+        </div>
+  </div>
+  @endforeach
+<br>
+<div class="row">
+  <div class="col-1"></div>
+    <div class="col-6 src-head">
+          <h3>Results</h3>
+    </div>
+</div>
+
+  @foreach($entities as $entity)
+  <div class="row " >
+      <div class="col-1"></div>
+      <a href="{{route('entity',['id'=> $entity->_id])}}">
+          <div class="col-6 search-result">
+                  <div class="src-img"><img src="{{$entity->imgurl }}"></div>
+                  <h2>{{$entity->name}}</h2>
+                  <p>{{substr($entity->description,0,100)}}</p>
+          </div>
+      </a>
   </div>
   @endforeach
 
-  <div class="row footer" name="src-foot">
+<div class="row footer" name="src-foot">
       <div class="col-10 footer" >
           <p>Designed by: <a href="">&nbsp;Aniruddha</a>&nbsp;and<a href="https://github.com/Dixon-Jose">&nbsp;Dixon</a></p>
       </div>

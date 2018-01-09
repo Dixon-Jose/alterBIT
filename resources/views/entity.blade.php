@@ -2,7 +2,7 @@
 <head>
   <title>alterBIT | The unconventional way of life</title>
   @extends('includes.fonts')
-  @include('includes.navbar')
+  <!-- @include('includes.navbar') -->
   <link rel="stylesheet/less" type="text/css" href="/css/main.less">
   <script src="/js/less.js" type="text/javascript">
   </script>
@@ -15,6 +15,27 @@
   </script>
 </head>
 <body>
+  <div class="row">
+      <div class="col-12 menu-bar">
+            <a title="homelink" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
+      </div>
+      <!-- <div class="col-12 menu">
+          <form method="get" action="{{ route('search') }}">
+          <input type="search" placeholder="Search" id="search" name="q">
+          </form>
+      </div> -->
+  </div>
+
+
+      <div class="row">
+          <div class="col-1"></div>
+            <div class="col-10 src-page-bar">
+                    <form method="get" action="{{ route('search') }}">
+                    <input type="search" placeholder="Search" id="search" name="q">
+                    </form>
+            </div>
+    </div>
+
 <div class="row">
   <div class="col-2 element"></div>
     <div class="col-8 element">

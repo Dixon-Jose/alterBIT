@@ -433,7 +433,7 @@ input[type="submit"]{
 }
 
 .footer[name="src-foot"]{
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 /** End : Element **/
@@ -443,68 +443,74 @@ input[type="submit"]{
 
 /***** Search Page *****/
 
-.src-page{
-  margin-top:7em;
-
+.src-page-bar{
+  input[type="search"]{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    margin-top:2em;
+    font-size: 250%;
+    .roboto;
+    background: transparent;
+    color: @font-color;
+  }
 }
 
-.search-result{
-  padding: 0%;
-
-  .src-img{
-    padding: 0%;
+.src-tags{
+  a{
+    text-decoration: none;
+    color:grey;
+    margin-left: 1em;
+    &:hover{
+      color: @font-color;
+    }
   }
-  box-shadow: 0 0 3px black;
+}
+
+.src-head{
+  border: none;
+  border-top: 1px solid  #eaecee ;
+  h3{
+    margin-top: -1%;
+    .h2-setting;
+    color: grey;
+  }
+}
+
+
+.search-result{
+  margin-top: 1em;
+  border: none;
+  border-bottom: 1px solid lightgrey;
   transition: 500ms ease-out;
   &:hover{
     transform: scale(1.005);
-    box-shadow: 0 0 5px black;
   }
+.src-img{
   img{
-      max-height:10em;
+    border-radius: 2%;
       max-width: 100%;
-      float: left;
   }
-  h2{
-      color: black;
-      .h2-setting;
-      font-weight: bolder;
+}
 
+  h2{
+        color: black;
+        .h2-setting;
   }
+
   h2::first-letter{
     text-transform: capitalize;
   }
+
     p{
-      margin-top: -3%;
+      margin-top: -2%;
       color:#2e4053;
+      text-decoration: none;
+
     }
+
     p::first-letter{
       text-transform: capitalize;
     }
-}
 
-.search-tags{
-  padding-left: 2%;
-  border-left: 1px solid lightgrey;
-  a[name="tags"]{
-      text-decoration: none;
-      color:#2e4053;
-      background-color:#d6dbdf;
-      padding:2%;
-      &:hover{
-        color:black;
-      }
-  }
-}
-.similar{
-  li {
-    a{
-        text-decoration: none;
-        color:#2e4053;
-        &:hover{
-          color:black;
-        }
-      }
-
-  }
 }
