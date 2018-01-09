@@ -22,7 +22,7 @@
             <div class="card-img">
                 <img src={{$entity->imgurl}}>
             </div>
-            <h2>{{$entity->name}}
+            <h2>{{$entity->name}}</h2>
             <p title="entity">{{$entity->description}}</p>
             @else
         {{--  replace the else statement with redirect to home  --}}

@@ -20,18 +20,28 @@
     </div>
 
     @foreach($entities as $entity)
-    <div class="row " style="padding:1.5%;">
+    <div class="row " >
         <div class="col-2"></div>
-        <div class="col-5 search-result">
-          <img src={{$entity->imgurl}}>
-              <h2>{{$entity->name}}</h2>
-              <p>{{substr($entity->description,0,100)}}</p>
-              <a href="{{route('entity',['id'=> $entity->_id])}}">View</a>
-        </div>
+        <a href="{{route('entity',['id'=> $entity->_id])}}">
+            <div class="col-5 search-result">
+              <div class="row">
+                <div class="col-6 src-img">
+                      <img src="{{$entity->imgurl }}">
+                  </div>
+                <div class="col-6">
+                    <h2>{{$entity->name}}</h2>
+                    <p>{{substr($entity->description,0,100)}}</p>
+                </div>
+              </div>
+              </div>
+          </a>
+
           <div class="col-2"></div>
           <div class="col-3 search-tags">
                   <h2>TAGS</h2>
-                  <a href="" name="tags">Tags here</a>
+                  @foreach($entity->tags as $tags)
+                  <a href="" name="tags">{{$tags}}</a>
+                  @endforeach
                   <div class="similar">
                   <h3>Similar searches</h3>
                   <ul>
@@ -45,7 +55,7 @@
 
   <div class="row footer" name="src-foot">
       <div class="col-10 footer" >
-          <p>Designed by: <a href="">&nbsp;Aniruddha</a>&nbsp;and<a href="">&nbsp;Dixon</a></p>
+          <p>Designed by: <a href="">&nbsp;Aniruddha</a>&nbsp;and<a href="https://github.com/Dixon-Jose">&nbsp;Dixon</a></p>
       </div>
       <div class="col-2 footer">
           <a href="https://github.com/Dixon-Jose/alterBIT" title="github"></a>

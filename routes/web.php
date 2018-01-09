@@ -21,3 +21,7 @@ Route::get('search',[
 ])->name('search');
 
 Route::get('entity/{id}','entityController@show')->name('entity');
+
+Route::get('entry',function(){
+    return view('admin.entry');
+})->name('entry');
