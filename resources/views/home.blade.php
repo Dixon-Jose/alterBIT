@@ -5,6 +5,7 @@
         <!-- Fonts -->
         @extends('includes.fonts')
         <link rel="stylesheet/less" type="text/css" href="{{ URL::to('css/main.less')}}">
+        <link rel="stylesheet/less" type="text/css" href="{{ URL::to('js/jqueryUI/jquery-ui.css')}}">
         <script src="{{URL::to('js/less.js')}}" type="text/javascript"></script>
     </head>
     <body>
@@ -32,11 +33,19 @@
              </form>
            </div>
         </div>
+        <script src="/js/jquery.js" type="text/javascript"></script>
+        <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
         <script>
             function getfocus() {
                 document.getElementById("search").value="";
                 document.getElementById("search").focus();
             }
+    $( "#search" ).autocomplete({
+        source: "{{route('autocomplete')}}",
+        select: function(event,ui){
+            window.location.href="{{route('search')}}?q=" + ui.item.value;
+        }
+    });
         </script>
     </body>
 </html>
