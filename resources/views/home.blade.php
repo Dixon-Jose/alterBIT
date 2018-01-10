@@ -5,9 +5,16 @@
         <!-- Fonts -->
         @extends('includes.fonts')
         <link rel="stylesheet/less" type="text/css" href="{{ URL::to('css/main.less')}}">
+        <link type="text/css" href="public/jquery/jquery-ui-1.12.1.custom/jquery-ui.min.css">
         <script src="{{URL::to('js/less.js')}}" type="text/javascript"></script>
+        <script src="../jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="../jquery/jquery-ui-1.12.1.custom/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="../jquery/myjquery.js" type="text/javascript"></script>
+
     </head>
     <body>
+      <script>
+      </script>
 
       <div class="row">
         <div class="col-5 src"></div>
