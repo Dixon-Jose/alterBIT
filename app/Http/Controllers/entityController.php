@@ -7,17 +7,19 @@ use App\Entity;
 
 class entityController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
+    public function autoComplete(Request $request){
+        if($request->input('term')){
+            $elements=Entity::where('name','like','%'.strtolower($request->input("term")).'%')->get();
+            foreach($elements as $key => $element)
+            $term[$key]=$element->name;
+            return $term;
+        }
+    }
     public function index(Request $request)
     {
         // find using keyword and return search view or an error message
       if($request->input('q')){
-          if($request->input('q')==='all'){
+          if(strtolower($request->input('q'))==='all'){
               $elements=Entity::all();
           }else
         $elements=Entity::where('name','like','%'.strtolower($request->input("q")).'%')->get();
@@ -54,13 +56,6 @@ class entityController extends Controller
     {
         //
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //get the id from the search view and return the view with all the data of elemetents

@@ -4,6 +4,8 @@
   @extends('includes.fonts')
   <!-- @include('includes.navbar') -->
   <link rel="stylesheet/less" type="text/css" href="/css/main.less">
+  <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
+
   <script src="/js/less.js" type="text/javascript">
   </script>
   <script>
@@ -17,7 +19,7 @@
 <body>
   <div class="row">
       <div class="col-12 menu-bar">
-            <a title="homelink" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
+            <a title="alterbit-home" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
       </div>
       <!-- <div class="col-12 menu">
           <form method="get" action="{{ route('search') }}">
@@ -92,5 +94,21 @@
               <a href="https://github.com/Dixon-Jose/alterBIT" title="github"></a>
           </div>
       </div>
+
+        <script src="/js/jquery.js" type="text/javascript"></script>
+        <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
+       <script>
+            function getfocus() {
+                document.getElementById("search").value="";
+                document.getElementById("search").focus();
+            }
+    $( "#search" ).autocomplete({
+        source: "{{route('autocomplete')}}",
+        select: function(event,ui){
+            window.location.href="{{route('search')}}?q=" + ui.item.value;
+        }
+    });
+        </script>
+
 </body>
 </html>
