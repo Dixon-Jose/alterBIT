@@ -11,8 +11,12 @@ class entityController extends Controller
         if($request->input('term')){
             $elements=Entity::where('name','like','%'.strtolower($request->input("term")).'%')->get();
             foreach($elements as $key => $element)
-            $term[$key]=$element->name;
-            return $term;
+            $terms[$key]=array(
+                'label'=>$element->name,
+                'value'=>$element->name,
+                'id'=>$element->_id
+            );
+            return $terms;
         }
     }
     public function index(Request $request)

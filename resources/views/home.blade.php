@@ -40,12 +40,7 @@
                 document.getElementById("search").value="";
                 document.getElementById("search").focus();
             }
-    $( "#search" ).autocomplete({
-        source: "{{route('autocomplete')}}",
-        select: function(event,ui){
-            window.location.href="{{route('search')}}?q=" + ui.item.value;
-        }
-    });
         </script>
+        <script src="/js/alterbit.js" type="text/javascript"></script>
     </body>
 </html>
