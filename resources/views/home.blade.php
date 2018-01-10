@@ -63,5 +63,6 @@
 
       } );
         </script>
+        <script src="/js/alterbit.js" type="text/javascript"></script>
     </body>
 </html>
