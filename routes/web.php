@@ -28,3 +28,7 @@ Route::get('autocomplete','entityController@autoComplete')->name('autocomplete')
 Route::get('entry',function(){
     return view('admin.entry');
 })->name('entry');
+
+Route::get('insert',function(){
+  return view('user-insert');
+})->name('insert');

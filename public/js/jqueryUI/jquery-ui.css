@@ -36,7 +36,7 @@
 .ui-helper-clearfix:before,
 .ui-helper-clearfix:after {
 	content: "";
-	display: table;
+	display:none;
 	border-collapse: collapse;
 }
 .ui-helper-clearfix:after {
@@ -585,6 +585,7 @@ button.ui-button::-moz-focus-inner {
 .ui-dialog .ui-dialog-titlebar {
 	padding: .4em 1em;
 	position: relative;
+	display: none;
 }
 .ui-dialog .ui-dialog-title {
 	float: left;
@@ -621,7 +622,7 @@ button.ui-button::-moz-focus-inner {
 	float: right;
 }
 .ui-dialog .ui-dialog-buttonpane button {
-	margin: .5em .4em .5em 0;
+	margin: -0.5em 4.5em 1em 0;
 	cursor: pointer;
 }
 .ui-dialog .ui-resizable-n {
@@ -889,7 +890,7 @@ body .ui-tooltip {
 	font-size:2.1em;
 }
 .ui-widget .ui-widget {
-	font-size: 1em;
+font-size: 0.5em;
 }
 .ui-widget input,
 .ui-widget select,
@@ -903,13 +904,13 @@ body .ui-tooltip {
 }
 .ui-widget-content {
 	color:#566573  ;
-background-color: #fff;
+background-color:#fbfcfc;
 }
 .ui-widget-content a {
 	color: #ffffff;
 }
 .ui-widget-header {
-	border: 1px solid #333333;
+	border: 1px solid red;
 	background: #444444 url("images/ui-bg_highlight-soft_44_444444_1x100.png") 50% 50% repeat-x;
 	color: #ffffff;
 	font-weight: bold;
@@ -929,10 +930,11 @@ background-color: #fff;
 works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-	border: 1px solid #444444;
-	background: #222222 url("images/ui-bg_highlight-soft_35_222222_1x100.png") 50% 50% repeat-x;
+	border:none;
+	border-bottom: 1px solid lightgrey;
+	background-color: #fbfcfc;
 	font-weight: normal;
-	color: #eeeeee;
+	color:grey;
 }
 .ui-state-default a,
 .ui-state-default a:link,
@@ -941,7 +943,7 @@ a.ui-button,
 a:link.ui-button,
 a:visited.ui-button,
 .ui-button {
-	color: #eeeeee;
+
 	text-decoration: none;
 }
 .ui-state-hover,
@@ -952,10 +954,12 @@ a:visited.ui-button,
 .ui-widget-header .ui-state-focus,
 .ui-button:hover,
 .ui-button:focus {
-	border: 1px solid #0b93d5;
-	background: #003147 url("images/ui-bg_highlight-soft_33_003147_1x100.png") 50% 50% repeat-x;
+	transition: 500ms ease-in 50ms;
+	border: none;
+	border-bottom: 1px solid black;
+	/*background:lightgrey;*/
 	font-weight: normal;
-	color: #ffffff;
+	color: black;
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,
@@ -1301,8 +1305,8 @@ a.ui-button:active,
 
 /* Overlays */
 .ui-widget-overlay {
-	background: #5c5c5c;
-	opacity: .8;
+	background:black;
+	opacity: .5;
 	filter: Alpha(Opacity=80); /* support: IE8 */
 }
 .ui-widget-shadow {
