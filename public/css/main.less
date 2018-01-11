@@ -160,6 +160,20 @@ p[title="message"]{
 }
 
 /* Home PAGE: MAIN CONTENT*/
+.home-links{
+  text-align: center;
+  a{
+    text-decoration: none;
+    color: #abb2b9 ;
+    .roboto;
+    font-weight: bold;
+    &:hover{
+        transition: 200ms ease-out 50ms;
+        color: black;
+    }
+  }
+}
+
 
 .welcome-search{
   padding-left: 0%;
@@ -210,7 +224,7 @@ p[title="message"]{
 
 p[title="message"]{
     .roboto;
-    font-weight: lighter;
+    font-size: 55%;
 }
 
 /****** MAIN PAGE END ******/
@@ -505,4 +519,17 @@ input[type="submit"]{
       text-transform: capitalize;
     }
 
+}
+
+/* Search page end*/
+
+/* Input page*/
+
+.user-form{
+  margin-top: 7em;
+
+  h3{
+        .open-sans;
+        font-size: 140%;
+    }
 }

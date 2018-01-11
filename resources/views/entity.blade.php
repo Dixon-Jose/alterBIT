@@ -78,9 +78,7 @@
   <div class="col-8 comment" name="entity-page">
           <h4>Responses</h4>
           <form>
-                <!-- <input type="email" placeholder="Enter email address" name="email" required> -->
                 <textarea placeholder="Enter response" ></textarea>
-                <!-- <input type="submit" value="Submit"> -->
           </form>
   </div>
 </div>
@@ -97,6 +95,6 @@
 
         <script src="/js/jquery.js" type="text/javascript"></script>
         <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
-        <script src="/js/alterbit.js" type="text/javascript"></script>  
+        <script src="/js/alterbit.js" type="text/javascript"></script>
 </body>
 </html>

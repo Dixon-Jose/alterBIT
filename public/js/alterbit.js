@@ -4,3 +4,17 @@ $("#search").autocomplete({
         window.location.href = "/entity/" + ui.item.id;
     }
 });
+
+$( ".search-mess" ).dialog({
+  draggable:false,
+  resizable:false,
+  modal:true,
+  buttons: [
+              {
+                text: "Okay",
+                click: function() {
+                  $( this ).dialog( "close" );
+                }
+              }
+            ]
+});

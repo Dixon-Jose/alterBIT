@@ -13,8 +13,15 @@
 
     </head>
     <body>
-      <script>
-      </script>
+      <div class="row home-links">
+            <div class="col-1 ">
+                  <a href="">Forum</a>
+            </div>
+            <div class="col-10"></div>
+            <div class="col-1">
+                    <a href="{{URL::to('insert')}}">Insert</a>
+            </div>
+      </div>
 
       <div class="row">
         <div class="col-5 src"></div>
@@ -48,14 +55,6 @@
                 document.getElementById("search").focus();
             }
 
-  $( function() {
-              $( ".search-mess" ).dialog({
-                draggable:false,
-                resizable:false,
-                modal:true
-              });
-
-      } );
         </script>
         <script src="/js/alterbit.js" type="text/javascript"></script>
     </body>
