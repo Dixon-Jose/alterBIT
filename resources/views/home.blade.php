@@ -47,13 +47,6 @@
                 document.getElementById("search").value="";
                 document.getElementById("search").focus();
             }
-    $( "#search" ).autocomplete({
-        source: "{{route('autocomplete')}}",
-        select: function(event,ui){
-            window.location.href="{{route('search')}}?q=" + ui.item.value;
-        }
-    });
-
   $( function() {
               $( ".search-mess" ).dialog({
                 draggable:false,

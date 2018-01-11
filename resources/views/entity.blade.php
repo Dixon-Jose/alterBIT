@@ -97,18 +97,8 @@
 
         <script src="/js/jquery.js" type="text/javascript"></script>
         <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
-       <script>
-            function getfocus() {
-                document.getElementById("search").value="";
-                document.getElementById("search").focus();
-            }
-    $( "#search" ).autocomplete({
-        source: "{{route('autocomplete')}}",
-        select: function(event,ui){
-            window.location.href="{{route('search')}}?q=" + ui.item.value;
-        }
-    });
-        </script>
+        <script src="/js/alterbit.js" type="text/javascript"></script>
+
 
 </body>
 </html>
