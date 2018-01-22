@@ -26,8 +26,11 @@ class entityController extends Controller
           if(strtolower($request->input('q'))==='all'){
               $elements=Entity::all();
           }else
-        $elements=Entity::where('name','like','%'.strtolower($request->input("q")).'%')->get();
-
+        $elements=Entity::where('name','like','%'.strtolower($request->input("q")).'%')->get();}
+      else{
+          if($request->input('tag'))
+              $elements=Entity::where('tags',strtolower($request->input("tag")))->get();
+          }
         if(count($elements)===0){
             $error=array(
                 'message'=> 'No match on \''.$request->input('q').'\''.'. Please try again.',
@@ -36,7 +39,7 @@ class entityController extends Controller
             return view ('home')->with($error);
         }
       return view ('search',['entities' => $elements]);
-    }
+    
     return view('home');
     }
 

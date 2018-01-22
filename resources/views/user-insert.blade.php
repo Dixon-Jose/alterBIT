@@ -50,12 +50,5 @@
         <div class="col-2"></div>
   </div>
 
-  <script>
-  // 
-  // $("#add").click(function(){
-  //       $("#submit").hide();
-  //   });
-  </script>
-
 </body>
 </html>

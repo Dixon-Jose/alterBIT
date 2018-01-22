@@ -34,8 +34,8 @@
         <div class="col-1"></div>
         <div class="col-10 src-tags">
             <!-- <p>Tags:</p> -->
-              @foreach($entity->tags as $tags)
-              <a href="">{{$tags}}</a>
+              @foreach($entity->tags as $tag)
+              <a href="{{route('search',['tag'=>$tag])}}">{{$tag}}</a>
               @endforeach
         </div>
   </div>

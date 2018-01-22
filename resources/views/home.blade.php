@@ -51,7 +51,6 @@
                 document.getElementById("search").value="";
                 document.getElementById("search").focus();
             }
-
         </script>
         <script src="/js/alterbit.js" type="text/javascript"></script>
     </body>
