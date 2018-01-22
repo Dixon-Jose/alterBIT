@@ -33,9 +33,29 @@
         <div class="col-8 user-form">
                   <h3>Enter new alternative: </h3>
                   <hr>
+                  <form>
+
+                    <input type="text" id="name" placeholder="Name">
+                    <br>
+                    <textarea id="description" placeholder="Description"></textarea>
+                    <br>
+                    <input type="text" id="category" placeholder="Category">
+                    &nbsp;
+                    <input type="button" id="add" value="Add more">
+                    <br>
+                    <input type="submit" id="submit" value="Submit">
+
+                  </form>
         </div>
         <div class="col-2"></div>
   </div>
+
+  <script>
+  // 
+  // $("#add").click(function(){
+  //       $("#submit").hide();
+  //   });
+  </script>
 
 </body>
 </html>

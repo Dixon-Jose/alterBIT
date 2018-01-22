@@ -76,6 +76,14 @@ p[title="message"]{
   margin-top:-2em;
 }
 
+.home-links{
+    a[title="insert"]{
+      float: right;
+      margin-top: -10%;
+    }
+
+}
+
 .menu-bar {
 
   height: 4em;
@@ -161,7 +169,6 @@ p[title="message"]{
 
 /* Home PAGE: MAIN CONTENT*/
 .home-links{
-  text-align: center;
   a{
     text-decoration: none;
     color: #abb2b9 ;
@@ -532,4 +539,69 @@ input[type="submit"]{
         .open-sans;
         font-size: 140%;
     }
+
+  form{
+    padding: 2%;
+
+        input[id="name"]{
+          width: 100%;
+          font-size: 120%;
+          color: black;
+          .roboto;
+          background-color: #fff;
+          border: 1px solid black;
+          padding: 2%;
+
+        }
+        textarea{
+          .roboto;
+          border: 1px solid black;
+          padding: 2%;
+          margin-top: 4%;
+          width: 100%;
+          height: 7em;
+          background-color: #fff;
+          color: black;
+          font-size: 130%;
+        }
+        input[id="category"]{
+          margin-top: 4%;
+          width: 80%;
+          font-size: 120%;
+          color: black;
+          .roboto;
+          background-color: #fff;
+          border: 1px solid black;
+          padding: 2%;
+
+        }
+        input[type="button"]{
+            font-size: 100%;
+            background-color: #d4e6f1;
+            color:grey;
+            border: none;
+            padding: 2%;
+            .roboto;
+            &:hover{
+              transition: 200ms ease-out 50ms;
+              color:black;
+            }
+
+        }
+        input[type="submit"]{
+            font-size: 100%;
+            margin-top: 4%;
+            background-color: #d4e6f1;
+            color:grey;
+            border: none;
+            padding: 2%;
+            .roboto;
+
+            &:hover{
+              transition: 200ms ease-out 50ms;
+              color:black;
+            }
+        }
+
+  }
 }

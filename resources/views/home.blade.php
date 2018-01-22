@@ -7,19 +7,16 @@
         <link rel="stylesheet/less" type="text/css" href="{{ URL::to('css/main.less')}}">
         <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
         <script src="{{URL::to('js/less.js')}}" type="text/javascript"></script>
-        <script src="../jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <script src="../jquery/jquery-ui-1.12.1.custom/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="../jquery/myjquery.js" type="text/javascript"></script>
 
     </head>
     <body>
       <div class="row home-links">
             <div class="col-1 ">
-                  <a href="">Forum</a>
+                  <a href="" title="forum">Forum</a>
             </div>
             <div class="col-10"></div>
             <div class="col-1">
-                    <a href="{{URL::to('insert')}}">Insert</a>
+                    <a href="{{URL::to('insert')}}" title="insert">Insert</a>
             </div>
       </div>
 
