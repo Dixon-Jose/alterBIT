@@ -79,9 +79,15 @@ return [
         ],
 
         'mongodb' => [
-          'driver' => 'mongodb',
-          'dsn' => env('MONGO_DSN'),
-          'database' => env('MONGO_DATABASE'),
+        'driver'   => 'mongodb',
+        'host'     => env('DB_HOST', 'localhost'),
+        'port'     => env('DB_PORT', 27017),
+        'database' => env('DB_DATABASE', 'alterbit'),
+        'username' => env('DB_USERNAME'),
+        'password' => env('DB_PASSWORD'),
+        'options'  => [
+        'database' => 'admin' // sets the authentication database required by mongo 3
+            ]
         ],
 
     ],
