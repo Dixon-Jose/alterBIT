@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Entity;
 
+
+function getElement($key,$q){
+        return Entity::where($key,'like','%'.strtolower($q).'%')->get();;
+    }
+
 class entityController extends Controller
 {
+    
     public function autoComplete(Request $request){
         if($request->input('term')){
-            $elements=Entity::where('name','like','%'.strtolower($request->input("term")).'%')->get();
+            $elements=getElement("name",$request->input('term'));
             foreach($elements as $key => $element)
             $terms[$key]=array(
                 'label'=>$element->name,
@@ -26,19 +32,20 @@ class entityController extends Controller
           if(strtolower($request->input('q'))==='all'){
               $elements=Entity::all();
           }else
-        $elements=Entity::where('name','like','%'.strtolower($request->input("q")).'%')->get();}
+            $elements=getElement("name",$request->input('q'));
+        }    
       else{
           if($request->input('tag'))
-              $elements=Entity::where('tags',strtolower($request->input("tag")))->get();
+              $elements=getElement("tags",$request->input('tag'));
           }
-        if(count($elements)===0){
+      if(count($elements)===0){
             $error=array(
                 'message'=> 'No match on \''.$request->input('q').'\''.'. Please try again.',
                 'q'=>$request->input('q')
             );
             return view ('home')->with($error);
-        }
-      return view ('search',['entities' => $elements]);
+      }
+            return view ('search',['entities' => $elements]);
     
     return view('home');
     }
@@ -69,7 +76,7 @@ class entityController extends Controller
         // + parse the alternatives into array within a array
 
         if(isset($id)){
-        $entity=Entity::find($id);
+            $entity=Entity::find($id);
         if(empty($entity)){
             return view('home');
         }else{

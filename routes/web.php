@@ -5,30 +5,26 @@
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', function(){
   return view('home');
 })->name('home');
 
-
 Route::get('search',[
   'uses' => 'entityController@index',
 ])->name('search');
 
-Route::get('entity/{id}','entityController@show')->name('entity');
-
 Route::get('autocomplete','entityController@autoComplete')->name('autocomplete');
 
+Route::post('suggestAlt','suggestionController@store')->name('suggestionsInput');
 
 Route::get('entry',function(){
-    return view('admin.entry');
+  return view('admin.entry');
 })->name('entry');
 
 Route::get('insert',function(){
   return view('user-insert');
 })->name('insert');
+
+Route::get('{id}','entityController@show')->name('entity');

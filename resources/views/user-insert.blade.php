@@ -33,11 +33,15 @@
         <div class="col-8 user-form">
                   <h3>Enter new alternative: </h3>
                   <hr>
-                  <form>
+                  <form method="post" action="{{ route('suggestionsInput') }}">
 
-                    <input type="text" id="name" placeholder="Name">
+                     {{csrf_field()}}
+
+                    <input type="text" id="alternative" placeholder="Alternative of (if any)">
                     <br>
-                    <textarea id="description" placeholder="Description"></textarea>
+                    <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)">
+                    <br>
+                    <textarea id="description" name="description" placeholder="Description"></textarea>
                     <br>
                     <input type="text" id="category" placeholder="Category">
                     &nbsp;
@@ -49,6 +53,8 @@
         </div>
         <div class="col-2"></div>
   </div>
-
+ <script src="/js/jquery.js" type="text/javascript"></script>
+        <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
+        <script src="/js/alterbit.js" type="text/javascript"></script>
 </body>
 </html>
