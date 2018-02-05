@@ -20,14 +20,6 @@
         </div>
     </div>
 
-    <!-- <div class="row">
-        <div class="col-1"></div>
-          <div class="col-10 src-page-bar">
-                  <form method="get" action="{{ route('search') }}">
-                  <input type="search" placeholder="Search" id="search" name="q">
-                  </form>
-          </div>
-  </div> -->
   <div class="row ">
         <div class="col-2"></div>
         <div class="col-8 user-form">
@@ -37,15 +29,15 @@
 
                      {{csrf_field()}}
 
+
+                    <br>
+                    <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
+                    <br>
+                    <textarea id="description" name="description" placeholder="Description" required></textarea>
+                    <br>
                     <input type="text" id="alternative" placeholder="Alternative of (if any)">
-                    <br>
-                    <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)">
-                    <br>
-                    <textarea id="description" name="description" placeholder="Description"></textarea>
-                    <br>
-                    <input type="text" id="category" placeholder="Category">
-                    &nbsp;
-                    <input type="button" id="add" value="Add more">
+                    <!-- &nbsp;
+                    <input type="button" id="add" value="Add more">-->
                     <br>
                     <input type="submit" id="submit" value="Submit">
 
