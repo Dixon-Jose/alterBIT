@@ -582,6 +582,7 @@ button.ui-button::-moz-focus-inner {
 	padding: .2em;
 	outline: 0;
 }
+
 .ui-dialog .ui-dialog-titlebar {
 	padding: .4em 1em;
 	position: relative;
@@ -930,8 +931,8 @@ background-color:#fbfcfc;
 works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-	border:none;
-	border-bottom: 1px solid lightgrey;
+
+	border: 1px solid lightgrey;
 	background-color: #fbfcfc;
 	font-weight: normal;
 	color:grey;
@@ -955,8 +956,7 @@ a:visited.ui-button,
 .ui-button:hover,
 .ui-button:focus {
 	transition: 500ms ease-in 50ms;
-	border: none;
-	border-bottom: 1px solid black;
+	border: 1px solid black;
 	/*background:lightgrey;*/
 	font-weight: normal;
 	color: black;
