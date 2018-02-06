@@ -12,19 +12,18 @@ Route::get('/', function(){
 })->name('home');
 
 Route::get('search',[
-  'uses' => 'entityController@index',
+  'uses' => 'EntityController@index',
 ])->name('search');
 
-Route::get('autocomplete','entityController@autoComplete')->name('autocomplete');
-
-Route::post('suggestAlt','suggestionController@store')->name('suggestionsInput');
+Route::get('autocomplete','EntityController@autoComplete')->name('autocomplete');
 
 Route::get('entry',function(){
   return view('admin.entry');
 })->name('entry');
 
-Route::get('insert',function(){
-  return view('user-insert');
-})->name('insert');
+Route::get('suggest',function(){
+  return view('suggestions');
+})->name('suggest');
+Route::post('suggest','SuggestionController@store')->name('suggestionsInput');
 
-Route::get('{id}','entityController@show')->name('entity');
+Route::get('{id}','EntityController@show')->name('entity');

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Suggestion;
 use Illuminate\Http\Request;
 
-class suggestionController extends Controller
+class SuggestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,16 +35,17 @@ class suggestionController extends Controller
      */
     public function store(Request $request)
     {
-        return $name=$request->all();
+        Suggestion::create($request->all());
+        return view('suggestions',['message' => 'Thanks for your Suggestions!']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Suggestion  $suggestion
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Suggestion $suggestion)
     {
         //
     }
@@ -51,10 +53,10 @@ class suggestionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Suggestion  $suggestion
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Suggestion $suggestion)
     {
         //
     }
@@ -63,10 +65,10 @@ class suggestionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Suggestion  $suggestion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Suggestion $suggestion)
     {
         //
     }
@@ -74,10 +76,10 @@ class suggestionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Suggestion  $suggestion
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Suggestion $suggestion)
     {
         //
     }

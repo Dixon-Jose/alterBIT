@@ -20,6 +20,16 @@
         </div>
     </div>
 
+    @if(isset($message))
+   <div class="row">
+          <div class="col-4"></div>
+                  <div class="col-5 search-mess">
+                    <p title="message">{{$message}}</p>
+                  </div>
+          <div class="col-3"></div>
+  </div>
+  @endif
+
   <div class="row ">
         <div class="col-2"></div>
         <div class="col-8 user-form">
@@ -35,7 +45,7 @@
                     <br>
                     <textarea id="description" name="description" placeholder="Description" required></textarea>
                     <br>
-                    <input type="text" id="alternative" placeholder="Alternative of (if any)">
+                    <input type="text" id="alternative" name="alternative" placeholder="Alternative of (if any)">
                     <!-- &nbsp;
                     <input type="button" id="add" value="Add more">-->
                     <br>
