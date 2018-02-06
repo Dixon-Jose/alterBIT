@@ -16,7 +16,7 @@
             </div>
             <div class="col-10"></div>
             <div class="col-1">
-                    <a href="{{URL::to('insert')}}" title="insert">Insert</a>
+                    <a href="{{URL::to('suggest')}}" title="Suggest Alternatives">Suggest Alternatives</a>
             </div>
       </div>
 

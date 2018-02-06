@@ -47,7 +47,7 @@ class entityController extends Controller
       }
             return view ('search',['entities' => $elements]);
     
-    return view('home');
+    return redirect()->route('home');
     }
 
     /**
@@ -78,7 +78,7 @@ class entityController extends Controller
         if(isset($id)){
             $entity=Entity::find($id);
         if(empty($entity)){
-            return view('home');
+            return redirect()->route('home');
         }else{
         foreach($entity->alternatives as $key => $alter){
             $alternative=Entity::find($alter);
