@@ -13,18 +13,15 @@
     </script>
 </head>
 <body>
-
-    <div class="row">
-        <div class="col-12 menu-bar">
-              <a title="alterbit-home" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
-        </div>
-    </div>
-
+  <div class="row">
+      <div class="col-12 menu-bar">
+            <a title="alterbit-home" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
+      </div>
+  </div>
 <div class="row ">
   <div class="col-2"></div>
   <div class="col-8 user-form">
         <div id="accord">
-
           <h3>Enter new alternative: </h3>
                   <!-- <hr> -->
                   <div>
@@ -46,7 +43,6 @@
                       </form>
                 </div>
               <h3>Delete an alternative: </h3>
-                      <!-- <hr> -->
                       <div>
                           <form method="post" action="{{ route('suggestionsInput') }}">
                              {{csrf_field()}}
@@ -56,18 +52,24 @@
                             <input type="submit" id="submit" value="Delete">
                           </form>
                     </div>
-</div>
-          <div class="col-2"></div>
+              <h3>Review a suggestion: </h3>
+                      <div>
+                          <form method="post" action="{{ route('suggestionsInput') }}">
+                             {{csrf_field()}}
+                            <br>
+                            <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
+                            <br>
+                            <textarea id="description" name="description" placeholder="Description" required></textarea>
+                            <br>
+                            <input type="text" id="alternative" placeholder="Alternative of (if any)">
+                            <br>
+                            <input type="submit" id="submit" value="Submit">
+                          </form>
+                    </div>
+            </div>
       </div>
-
+<div class="col-2"></div>
 </div>
-
-
-
-<script>
-
-
-</script>
  <script src="/js/jquery.js" type="text/javascript"></script>
         <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
         <script src="/js/alterbit.js" type="text/javascript"></script>
