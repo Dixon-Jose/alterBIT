@@ -535,10 +535,8 @@ input[type="submit"]{
 
 .user-form{
   margin-top: 7em;
-
   h3{
-        .open-sans;
-        font-size: 140%;
+        .roboto;
     }
 
   form{
@@ -555,6 +553,7 @@ input[type="submit"]{
 
         }
         textarea{
+          resize: none;
           .roboto;
           border: 1px solid black;
           padding: 2%;
@@ -577,6 +576,7 @@ input[type="submit"]{
 
         }
         input[type="button"]{
+          margin-top: 4%;
             font-size: 100%;
             background-color: #d4e6f1;
             color:grey;
@@ -616,4 +616,31 @@ input[type="submit"]{
         }
 
   }
+ #accord{
+
+     form{
+       // padding: 2%;
+           input[id="name"]{
+             font-size: 75%;
+           }
+           textarea{
+             font-size: 75%;
+           }
+           input[id="tags"]{
+             font-size: 75%;
+           }
+           input[type="button"]{
+             font-size: 75%;
+           }
+           input[type="submit"]{
+             font-size: 75%;
+
+           }
+
+           input[id="alternative"]{
+             font-size: 75%;
+           }
+
+     }
+ }
 }

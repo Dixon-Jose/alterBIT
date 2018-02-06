@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>alterBIT|Search</title>
+  <title>alterBIT | User Insertion</title>
   @extends('includes.fonts')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
