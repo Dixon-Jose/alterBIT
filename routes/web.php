@@ -17,13 +17,18 @@ Route::get('search',[
 
 Route::get('autocomplete','EntityController@autoComplete')->name('autocomplete');
 
-Route::get('entry',function(){
-  return view('admin.entry');
-})->name('entry');
+Route::get('admin',function(){
+  if(!auth::check())
+  return redirect()->route('login');
+  else
+  return view('admin.master');
+})->name('admin');
 
 Route::get('suggest',function(){
   return view('suggestions');
 })->name('suggest');
 Route::post('suggest','SuggestionController@store')->name('suggestionsInput');
 
-Route::get('{id}','EntityController@show')->name('entity');
+Auth::routes();
+
+Route::get('/entity/{id}','EntityController@show')->name('entity');
