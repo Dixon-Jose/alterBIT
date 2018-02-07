@@ -14,8 +14,8 @@
             <div class="col-1 ">
                   <a href="" title="forum">Forum</a>
             </div>
-            <div class="col-10"></div>
-            <div class="col-1">
+            <div class="col-9"></div>
+            <div class="col-2">
                     <a href="{{URL::to('suggest')}}" title="Suggest Alternatives">Suggest Alternatives</a>
             </div>
       </div>
@@ -30,7 +30,7 @@
    @if(isset($message))
    <div class="row">
           <div class="col-4"></div>
-                  <div class="col-5 search-mess">
+                  <div class="col-5">
                     <p title="message">{{$message}}</p>
                   </div>
           <div class="col-3"></div>

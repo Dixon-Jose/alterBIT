@@ -94,10 +94,22 @@ p[title="message"]{
 }
 
 .element{
-    margin-top:2em;
+    margin-top:0em;
     h2{
           font-size: 170%;
       }
+}
+
+.card{
+  h3{
+    font-size: 85%;
+  }
+  a{
+    font-size: 85%;
+  }
+  p{
+    font-size: 85%;
+  }
 }
 .comment{
   height:30em;
@@ -138,6 +150,37 @@ p[title="message"]{
     }
   }
 
+
+  .ui-accordion .ui-accordion-header{
+    font-size: 80%;
+  }
+
+  #accord{
+
+      form{
+            input[id="name"]{
+              font-size: 60%;
+            }
+            textarea{
+              font-size: 60%;
+            }
+            input[id="tags"]{
+              font-size: 60%;
+            }
+            input[type="button"]{
+              font-size: 60%;
+            }
+            input[type="submit"]{
+              font-size: 60%;
+
+            }
+            input[id="alternative"]{
+              font-size: 60%;
+            }
+
+      }
+  }
+
 }
 
 @media only screen and (max-width:750px)
@@ -145,6 +188,51 @@ p[title="message"]{
 }
 
 @media only screen and (max-width:565px) {
+
+
+.ui-accordion .ui-accordion-header{
+  font-size: 70%;
+}
+
+.card{
+  p{
+    font-size: 80%;
+  }
+  h3{
+    font-size: 80%;
+  }
+  a{
+    font-size: 80%;
+  }
+}
+
+#accord{
+
+    form{
+          input[id="name"]{
+            font-size: 50%;
+          }
+          textarea{
+            font-size: 50%;
+          }
+          input[id="tags"]{
+            font-size: 50%;
+          }
+          input[type="button"]{
+            font-size: 50%;
+          }
+          input[type="submit"]{
+            font-size: 50%;
+
+          }
+
+          input[id="alternative"]{
+            font-size: 50%;
+          }
+
+    }
+}
+
   a[title="alterbit-home"]{
     font-size: 200%;
   }
@@ -180,6 +268,7 @@ p[title="message"]{
         color: black;
     }
   }
+  // a[title=""]
 }
 
 
@@ -616,31 +705,5 @@ input[type="submit"]{
         }
 
   }
- #accord{
 
-     form{
-       // padding: 2%;
-           input[id="name"]{
-             font-size: 75%;
-           }
-           textarea{
-             font-size: 75%;
-           }
-           input[id="tags"]{
-             font-size: 75%;
-           }
-           input[type="button"]{
-             font-size: 75%;
-           }
-           input[type="submit"]{
-             font-size: 75%;
-
-           }
-
-           input[id="alternative"]{
-             font-size: 75%;
-           }
-
-     }
- }
 }

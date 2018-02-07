@@ -61,9 +61,15 @@ $( ".search-mess" ).dialog({
   modal:true,
   buttons: [
               {
-                text: "Okay",
+                text: "Add another",
                 click: function() {
                   $( this ).dialog( "close" );
+                }
+              },
+              {
+                text: "Okay",
+                click: function() {
+                  window.location.href = "/";
                 }
               }
             ]
@@ -86,6 +92,13 @@ $("#add").click(function() {
 });
 
 $( "#accord" ).accordion({
+  collapsible: true,
+  heightStyle: "content",
+  active:false,
+  animate: 500
+});
+
+$( "#accord1" ).accordion({
   collapsible: true,
   heightStyle: "content",
   active:false,
