@@ -665,8 +665,7 @@ input[type="submit"]{
 
         }
         input[type="button"]{
-          margin-top: 4%;
-            font-size: 100%;
+            margin-top: 4%;
             background-color: #d4e6f1;
             color:grey;
             border: none;
@@ -704,6 +703,75 @@ input[type="submit"]{
           padding: 2%;
         }
 
+  }
+
+}
+
+
+/* Login Form*/
+
+.login{
+
+  margin-top: 5em;
+  h3{
+    font-size: 150%;
+    .raleway;
+  }
+
+  input[type="email"]{
+    width:100%;
+    font-size: 120%;
+    color: black;
+    .roboto;
+    background-color: #fff;
+    border: 1px solid black;
+    padding: 2%;
+
+  }
+
+  .pass{
+    input[type="password"]{
+      width:100%;
+      font-size: 120%;
+      color: black;
+      .roboto;
+      background-color: #fff;
+      border: 1px solid black;
+      padding: 2%;
+
+    }
+  }
+  label[title="checkbox"]{
+    font-size: 120%;
+    color: black;
+    .roboto;
+  }
+  .button{
+    width: 100%;
+
+    button[title="login"]{
+      font-size: 100%;
+      background-color: #d4e6f1;
+      color:#1c2833;
+      border: none;
+      padding: 2%;
+      .roboto;
+
+      &:hover{
+        transition: 200ms ease-out 50ms;
+        color:black;
+      }
+    }
+    a{
+      text-decoration: none;
+      .roboto;
+      color:grey;
+
+      &:hover{
+        transition: 200ms ease-out 50ms;
+        color:black;
+      }
+    }
   }
 
 }

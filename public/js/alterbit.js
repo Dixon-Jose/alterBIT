@@ -3,7 +3,7 @@ $("#search").autocomplete({
     typeAhead: true,
     source: 'autocomplete',
     select: function (event, ui) {
-        window.location.href =  ui.item.id;
+        window.location.href =  '/entity/'+ui.item.id;
     }
 });
 
