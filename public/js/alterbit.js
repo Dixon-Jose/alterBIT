@@ -75,6 +75,21 @@ $( ".search-mess" ).dialog({
             ]
 });
 
+
+$( ".message" ).dialog({
+  draggable:false,
+  resizable:false,
+  modal:true,
+  buttons: [
+              {
+                text: "Okay",
+                click: function() {
+                  $( this ).dialog( "close" );
+                }
+              }
+            ]
+});
+
 $("#add").click(function() {
     $( ".admin" ).dialog({
       draggable:false,

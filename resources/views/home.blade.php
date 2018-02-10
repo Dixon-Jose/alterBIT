@@ -30,7 +30,7 @@
    @if(isset($message))
    <div class="row">
           <div class="col-4"></div>
-                  <div class="col-5">
+                  <div class="col-5 message">
                     <p title="message">{{$message}}</p>
                   </div>
           <div class="col-3"></div>
