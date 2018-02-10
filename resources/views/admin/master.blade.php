@@ -11,7 +11,6 @@
     <link rel="stylesheet/less" type="text/css" href="/css/main.less">
       <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <script src="/js/less.js" type="text/javascript">
     </script>
 </head>
@@ -19,29 +18,36 @@
   <div class="row">
       <div class="col-12 menu-bar">
             <a title="alterbit-home" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
-                        <li><a href="{{ route('register') }}">Register a</a></li>
-                    </ul>
-                </li>
-
       </div>
   </div>
+
+  <div class="row">
+    <div class="col-11"></div>
+    <div class="col-1">
+        <div class="link">
+          <li class="dropdown">
+              <a title="link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                  {{ Auth::user()->name }} <span class="caret"></span>
+              </a>
+
+              <ul class="dropdown-menu">
+                  <li >
+                      <a  href="{{ route('logout') }}"
+                          onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                          Logout
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          {{ csrf_field() }}
+                      </form>
+                  </li>
+                  <li><a href="{{ route('register') }}">Register a new admin</a></li>
+              </ul>
+          </li>
+        </div>
+    </div>
+</div>
+
 <div class="row ">
   <div class="col-2"></div>
   <div class="col-8 user-form">
@@ -76,7 +82,7 @@
                             <input type="submit" id="submit" value="Delete">
                           </form>
                     </div>
-              <h3>Update an alternative: </h3>
+              <!-- <h3>Update an alternative: </h3>
                       <div>
                           <form method="post" action="">
                              {{csrf_field()}}
@@ -85,7 +91,7 @@
                             <br>
                             <a href="" style="text-decoration:none"><input type="button" id="go" value="Update"></a>
                           </form>
-                    </div>
+                    </div> -->
 
                     <!-- <h3>Review a suggestion: </h3>
                               <div id="accord1">
