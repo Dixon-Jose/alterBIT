@@ -11,13 +11,16 @@
     </head>
     <body>
       <div class="row home-links">
-            <div class="col-1 ">
-                  <a href="" title="forum">Forum</a>
+            <div class="col-1 "></div>
+            <div class="col-10">
+              <table>
+                <tr>
+                    <th><a href="">Forum</a></th>
+                    <th><a href="">Suggest</a></th>
+              </tr>
+            </table>
             </div>
-            <div class="col-9"></div>
-            <div class="col-2">
-                    <a href="{{URL::to('suggest')}}" title="Suggest Alternatives">Suggest Alternatives</a>
-            </div>
+            <div class="col-1 "></div>
       </div>
 
       <div class="row">
@@ -25,6 +28,14 @@
         <div class="col-3 src">
          <input type="button" class="welcome-search" onclick="getfocus()" value="alterBiT">
      </div>
+   </div>
+
+   <div class="row logo">
+      <div class="col-4"></div>
+      <div class="col-5">
+            <h4>{ The Unconventional Way of Life }</h4>
+      </div>
+      <div class="col-3"></div>
    </div>
 
    @if(isset($message))
@@ -38,12 +49,15 @@
   @endif
 
      <div class="row">
-           <div class="col-12 search">
+       <div class="col-2"></div>
+           <div class="col-8 search">
              <form method="get" action="{{ route('search') }}">
                    <input type="text" id="search" name="q" placeholder="Search.">
              </form>
            </div>
+           <div class="col-2"></div>
         </div>
+
         <script src="/js/jquery.js" type="text/javascript"></script>
         <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
         <script>
