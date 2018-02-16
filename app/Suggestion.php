@@ -6,6 +6,7 @@ use Moloquent;
 
 class Suggestion extends Moloquent
 {
+    protected $connection = 'mongodb';
     protected $guarded = ['_token'];
     public $timestamps = false;
 

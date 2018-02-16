@@ -29,17 +29,15 @@
           </div>
   </div>
 
-@foreach($entities as $entity)
   <div class="row">
         <div class="col-1"></div>
         <div class="col-10 src-tags">
             <!-- <p>Tags:</p> -->
-              @foreach($entity->tags as $tag)
+              @foreach($tags as $tag)
               <a href="{{route('search',['tag'=>$tag])}}">{{$tag}}</a>
               @endforeach
         </div>
   </div>
-  @endforeach
 <br>
 <div class="row">
   <div class="col-1"></div>
@@ -51,7 +49,7 @@
   @foreach($entities as $entity)
   <div class="row " >
       <div class="col-1"></div>
-      <a href="{{route('entity',['id'=> $entity->_id])}}">
+      <a href="{{route('entity',['category'=>$entity->category,'id'=> $entity->_id])}}">
           <div class="col-6 search-result">
                   <div class="src-img"><img src="{{$entity->imgurl }}"></div>
                   <h2>{{$entity->name}}</h2>

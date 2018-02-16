@@ -64,7 +64,7 @@
             <div class="col-2 card">
                 <h3>{{$alternative['name']}}</h3>
                 <p>  {{substr($alternative['description'],0,100)}}</p>
-                <a href="{{route('entity',['id'=> $alternative['id']])}}">Check out</a>
+                <a href="{{route('entity',['category'=>$alternative['category'],'id'=> $alternative['id']])}}">Check out</a>
             </div>
             @endforeach
       </div>

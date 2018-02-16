@@ -11,9 +11,9 @@ $('#submit').click(function () {
 $("#search").autocomplete({
     minLength: 2,
     typeAhead: true,
-    source: 'autocomplete',
+    source: '/autocomplete',
     select: function (event, ui) {
-        window.location.href =  '/entity/'+ui.item.id;
+        window.location.href =  '/'+ui.item.category+'/'+ui.item.id;
     }
 });
 
