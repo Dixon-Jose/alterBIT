@@ -119,3 +119,5 @@ $( "#accord1" ).accordion({
   active:false,
   animate: 500
 });
+
+$('#category-select').selectmenu();

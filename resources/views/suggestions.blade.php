@@ -45,15 +45,26 @@
                     <br>
                     <textarea id="description" name="description" placeholder="Description" required></textarea>
                     <br>
-                    <input type="text" id="alternative" name="alternative" placeholder="Alternative of (if any)">
-                    <!-- &nbsp;
-                    <input type="button" id="add" value="Add more">-->
                     <br>
-                    <input type="submit" id="submit" value="Submit">
-
+                    <label id="cat-label">Select category:</label>
+                    <select id="category-select">
+                      <option>Category 1</option>
+                      <option>Category 2</option>
+                      <option>Category 3</option>
+                    </select>
+                    <br>
+                    <input type="submit" id="submit" value="Next">
                   </form>
         </div>
         <div class="col-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <hr>
+    </div>
+    <div class="col-2"></div>
   </div>
  <script src="/js/jquery.js" type="text/javascript"></script>
         <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
