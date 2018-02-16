@@ -16,7 +16,7 @@
               <table>
                 <tr>
                     <th><a href="">Forum</a></th>
-                    <th><a href="">Suggest</a></th>
+                    <th><a href="{{ route('suggest') }}">Suggest</a></th>
               </tr>
             </table>
             </div>

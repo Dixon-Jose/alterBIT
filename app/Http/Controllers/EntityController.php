@@ -7,11 +7,16 @@ use App\Entity;
 
 
 function getElement($key,$q){
+    //search and return the collection
         return Entity::where($key,'like','%'.strtolower($q).'%')->get();;
     }
 
 class entityController extends Controller
 {
+    /*
+    * Function to provide the home page with autocomplete by returning json values
+    * here value & label is the match on the searched term and id is used to perform redirects to the required page
+    */
     
     public function autoComplete(Request $request){
         if($request->input('term')){
@@ -50,26 +55,6 @@ class entityController extends Controller
     return redirect()->route('home');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
     public function show($id)
     {
         //get the id from the search view and return the view with all the data of elemetents
@@ -90,39 +75,5 @@ class entityController extends Controller
         }
         return view ('entity',['entity' => $entity,'alternatives'=>$alternatives]);
         }}
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

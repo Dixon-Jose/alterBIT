@@ -1,3 +1,13 @@
+
+
+
+
+$('#submit').click(function () {
+  if (!confirm("Are you sure ?")) {
+    return false;
+  };
+});
+
 $("#search").autocomplete({
     minLength: 2,
     typeAhead: true,
@@ -15,13 +25,6 @@ $("#search").autocomplete({
   }
 
 $("#alternative")
-  // don't navigate away from the field on tab when selecting an item
-  .on("keydown", function (event) {
-    if (event.keyCode === $.ui.keyCode.TAB &&
-      $(this).autocomplete("instance").menu.active) {
-      event.preventDefault();
-    }
-  })
 .autocomplete({
   minLength: 2,
   typeAhead: true,
@@ -42,7 +45,6 @@ $("#alternative")
     return false;
   },
   select: function (event, ui) {
-    console.log(this.value);
     var terms = split(this.value);
     // remove the current input
     terms.pop();
