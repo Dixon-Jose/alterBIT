@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSRF Token
+    <meta name="csrf-token" content="{{ csrf_token() }}"> -->
     <link rel="stylesheet/less" type="text/css" href="/css/main.less">
       <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -55,16 +55,18 @@
           <h3>Enter new alternative: </h3>
                   <!-- <hr> -->
                   <div>
-                      <form method="post" action="{{ route('suggestionsInput') }}">
+                      <form method="post" action="{{ route('entityInsert') }}">
                          {{csrf_field()}}
                         <br>
-                        <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
+                        <input type="text" name="name" placeholder="Name (of the alternative/entity)" required>
                         <br>
-                        <textarea id="description" name="description" placeholder="Description" required></textarea>
+                        <textarea name="description" placeholder="Description" required></textarea>
                         <br>
-                        <input type="text" id="alternative" placeholder="Alternative of (if any)">
+                        <input type="text" id="alternative" name="alternatives" placeholder="Alternative of (if any)" multiple>
                         <br>
-                        <input type="text" id="tags" name="tags" placeholder="Tags">
+                        <input type="text" name="imgurl" placeholder="ImageURL">
+                        <br>
+                        <input type="text" name="tags" placeholder="Tags">
                         <br>
                         <!-- <br> -->
                         <input type="button" id="add" value="Add more">
@@ -172,6 +174,8 @@
         <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
         <script src="/js/alterbit.js" type="text/javascript"></script>
         <script src="{{ asset('js/app.js') }}"></script>
+        <script>
+</script>
 
 </body>
 </html>

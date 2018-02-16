@@ -29,6 +29,9 @@ Route::get('suggest',function(){
 })->name('suggest');
 Route::post('suggest','SuggestionController@store')->name('suggestionsInput');
 
+Route::post('entityInsert','AdminController@store')->name('entityInsert');
+Route::post('entityDelete','AdminController@show')->name('entityDelete');
+
 Auth::routes();
 
 Route::get('/entity/{id}','EntityController@show')->name('entity');
