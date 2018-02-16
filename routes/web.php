@@ -35,3 +35,11 @@ Route::post('entityDelete','AdminController@show')->name('entityDelete');
 Auth::routes();
 
 Route::get('/entity/{id}','EntityController@show')->name('entity');
+
+Route::get('register',function(){
+  return view('auth.register');
+})->name('register');
+
+Route::get('update',function(){
+  return view('admin.update');
+})->name('update');

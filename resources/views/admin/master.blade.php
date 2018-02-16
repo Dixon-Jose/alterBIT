@@ -84,79 +84,17 @@
                             <input type="submit" id="submit" value="Delete">
                           </form>
                     </div>
-              <!-- <h3>Update an alternative: </h3>
-                      <div>
-                          <form method="post" action="">
-                             {{csrf_field()}}
-                            <br>
-                            <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
-                            <br>
-                            <a href="" style="text-decoration:none"><input type="button" id="go" value="Update"></a>
-                          </form>
-                    </div> -->
 
-                    <!-- <h3>Review a suggestion: </h3>
-                              <div id="accord1">
-                                    <h3>Suggestion 1:</h3>
-                                    <div>
-                                      <form method="post" action="{{ route('suggestionsInput') }}">
-                                         {{csrf_field()}}
-                                        <br>
-                                        <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
-                                        <br>
-                                        <textarea id="description" name="description" placeholder="Description" required></textarea>
-                                        <br>
-                                        <input type="text" id="alternative" placeholder="Alternative of (if any)">
-                                        <br>
-                                        <input type="text" id="tags" name="tags" placeholder="Tags">
-                                        <br>
-                                        <!-- <br> -->
-                                        <!-- <input type="button" id="delete" value="Delete">
-                                        <br>
-                                        <input type="submit" id="submit" value="Submit">
-                                      </form>
-                                  </div>
-
-                                  <h3>Suggestion 2:</h3>
-                                  <div>
-                                    <form method="post" action="{{ route('suggestionsInput') }}">
-                                       {{csrf_field()}}
-                                      <br>
-                                      <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
-                                      <br>
-                                      <textarea id="description" name="description" placeholder="Description" required></textarea>
-                                      <br>
-                                      <input type="text" id="alternative" placeholder="Alternative of (if any)">
-                                      <br>
-                                      <input type="text" id="tags" name="tags" placeholder="Tags">
-                                      <br>
-                                      <!-- <br> -->
-                                      <!-- <input type="button" id="delete" value="Delete">
-                                      <br>
-                                      <input type="submit" id="submit" value="Submit">
-                                    </form>
-                                </div>
-
-                                <h3>Suggestion 3:</h3>
-                                <div>
-                                  <form method="post" action="{{ route('suggestionsInput') }}">
-                                     {{csrf_field()}}
-                                    <br>
-                                    <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
-                                    <br>
-                                    <textarea id="description" name="description" placeholder="Description" required></textarea>
-                                    <br>
-                                    <input type="text" id="alternative" placeholder="Alternative of (if any)">
-                                    <br>
-                                    <input type="text" id="tags" name="tags" placeholder="Tags">
-                                    <br> -->
-                                    <!-- <br> -->
-                                    <!-- <input type="button" id="delete" value="Delete">
-                                    <br>
-                                    <input type="submit" id="submit" value="Submit">
-                                  </form>
-                              </div>
-                              </div>  -->
+                    <h3>Update an alternative: </h3>
+                            <div>
+                                <form method="post" action="{{ route('suggestionsInput') }}">
+                                   {{csrf_field()}}
+                                  <br>
+                                  <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
+                                  <br>
+                                  <a href=""><input type="button" id="submit" value="Go"></a>
+                                </form>
+                          </div>
 
             </div>
       </div>

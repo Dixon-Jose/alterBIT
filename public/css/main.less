@@ -57,8 +57,12 @@ body ::-webkit-selection{
     width: 100%;
 }
 
+.home-links{
+  visibility: hidden;
+}
+
 .src{
-      margin-top: 2%;
+      margin-top: -5em;
 }
 
 input[type=button]{
@@ -66,22 +70,19 @@ input[type=button]{
 }
 
 input[type=text] {
-  font-size: 250%;
-  margin-top: 0em;
+  font-size: 230%;
+  margin-top:-6em;
+  width: 91.66%;
+  text-align: center;
+}
+.logo{
+  visibility: hidden;
 }
 
 p[title="message"]{
   font-size: 115%;
   margin-left: 35%;
   margin-top:-2em;
-}
-
-.home-links{
-    a[title="insert"]{
-      float: right;
-      margin-top: -10%;
-    }
-
 }
 
 .menu-bar {
@@ -189,7 +190,10 @@ p[title="message"]{
 
 @media only screen and (max-width:565px) {
 
-
+input[type="text"]{
+  font-size: 180%;
+  margin-top:-7em;
+}
 .ui-accordion .ui-accordion-header{
   font-size: 70%;
 }
@@ -257,18 +261,21 @@ p[title="message"]{
 
 /* Home PAGE: MAIN CONTENT*/
 .home-links{
-  text-align: center;
-  a{
-    text-decoration: none;
-    color: #abb2b9 ;
-    .roboto;
-    font-weight: bold;
-    &:hover{
-        transition: 200ms ease-out 50ms;
-        color: black;
+  margin-left: -8em;
+table{
+  border-spacing: 20px 0;
+}
+a{
+  text-decoration: none;
+  color: #abb2b9 ;
+  .roboto;
+  font-weight: bold;
+  &:hover{
+          transition: 200ms ease-out 50ms;
+          color: black;
     }
   }
-  // a[title=""]
+
 }
 
 
@@ -283,37 +290,31 @@ p[title="message"]{
   border: 0;
 }
 
+.logo{
+  h4{
+    margin-left: 10%;
+    margin-top: -1em;
+    .roboto;
+    font-weight: lighter;
+    font-size: 150%;
+  }
+}
+
 .search {
-  margin-top: 10%;
+  margin-top: 3%;
   background-color:@body-color;
   height: 20%;
   input[type=text] {
         position: absolute;
         padding: 12px 20px 12px 40px;
-        width: 5%;
         border: 0;
         outline: 0;
-        width: 0%;
-        background: transparent;
-        color: @body-color;
-        text-align:left;
+        background: @body-color;
+        color: black;
+        // text-align:left;
         font-weight: 100;
+        border-bottom: 1px solid @font-color;
         .raleway;
-
-        -moz-transition: width 4s ease 50ms;
-        &:focus{
-          text-align:left;
-          background-color: @body-color;
-          position: absolute;
-          margin-left: 2%;
-          border: 0;
-          outline: 0;
-          background: transparent;
-          border-bottom: 1px solid @font-color;
-          width: 90%;
-          color:black;
-
-        }
 
   }
 
@@ -643,7 +644,7 @@ input[type="submit"]{
 
 .user-form{
   background-color: @body-color;
-  margin-top: 0em;
+  margin-top: 4em;
   h3{
         .roboto;
     }
@@ -721,6 +722,9 @@ input[type="submit"]{
           background-color: #fff;
           border: 1px solid black;
           padding: 2%;
+        }
+        a{
+          text-decoration: none;
         }
 
   }
