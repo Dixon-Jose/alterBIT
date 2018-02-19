@@ -22,7 +22,7 @@
   </div>
 
   <div class="row">
-    <div class="col-11"></div>
+    <div class="col-10"></div>
     <div class="col-1">
         <div class="link">
           <li class="dropdown">
@@ -64,7 +64,7 @@
                         <br>
                         <input type="text" id="alternative" name="alternatives" placeholder="Alternative of (if any)" multiple>
                         <br>
-                        <input type="text" name="imgurl" placeholder="ImageURL">
+                        <input type="text" name="name" placeholder="ImageURL">
                         <br>
                         <input type="text" name="tags" placeholder="Tags">
                         <br>

@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-12 menu-bar">
-              <a title="alterbit-home" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
+              <a id="alterbit-home" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
         </div>
     </div>
 
@@ -41,13 +41,13 @@
 
 
                     <br>
-                    <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
+                    <input type="text" name="name" name="name" placeholder="Name (of the alternative/entity)" title="Enter the name of the product" required>
                     <br>
-                    <textarea id="description" name="description" placeholder="Description" required></textarea>
+                    <textarea id="description"  placeholder="Description" title="Enter the description of the product" required></textarea>
                     <br>
                     <br>
                     <label id="cat-label">Select category:</label>
-                    <select id="category-select">
+                    <select id="category-select" title="Select the category it belongs to">
                       <option>Category 1</option>
                       <option>Category 2</option>
                       <option>Category 3</option>
@@ -59,15 +59,28 @@
         <div class="col-2"></div>
   </div>
 
-  <div class="row">
+  <div class="row user-form">
     <div class="col-2"></div>
     <div class="col-8">
+      <h3>Select alternatives: </h3>
       <hr>
     </div>
     <div class="col-2"></div>
   </div>
+
  <script src="/js/jquery.js" type="text/javascript"></script>
         <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
-        <script src="/js/alterbit.js" type="text/javascript"></script>
+        <script src="/js/alterbit.js" type="text/javascript">
+</script>
+<script>
+var tooltips = $( "[title]" ).tooltip({
+  position: {
+    my: "left top",
+    at: "right+10 top+1",
+    collision: "none"
+  }
+});
+</script>
+
 </body>
 </html>
