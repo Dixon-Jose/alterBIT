@@ -61,7 +61,7 @@
 
 <div class="row footer" name="src-foot">
       <div class="col-10 footer" >
-          <p>Designed by: <a href="">&nbsp;Aniruddha</a>&nbsp;and<a href="https://github.com/Dixon-Jose">&nbsp;Dixon</a></p>
+          <p>Designed by: <a href="https://github.com/fuddi-iyer">&nbsp;Aniruddha</a>&nbsp;and<a href="https://github.com/Dixon-Jose">&nbsp;Dixon</a></p>
       </div>
       <div class="col-2 footer">
           <a href="https://github.com/Dixon-Jose/alterBIT" title="github"></a>
