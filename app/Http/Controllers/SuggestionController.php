@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Suggestion;
+use App\Entity;
 use Illuminate\Http\Request;
 
 class SuggestionController extends Controller
 {
+    public function view(){
+        $categories=Entity::distinct()->get(['category']);
+        return view ('suggestions',['categories' => $categories]);
+    }
     /**
      * Display a listing of the resource.
      *

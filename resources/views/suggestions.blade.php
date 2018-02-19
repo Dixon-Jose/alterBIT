@@ -38,8 +38,6 @@
                   <form method="post" action="{{ route('suggestionsInput') }}">
 
                      {{csrf_field()}}
-
-
                     <br>
                     <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
                     <br>
@@ -48,12 +46,13 @@
                     <br>
                     <label id="cat-label">Select category:</label>
                     <select id="category-select">
-                      <option>Category 1</option>
-                      <option>Category 2</option>
-                      <option>Category 3</option>
+                    @foreach($categories as $category)
+                   
+                      <option> {{$category->toArray()[0]}}</option>
+                    @endforeach  
                     </select>
                     <br>
-                    <input type="submit" id="submit" value="Next">
+                    <input type="submit" id="next" value="Next">
                   </form>
         </div>
         <div class="col-2"></div>
