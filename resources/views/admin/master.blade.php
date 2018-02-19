@@ -6,8 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- CSRF Token
-    <meta name="csrf-token" content="{{ csrf_token() }}"> -->
     <link rel="stylesheet/less" type="text/css" href="/css/main.less">
       <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -100,13 +98,6 @@
       </div>
 <div class="col-2"></div>
 </div>
-
-
-
-
- <!-- Authentication Links -->
-
-
 
  <script src="/js/jquery.js" type="text/javascript"></script>
         <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>

@@ -8,7 +8,7 @@ use App\Entity;
 
 function getElement($key,$q){
     //search and return the collection
-        return Entity::where($key,'like','%'.strtolower($q).'%')->get();;
+        return Entity::where($key,'like','%'.strtolower($q).'%')->get();
     }
 
 class entityController extends Controller
@@ -25,14 +25,15 @@ class entityController extends Controller
             $terms[$key]=array(
                 'label'=>$element->name,
                 'value'=>$element->name,
-                'id'=>$element->_id
+                'id'=>$element->_id,
+                'category'=>$element->category
             );
             return $terms;
         }
     }
     public function index(Request $request)
     {
-        // find using keyword and return search view or an error message
+        // find using keyword and return search view with elements and tags or an error message
       if($request->input('q')){
           if(strtolower($request->input('q'))==='all'){
               $elements=Entity::all();
@@ -41,7 +42,7 @@ class entityController extends Controller
         }    
       else{
           if($request->input('tag'))
-              $elements=getElement("tags",$request->input('tag'));
+              $elements=Entity::where('tags',strtolower($request->input('tag')))->get();
           }
       if(count($elements)===0){
             $error=array(
@@ -50,27 +51,35 @@ class entityController extends Controller
             );
             return view ('home')->with($error);
       }
-            return view ('search',['entities' => $elements]);
+            $key=0;
+            foreach($elements as $entity){
+                foreach($entity->tags as $tag){
+                    $tags[$key++]=$tag;
+                }
+            }
+            return view ('search',['entities' => $elements,'tags' => array_unique($tags)]);
     
     return redirect()->route('home');
     }
 
-    public function show($id)
+    public function show($category,$id)
     {
-        //get the id from the search view and return the view with all the data of elemetents
+        //get the id from the search view and return the view with all the data of elements
         // + parse the alternatives into array within a array
 
-        if(isset($id)){
+        if(isset($id)&&isset($category)){
             $entity=Entity::find($id);
-        if(empty($entity)){
+        if(empty($entity)||!$entity->category==$category){
             return redirect()->route('home');
-        }else{
+        }
+        else{
         foreach($entity->alternatives as $key => $alter){
             $alternative=Entity::find($alter);
             $alternatives[$key]=array(
                 "id"=>$alternative->_id,
                 "name"=>$alternative->name,
-                "description"=>$alternative->description
+                "description"=>$alternative->description,
+                "category"=>$alternative->category
             );
         }
         return view ('entity',['entity' => $entity,'alternatives'=>$alternatives]);

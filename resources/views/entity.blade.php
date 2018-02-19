@@ -21,14 +21,7 @@
       <div class="col-12 menu-bar">
             <a title="alterbit-home" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
       </div>
-      <!-- <div class="col-12 menu">
-          <form method="get" action="{{ route('search') }}">
-          <input type="search" placeholder="Search" id="search" name="q">
-          </form>
-      </div> -->
   </div>
-
-
       <div class="row">
           <div class="col-1"></div>
             <div class="col-10 src-page-bar">
@@ -64,7 +57,7 @@
             <div class="col-2 card">
                 <h3>{{$alternative['name']}}</h3>
                 <p>  {{substr($alternative['description'],0,100)}}</p>
-                <a href="{{route('entity',['id'=> $alternative['id']])}}">Check out</a>
+                <a href="{{route('entity',['category'=>$alternative['category'],'id'=> $alternative['id']])}}">Check out</a>
             </div>
             @endforeach
       </div>
@@ -94,7 +87,7 @@
 
       <div class="row footer">
           <div class="col-10 footer" >
-              <p>Designed by: <a href="">&nbsp;Aniruddha</a>&nbsp;and<a href="https://github.com/Dixon-Jose" target="_blank">&nbsp;Dixon</a></p>
+              <p>Designed by: <a href="https://github.com/fuddi-iyer">&nbsp;Aniruddha</a>&nbsp;and<a href="https://github.com/Dixon-Jose" target="_blank">&nbsp;Dixon</a></p>
           </div>
           <div class="col-2 footer">
               <a href="https://github.com/Dixon-Jose/alterBIT" title="github"></a>

@@ -34,7 +34,6 @@ Route::post('entityDelete','AdminController@show')->name('entityDelete');
 
 Auth::routes();
 
-Route::get('/entity/{id}','EntityController@show')->name('entity');
 
 Route::get('register',function(){
   return view('auth.register');
@@ -43,3 +42,5 @@ Route::get('register',function(){
 Route::get('update',function(){
   return view('admin.update');
 })->name('update');
+
+Route::get('/{category}/{id}','EntityController@show')->name('entity');
