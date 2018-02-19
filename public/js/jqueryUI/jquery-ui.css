@@ -695,6 +695,7 @@ button.ui-button::-moz-focus-inner {
 	display: none;
 }
 .ui-selectmenu-menu .ui-menu {
+	font-size: 1.5em;
 	overflow: auto;
 	overflow-x: hidden;
 	padding-bottom: 1px;
@@ -716,12 +717,13 @@ button.ui-button::-moz-focus-inner {
 	margin-right: 20px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	font-size: 1.1em;
 }
 .ui-selectmenu-button.ui-button {
 	text-align: left;
 	white-space: nowrap;
 	width: 10em;
-font-size: 130%;
+	font-size: 130%;
 }
 .ui-selectmenu-icon.ui-icon {
 	float: right;
@@ -895,6 +897,7 @@ body .ui-tooltip {
 	font-family: 'Raleway', sans-serif;
 	font-size:2.1em;
 }
+
 .ui-widget .ui-widget {
 font-size: 0.5em;
 }

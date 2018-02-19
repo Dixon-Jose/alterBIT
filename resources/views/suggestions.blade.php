@@ -38,10 +38,8 @@
                   <form method="post" action="{{ route('suggestionsInput') }}">
 
                      {{csrf_field()}}
-
-
                     <br>
-                    <input type="text" name="name" name="name" placeholder="Name (of the alternative/entity)" title="Enter the name of the product" required>
+                    <input type="text" class="name" placeholder="Name (of the alternative/entity)" title="Enter the name of the product" required>
                     <br>
                     <textarea id="description"  placeholder="Description" title="Enter the description of the product" required></textarea>
                     <br>
