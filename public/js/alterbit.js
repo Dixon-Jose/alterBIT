@@ -123,3 +123,5 @@ $( "#accord1" ).accordion({
 });
 
 $('#category-select').selectmenu();
+
+  

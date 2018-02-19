@@ -20,7 +20,7 @@
   </div>
 
   <div class="row">
-    <div class="col-11"></div>
+    <div class="col-10"></div>
     <div class="col-1">
         <div class="link">
           <li class="dropdown">
@@ -56,13 +56,13 @@
                       <form method="post" action="{{ route('entityInsert') }}">
                          {{csrf_field()}}
                         <br>
-                        <input type="text" name="name" placeholder="Name (of the alternative/entity)" required>
+                        <input type="text" class="admin-name" placeholder="Name (of the alternative/entity)" required>
                         <br>
                         <textarea name="description" placeholder="Description" required></textarea>
                         <br>
                         <input type="text" id="alternative" name="alternatives" placeholder="Alternative of (if any)" multiple>
                         <br>
-                        <input type="text" name="imgurl" placeholder="ImageURL">
+                        <input type="text" class="admin-name" placeholder="ImageURL">
                         <br>
                         <input type="text" name="tags" placeholder="Tags">
                         <br>
@@ -77,7 +77,7 @@
                           <form method="post" action="{{ route('suggestionsInput') }}">
                              {{csrf_field()}}
                             <br>
-                            <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
+                            <input type="text" id="name" class="admin-name" placeholder="Name (of the alternative/entity)" required>
                             <br>
                             <input type="submit" id="submit" value="Delete">
                           </form>
@@ -88,7 +88,7 @@
                                 <form method="post" action="{{ route('suggestionsInput') }}">
                                    {{csrf_field()}}
                                   <br>
-                                  <input type="text" id="name" name="name" placeholder="Name (of the alternative/entity)" required>
+                                  <input type="text" id="name" class="admin-name" placeholder="Name (of the alternative/entity)" required>
                                   <br>
                                   <a href=""><input type="button" id="submit" value="Go"></a>
                                 </form>
