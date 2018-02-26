@@ -39,32 +39,51 @@
 
                      {{csrf_field()}}
                     <br>
-                    <input type="text" class="name" placeholder="Name (of the alternative/entity)" title="Enter the name of the product" required>
+                    <input type="text" class="name" placeholder="Name (of the alternative/entity)" name="name" title="Enter the name of the product" required>
                     <br>
-                    <textarea id="description"  placeholder="Description" title="Enter the description of the product" required></textarea>
+                    <textarea id="description"  placeholder="Description" name="description" title="Enter the description of the product" required></textarea>
                     <br>
                     <br>
                     <label id="cat-label">Select category:</label>
-                    <select id="category-select" title="Select the category it belongs to">
+                    <select id="category-select" name="category" title="Select the category it belongs to">
+                    <option> -- </option>
                     @foreach($categories as $category)
                    
                       <option> {{$category->toArray()[0]}}</option>
                     @endforeach  
                     </select>
                     <br>
-                    <input type="submit" id="next" value="Next">
-                  </form>
-        </div>
-        <div class="col-2"></div>
-  </div>
+                    <div id="alternatives" style="display:none">
+                        <div class="row user-form">
+                            <div class="col-2"></div>
+                            <div class="col-8">
+                              <h3>Select alternatives: </h3>
+                              <hr>
+                                <div class="row">
+                                  <div class="col-12 alter">
+                                    <div class="col-2"></div>
 
-  <div class="row user-form">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <h3>Select alternatives: </h3>
-      <hr>
-    </div>
-    <div class="col-2"></div>
+                                  </div>
+                                </div>
+
+
+                                <div class="row">
+                                  <div class="col-2"></div>
+                                  <div class="col-8"></div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-2"></div>
+                                  <div class="col-8"><hr /></div>
+                                </div>
+                              </div>
+                              <div class="col-2"></div>
+                            </div>
+                    </div>
+                    <input type="submit" id="submit" value="submit">
+                  </form>
+                      </div>
+        <div class="col-2"></div>
   </div>
 
  <script src="/js/jquery.js" type="text/javascript"></script>

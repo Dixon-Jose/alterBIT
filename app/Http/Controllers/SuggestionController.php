@@ -50,7 +50,7 @@ class SuggestionController extends Controller
      * @param  \App\Suggestion  $suggestion
      * @return \Illuminate\Http\Response
      */
-    public function show(Suggestion $suggestion)
+    public function show(Request $request)
     {
         //
     }

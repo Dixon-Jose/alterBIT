@@ -16,6 +16,7 @@ Route::get('search',[
 ])->name('search');
 
 Route::get('autocomplete','EntityController@autoComplete')->name('autocomplete');
+Route::get('category',"EntityController@category")->name('category');
 
 Route::get('admin',function(){
   if(!auth::check())
@@ -25,7 +26,7 @@ Route::get('admin',function(){
 })->name('admin');
 
 Route::get('suggest','SuggestionController@view')->name('suggest');
-Route::post('suggest','SuggestionController@store')->name('suggestionsInput');
+Route::post('suggest','SuggestionController@show')->name('suggestionsInput');
 
 Route::post('entityInsert','AdminController@store')->name('entityInsert');
 Route::post('entityDelete','AdminController@show')->name('entityDelete');
