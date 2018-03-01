@@ -1,4 +1,5 @@
 # alterBIT   [![Build Status](https://travis-ci.org/your/repo.svg?branch=master)](https://travis-ci.org/your/repo)
+
 Web Application to find alternatives.
 
 The latest trend  of using unconventional resources shouldn't stop at large projects like fuel for car or electricity. We can find alternatives for even the smallest of things, be it applications we use, medicines we take, and  the ingredients we cook. There are always some alternatives present which can work in the same if not a better way, while  being cheaper and more accessible. AlterBIT aims to provide information about these unsung heroes.
