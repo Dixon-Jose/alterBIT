@@ -41,7 +41,8 @@ class entityController extends Controller
     public function index(Request $request)
     {
         // find using keyword and return search view with elements and tags or an error message
-      if($request->input('q')){
+        $elements=[];
+        if(!empty($request->input('q'))){
           if(strtolower($request->input('q'))==='all'){
               $elements=Entity::all();
           }else
