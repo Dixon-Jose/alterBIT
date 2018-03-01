@@ -1,4 +1,4 @@
-# alterBIT   [![Build Status](https://travis-ci.org/your/repo.svg?branch=master)](https://travis-ci.org/your/repo)
+# alterBIT   [![Build Status](https://travis-ci.org/Dixon-Jose/alterBIT.svg?branch=master)](https://travis-ci.org/Dixon-Jose/alterBIT)
 
 Web Application to find alternatives.
 
