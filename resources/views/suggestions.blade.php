@@ -35,7 +35,7 @@
         <div class="col-8 user-form">
                   <h3>Enter new alternative: </h3>
                   <hr>
-                  <form method="post" action="{{ route('suggestionsInput') }}">
+                  <form method="post" action="{{ route('suggestionsInput') }}" enctype="multipart/form-data">
 
                      {{csrf_field()}}
                     <br>
@@ -45,8 +45,8 @@
                     <br>
                     <br>
                     <label id="cat-label">Select category:</label>
-                    <select id="category-select" name="category" title="Select the category it belongs to">
-                    <option> -- </option>
+                    <select id="category-select" name="category" title="Select the category it belongs to" required>
+                    <option value=" " disabled selected style="display:none"></option>
                     @foreach($categories as $category)
                    
                       <option> {{$category->toArray()[0]}}</option>
@@ -80,6 +80,7 @@
                               <div class="col-2"></div>
                             </div>
                     </div>
+                    <input type="file" id="img" name="image">
                     <input type="submit" id="submit" value="submit">
                   </form>
                       </div>

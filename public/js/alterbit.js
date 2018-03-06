@@ -125,11 +125,10 @@ $( "#accord1" ).accordion({
 $('#category-select').selectmenu({
   change: function(event,ui){
     $.getJSON("/category?category=" + ui.item.value,function(data){
-      console.log(data[0].name);
       $('#alternatives').css('display','block');
       $('.card').remove();
       for(i=0;i<data.length;i++){
       $('.alter').append('<div class="col-2 card"><h3>'+data[i].name+'</h3><p>'+data[i].description.substr(0,100)+'</p></div>');}
     });
   }
-});  
+});

@@ -52,7 +52,24 @@ class SuggestionController extends Controller
      */
     public function show(Request $request)
     {
-        //
+        $data=fread(fopen($request->image,"r"),filesize($request->image));
+        $payload=array('image'=> base64_encode($data));
+        $client_id='88fd52d307ecce4';
+        $curl=curl_init();
+        $options=array(
+            CURLOPT_URL => 'https://api.imgur.com/3/image',
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTPHEADER => array('Authorization: Client-ID ' . $client_id),
+            CURLOPT_POST => 1,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_POSTFIELDS => $payload
+        );
+        return $options;
+        curl_setopt_array($curl,$options);
+        // $imgurResponse=curl_exec($curl);
+        
+
+        
     }
 
     /**
