@@ -693,6 +693,7 @@ button.ui-button::-moz-focus-inner {
 	top: 0;
 	left: 0;
 	display: none;
+
 }
 .ui-selectmenu-menu .ui-menu {
 	font-size: 1.5em;
@@ -722,7 +723,7 @@ button.ui-button::-moz-focus-inner {
 .ui-selectmenu-button.ui-button {
 	text-align: left;
 	white-space: nowrap;
-	width: 10em;
+	width: 15em;
 	font-size: 130%;
 }
 .ui-selectmenu-icon.ui-icon {

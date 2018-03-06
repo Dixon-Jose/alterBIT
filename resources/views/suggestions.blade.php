@@ -47,9 +47,9 @@
                     <label id="cat-label">Select category:</label>
                     <select id="category-select" title="Select the category it belongs to">
                     @foreach($categories as $category)
-                   
+
                       <option> {{$category->toArray()[0]}}</option>
-                    @endforeach  
+                    @endforeach
                     </select>
                     <br>
                     <input type="submit" id="next" value="Next">
@@ -60,9 +60,11 @@
 
   <div class="row user-form">
     <div class="col-2"></div>
-    <div class="col-8">
+    <div class="col-7">
       <h3>Select alternatives: </h3>
-      <hr>
+    </div>
+    <div class="col-1">
+        <a>Filter</a>
     </div>
     <div class="col-2"></div>
   </div>
