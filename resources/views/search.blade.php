@@ -32,7 +32,6 @@
   <div class="row">
         <div class="col-1"></div>
         <div class="col-10 src-tags">
-            <!-- <p>Tags:</p> -->
               @foreach($tags as $tag)
               <a href="{{route('search',['tag'=>$tag])}}">{{$tag}}</a>
               @endforeach

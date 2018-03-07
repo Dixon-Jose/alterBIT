@@ -530,6 +530,7 @@ input[type="submit"]{
   transition: 500ms ease-in 50ms;
   border-radius:2%;
   color: @font-color;
+  min-height: 15em;
   &:hover{
     border: 1px solid black;
   }
@@ -666,7 +667,7 @@ input[type="submit"]{
 
 /* Search page end*/
 
-/* Input page*/
+/* Suggestions page*/
 
 .user-form{
   background-color: @body-color;
@@ -779,18 +780,44 @@ input[type="submit"]{
 
 }
 
-.sugg-page-bar{
-  input[type="search"]{
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid lightgrey;
-    margin-top:2em;
-    font-size: 150%;
-    .roboto;
-    background: transparent;
-    color: @font-color;
-  }
+.sugg-page-form{
+background-image: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+  margin-top: 0em;
+  h3{
+        .roboto;
+    }
+    .sugg-page-bar{
+      input[type="search"]{
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid lightgrey;
+        font-size: 150%;
+        .roboto;
+        background: transparent;
+        color: @font-color;
+      }
+    }
+    input[type="search"]{
+      .raleway;
+      border: 1px solid lightgrey;
+      font-size: 143%;
+      padding: 1%;
+      width: 17em;
+      border-radius: 2%;
+      transition: 500ms ease-out;
+      &:hover{
+        border: 1px solid black;
+      }
+    }
+    input[type="button"]{
+      font-size: 110%;
+      padding: 1%;
+      margin-left: 41.66%;
+    }
+
 }
+
+
 
 
 /* Login Form*/

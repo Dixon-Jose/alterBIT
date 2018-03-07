@@ -44,47 +44,43 @@
                     <textarea id="description"  placeholder="Description" name="description" title="Enter the description of the product" required></textarea>
                     <br>
                     <br>
-                    <label id="cat-label">Select category:</label>
+                    <label id="cat-label">Select category:</label><br><br>
                     <select id="category-select" name="category" title="Select the category it belongs to" required>
                     <option value=" " disabled selected style=""></option>
                     @foreach($categories as $category)
-
                       <option> {{$category->toArray()[0]}}</option>
                     @endforeach
                     </select>
-                    <!-- <br> -->
+          </div>
+          <div class="col-2"></div>
+        </div>
+        <div class="row sugg-page-form">
+          <div class="col-2"></div>
+          <div class="col-8">
                     <div id="alternatives" style="display:none">
-                        <div class="row user-form">
-                              <div class="col-12">
                                   <h3>Select alternatives: </h3>
-                              </div>
 
-                        <!-- <hr> -->
+                              <div class="controlgroup">
 
-                        <!-- <div class="row"> -->
-                              <div class="col-10 sugg-page-bar">
-                                      <form method="get" action="{{ route('search') }}">
-                                      <input type="search" placeholder="Search specific alternative" id="search" name="q">
-                                      </form>
-                              </div>
-                      <!-- </div> -->
+                                <input type="search" id="search" placeholder="Search">
 
-                        <!-- <div class="row"> -->
-                          <div class="col-12 alter">
+                                <select id="alternative-select" name="alt-select" required>
+                                    <option>Select one</option>
+                                    <option>Select with all the alternatives</option>
+                              </select>
+
+                            </div>
+                          <div class=" alter">
                           </div>
-                        <!-- </div> -->
-<!--
-                        <div class="row">
-                          <div class="col-12"><hr/></div>
-                        </div> -->
-
-                      </div>
+                          <input type="button" value="Done">
                     </div>
+            </div>
+            <div class="col-2"></div>
+
+
                     <input type="file" id="img" name="image">
                     <input type="submit" id="submit" value="submit">
                   </form>
-                      </div>
-        <div class="col-2"></div>
   </div>
 
  <script src="/js/jquery.js" type="text/javascript"></script>

@@ -128,7 +128,13 @@ $('#category-select').selectmenu({
       $('#alternatives').css('display','block');
       $('.card-sugg').remove();
       for(i=0;i<data.length;i++){
-      $('.alter').append('<div class="col-3 card-sugg"><h3>'+data[i].name+'</h3><p>'+data[i].description.substr(0,100)+'</p><form><input type="radio" name="selection" >Select.<br><input type="radio" name="selection" >Select all.</form></div>');}
+      $('.alter').append('<div class="col-3 card-sugg"><h3>'+data[i].name+'</h3><p>'+data[i].description.substr(0,100)+'</p><input type="radio" name="selection" >Select</div>');}
     });
+
+    $('html,body').animate({
+        scrollTop: $(".sugg-page-form").offset().top},
+        'slow');
   }
 });
+
+$( ".controlgroup" ).controlgroup();
