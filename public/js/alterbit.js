@@ -126,9 +126,12 @@ $('#category-select').selectmenu({
   change: function(event,ui){
     $.getJSON("/category?category=" + ui.item.value,function(data){
       $('#alternatives').css('display','block');
-      $('.card-sugg').remove();
-      for(i=0;i<data.length;i++){
-      $('.alter').append('<div class="col-3 card-sugg"><h3>'+data[i].name+'</h3><p>'+data[i].description.substr(0,100)+'</p><input type="radio" name="selection" >Select</div>');}
+      $('.card-sugg,.cat-tag').remove();
+      for(i=0;i<data.tags.length;i++){
+        $('.src-tags').append('<a href="" class="cat-tag">'+data.tags[i]+'</a>');
+      }
+      for(i=0;i<data.terms.length;i++){
+      $('.alter').append('<div class="col-3 card-sugg"><h3>'+data.terms[i].name+'</h3><p>'+data.terms[i].description.substr(0,100)+'</p><input type="checkbox" name="selection" >Select</div>');}
     });
 
     $('html,body').animate({
