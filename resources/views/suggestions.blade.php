@@ -35,38 +35,56 @@
         <div class="col-8 user-form">
                   <h3>Enter new alternative: </h3>
                   <hr>
-                  <form method="post" action="{{ route('suggestionsInput') }}">
+                  <form method="post" action="{{ route('suggestionsInput') }}" enctype="multipart/form-data">
 
                      {{csrf_field()}}
                     <br>
-                    <input type="text" class="name" placeholder="Name (of the alternative/entity)" title="Enter the name of the product" required>
+                    <input type="text" class="name" placeholder="Name (of the alternative/entity)" name="name" title="Enter the name of the product" required>
                     <br>
-                    <textarea id="description"  placeholder="Description" title="Enter the description of the product" required></textarea>
+                    <textarea id="description"  placeholder="Description" name="description" title="Enter the description of the product" required></textarea>
                     <br>
                     <br>
                     <label id="cat-label">Select category:</label>
-                    <select id="category-select" title="Select the category it belongs to">
+                    <select id="category-select" name="category" title="Select the category it belongs to" required>
+                    <option value=" " disabled selected style=""></option>
                     @foreach($categories as $category)
 
                       <option> {{$category->toArray()[0]}}</option>
                     @endforeach
                     </select>
-                    <br>
-                    <input type="submit" id="next" value="Next">
-                  </form>
-        </div>
-        <div class="col-2"></div>
-  </div>
+                    <!-- <br> -->
+                    <div id="alternatives" style="display:none">
+                        <div class="row user-form">
+                              <div class="col-12">
+                                  <h3>Select alternatives: </h3>
+                              </div>
 
-  <div class="row user-form">
-    <div class="col-2"></div>
-    <div class="col-7">
-      <h3>Select alternatives: </h3>
-    </div>
-    <div class="col-1">
-        <a>Filter</a>
-    </div>
-    <div class="col-2"></div>
+                        <!-- <hr> -->
+
+                        <!-- <div class="row"> -->
+                              <div class="col-10 sugg-page-bar">
+                                      <form method="get" action="{{ route('search') }}">
+                                      <input type="search" placeholder="Search specific alternative" id="search" name="q">
+                                      </form>
+                              </div>
+                      <!-- </div> -->
+
+                        <!-- <div class="row"> -->
+                          <div class="col-12 alter">
+                          </div>
+                        <!-- </div> -->
+<!--
+                        <div class="row">
+                          <div class="col-12"><hr/></div>
+                        </div> -->
+
+                      </div>
+                    </div>
+                    <input type="file" id="img" name="image">
+                    <input type="submit" id="submit" value="submit">
+                  </form>
+                      </div>
+        <div class="col-2"></div>
   </div>
 
  <script src="/js/jquery.js" type="text/javascript"></script>

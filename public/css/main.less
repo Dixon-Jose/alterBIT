@@ -524,6 +524,32 @@ input[type="submit"]{
           }
       }
 
+.card-sugg{
+  border:0.5px solid lightgrey;
+  background-color: @body-color;
+  transition: 500ms ease-in 50ms;
+  border-radius:2%;
+  color: @font-color;
+  &:hover{
+    border: 1px solid black;
+  }
+
+  h3 {
+    .open-sans;
+  }
+
+  p{
+    .raleway;
+  }
+  form{
+    .raleway;
+  }
+
+
+
+}
+
+
 
 .footer{
 
@@ -751,6 +777,19 @@ input[type="submit"]{
         }
   }
 
+}
+
+.sugg-page-bar{
+  input[type="search"]{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    margin-top:2em;
+    font-size: 150%;
+    .roboto;
+    background: transparent;
+    color: @font-color;
+  }
 }
 
 

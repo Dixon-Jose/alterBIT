@@ -31,10 +31,18 @@ class entityController extends Controller
             return $terms;
         }
     }
+
+    //json endpoint for the suggest route to provide alternatives matching the category
+    public function category(Request $request){
+        if($request->input('category')){
+            return $elements=Entity::where('category',$request->category)->get();
+        }
+    }
     public function index(Request $request)
     {
         // find using keyword and return search view with elements and tags or an error message
-      if($request->input('q')){
+        $elements=[];
+        if(!empty($request->input('q'))){
           if(strtolower($request->input('q'))==='all'){
               $elements=Entity::all();
           }else

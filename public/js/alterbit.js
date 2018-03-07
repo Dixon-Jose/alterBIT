@@ -122,6 +122,13 @@ $( "#accord1" ).accordion({
   animate: 500
 });
 
-$('#category-select').selectmenu();
-
-  
+$('#category-select').selectmenu({
+  change: function(event,ui){
+    $.getJSON("/category?category=" + ui.item.value,function(data){
+      $('#alternatives').css('display','block');
+      $('.card-sugg').remove();
+      for(i=0;i<data.length;i++){
+      $('.alter').append('<div class="col-3 card-sugg"><h3>'+data[i].name+'</h3><p>'+data[i].description.substr(0,100)+'</p><form><input type="radio" name="selection" >Select.<br><input type="radio" name="selection" >Select all.</form></div>');}
+    });
+  }
+});

@@ -1,0 +1,18 @@
+language: php
+
+php:
+- '7.0'
+
+before_install:
+- pecl install mongodb
+- echo "extension=mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+- composer self-update
+
+install: 
+- composer install --no-interaction
+
+before_script:
+- phpenv rehash
+- cp .env.travis .env
+- mysql -e 'create database alterbit;'
+- php artisan key:generate
