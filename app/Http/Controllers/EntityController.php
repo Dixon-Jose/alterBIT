@@ -35,18 +35,15 @@ class entityController extends Controller
     //json endpoint for the suggest route to provide alternatives matching the category
     public function category(Request $request){
         if($request->input('category')){
+            if($request->input('tag')){
+                $elements=Entity::where('category',$request->category)->where('tags',$request->tag)->get();
+            }
+            else
             $elements=Entity::where('category',$request->category)->get();
-            $key=0;$tags=[];
+            $key=0;
             foreach($elements as $entity){
                 foreach($entity->tags as $tag){
-                    $duplicate=0;
-                    foreach($tags as $t=>$intag)
-                        if($tags[$t]==$tag){
-                            $duplicate=1;
-                            break;
-                        }
-                    if($duplicate==0){    
-                    $tags[$key++]=$tag;}
+                    $tags[$key++]=$tag;
                 }
             }
             foreach($elements as $key => $element)
@@ -54,7 +51,7 @@ class entityController extends Controller
                 'name'=>$element->name,
                 'description'=>$element->description
             );
-            return array('terms'=>$terms,'tags'=>$tags);
+            return array('terms'=>$terms,'tags'=>array_keys(array_flip($tags)));
         }
     }
     public function index(Request $request)
