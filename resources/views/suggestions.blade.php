@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet/less" type="text/css" href="/css/main.less">
-      <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
-
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
     <script src="/js/less.js" type="text/javascript">
     </script>
 </head>
@@ -87,7 +86,7 @@
   <div class="row">
     <div class="col-2"></div>
     <div class="col-8">
-            <input type="file" id="img" name="image">
+                <input type="file" id="img" name="image">
             <input type="submit" id="submit" value="submit">
           </form>
         </div>
