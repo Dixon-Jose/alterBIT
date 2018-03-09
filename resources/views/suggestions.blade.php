@@ -70,6 +70,13 @@
                               </select>
 
                             </div>
+
+        <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 src-tags">
+        </div>
+    </div>
+
                           <div class=" alter">
                           </div>
                           <input type="button" value="Done">

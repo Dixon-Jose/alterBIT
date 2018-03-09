@@ -1,8 +1,6 @@
+$(document).ready(function(){
 
-
-
-
-$('#submit').click(function () {
+  $('#submit').click(function () {
   if (!confirm("Are you sure ?")) {
     return false;
   };
@@ -124,17 +122,39 @@ $( "#accord1" ).accordion({
 
 $('#category-select').selectmenu({
   change: function(event,ui){
-    $.getJSON("/category?category=" + ui.item.value,function(data){
+    $.getJSON("/category?category="+ui.item.value ,function(data){
       $('#alternatives').css('display','block');
-      $('.card-sugg').remove();
-      for(i=0;i<data.length;i++){
-      $('.alter').append('<div class="col-3 card-sugg"><h3>'+data[i].name+'</h3><p>'+data[i].description.substr(0,100)+'</p><input type="radio" name="selection" >Select</div>');}
-    });
-
-    $('html,body').animate({
-        scrollTop: $(".sugg-page-form").offset().top},
+      $('.card-sugg,.cat-tag').remove();
+      for(i=0;i<data.tags.length;i++){
+        $('.src-tags').append('<a href="" class="cat-tag" style="display:none">'+data.tags[i]+'</a>');
+        $('.cat-tag').fadeIn("slow");
+      }
+      for(i=0;i<data.terms.length;i++){
+       $('.alter').append('<div class="col-3 card-sugg"><h3>'+data.terms[i].name+'</h3><p>'+data.terms[i].description.substr(0,100)+'</p><input type="button" value="Select" ></div>');
+      } 
+      
+       $('html,body').animate({
+         scrollTop: $("#cat-label").offset().top
+      },
         'slow');
+    });
   }
 });
 
+$('body').on('click','.cat-tag',function(event){
+  event.preventDefault();
+  $category=$('#category-select').val();
+  $.getJSON("/category?category=" + $category,"tag="+this.innerHTML,function(data){
+    $('.card-sugg,.cat-tag').remove();
+    for (i = 0; i < data.tags.length; i++) {
+      $('.src-tags').append('<a href="" class="cat-tag" style="display:none">' + data.tags[i] + '</a>');
+      $('.cat-tag').fadeIn("slow");
+    }
+    for (i = 0; i < data.terms.length; i++) {
+      $('.alter').append('<div class="col-3 card-sugg"><h3>' + data.terms[i].name + '</h3><p>' + data.terms[i].description.substr(0, 100) + '</p><input type="button" value="Select" ></div>');
+    } 
+  });
+});
+
 $( ".controlgroup" ).controlgroup();
+});
