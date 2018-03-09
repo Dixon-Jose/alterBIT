@@ -15,7 +15,7 @@
             <div class="col-10">
               <table>
                 <tr>
-                    <th><a href="">Search</a></th>
+                    <th><a href="" id="src">Search</a></th>
                     <th><a href="">Forum</a></th>
                     <th><a href="{{ route('suggest') }}">Suggest</a></th>
               </tr>
