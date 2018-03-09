@@ -120,11 +120,15 @@ $( "#accord1" ).accordion({
   animate: 500
 });
 
+
+tags=[];
+
 $('#category-select').selectmenu({
   change: function(event,ui){
     $.getJSON("/category?category="+ui.item.value ,function(data){
       $('#alternatives').css('display','block');
       $('.card-sugg,.cat-tag').remove();
+      tags=[];
       for(i=0;i<data.tags.length;i++){
         $('.src-tags').append('<a href="" class="cat-tag" style="display:none">'+data.tags[i]+'</a>');
         $('.cat-tag').fadeIn("slow");
@@ -144,12 +148,20 @@ $('#category-select').selectmenu({
 $('body').on('click','.cat-tag',function(event){
   event.preventDefault();
   $category=$('#category-select').val();
+  tags.push(this.innerHTML);
+  console.log(tags);
   $.getJSON("/category?category=" + $category,"tag="+this.innerHTML,function(data){
     $('.card-sugg,.cat-tag').remove();
     for (i = 0; i < data.tags.length; i++) {
       $('.src-tags').append('<a href="" class="cat-tag" style="display:none">' + data.tags[i] + '</a>');
       $('.cat-tag').fadeIn("slow");
     }
+    $('.cat-tag').each(function(){
+      if($.inArray(this.innerHTML,tags)>=0){
+        console.log($(this).html());
+        $(this).css("color","black");
+      }
+    });
     for (i = 0; i < data.terms.length; i++) {
       $('.alter').append('<div class="col-3 card-sugg"><h3>' + data.terms[i].name + '</h3><p>' + data.terms[i].description.substr(0, 100) + '</p><input type="button" value="Select" ></div>');
     } 
