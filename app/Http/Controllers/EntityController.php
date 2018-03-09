@@ -35,9 +35,10 @@ class entityController extends Controller
     //json endpoint for the suggest route to provide alternatives matching the category
     public function category(Request $request){
         if($request->input('category')){
-            if($request->input('tag')){
-                $elements=Entity::where('category',$request->category)->where('tags',$request->tag)->get();
-            }
+            if($request->input('tags')){
+                $t=explode(',',$request->tags);
+                $elements=Entity::where('category',$request->category)->where('tags','all',$t)->get();
+            }   
             else
             $elements=Entity::where('category',$request->category)->get();
             $key=0;
