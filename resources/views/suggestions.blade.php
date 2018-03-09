@@ -54,10 +54,10 @@
           </div>
           <div class="col-2"></div>
         </div>
-        <div class="row sugg-page-form">
-          <div class="col-2"></div>
+        <div class="row sugg-page-form"  id="alternatives" style="display:none">
+          <div class="col-2 "></div>
           <div class="col-8">
-                    <div id="alternatives" style="display:none">
+                    <div >
                                   <h3>Select alternatives: </h3>
 
                               <div class="controlgroup">
@@ -83,12 +83,15 @@
                     </div>
             </div>
             <div class="col-2"></div>
-
-
-                    <input type="file" id="img" name="image">
-                    <input type="submit" id="submit" value="submit">
-                  </form>
   </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+            <input type="file" id="img" name="image">
+            <input type="submit" id="submit" value="submit">
+          </form>
+        </div>
+      </div>
 
  <script src="/js/jquery.js" type="text/javascript"></script>
         <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
