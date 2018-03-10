@@ -137,7 +137,25 @@ $(document).ready(function(){
           }); 
         }
     
-    $('#category-select').selectmenu({
+    if($('#category-select').length){
+      $.ajax({
+        url:'/category',
+        success:function(data){
+          for(i=0;i<data.length;i++)
+          $('#category-select').append('<option>'+data[i][0]+'</option');
+        }
+
+      });
+      var tooltips = $("[title]").tooltip({
+        position: {
+          my: "left top",
+          at: "right+10 top+1",
+          collision: "none"
+        }
+      });
+    }
+    $('#category-select')
+    .selectmenu({
       change: function(event,ui){
         $.getJSON("/category?category="+ui.item.value ,function(data){
           $('#alternatives').css('display','block');

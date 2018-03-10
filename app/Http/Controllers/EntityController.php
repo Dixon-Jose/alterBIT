@@ -54,6 +54,9 @@ class entityController extends Controller
             );
             return array('terms'=>$terms,'tags'=>array_keys(array_flip($tags)));
         }
+        else{
+            return Entity::distinct()->get(['category']);
+        }
     }
     public function index(Request $request)
     {

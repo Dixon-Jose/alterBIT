@@ -1,15 +1,9 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <title>alterBIT | The unconventional way of life</title>
-        <!-- Fonts -->
-        @extends('includes.fonts')
-        <link rel="stylesheet/less" type="text/css" href="{{ URL::to('css/main.less')}}">
-        <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
-        <script src="{{URL::to('js/less.js')}}" type="text/javascript"></script>
+  @extends('layouts.app')
+  @section('title','The Unconventional Way Of Life')
 
-    </head>
-    <body>
+  @section('content')
+
+
       <div class="row home-links">
             <div class="col-1 "></div>
             <div class="col-10">
@@ -59,14 +53,12 @@
            <div class="col-2"></div>
         </div>
 
-        <script src="/js/jquery.js" type="text/javascript"></script>
-        <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
+       
         <script>
             function getfocus() {
                 document.getElementById("search").value="";
                 document.getElementById("search").focus();
             }
         </script>
-        <script src="/js/alterbit.js" type="text/javascript"></script>
-    </body>
-</html>
+
+@endsection

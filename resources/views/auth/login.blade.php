@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>alterBIT | Admin </title>
-  @extends('includes.fonts')
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet/less" type="text/css" href="/css/main.less">
-      <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
+  @extends('layouts.app')
+  @section('title','Login')
 
-    <script src="/js/less.js" type="text/javascript">
-    </script>
-</head>
-<body>
-    <div class="row">
-        <div class="col-12 menu-bar">
-              <a title="alterbit-home" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
-        </div>
-    </div>
+  @section('content')
+   @include('includes.navbar')
+    
     <div class="row login">
         <div class="col-3"></div>
         <div class="col-6">
@@ -82,4 +68,4 @@
             </form>
         </div>
     </div>
-</body>
+@endsection

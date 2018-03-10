@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>alterBIT|Search</title>
-  @extends('includes.fonts')
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet/less" type="text/css" href="/css/main.less">
-      <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
+@extends('layouts.app')
+@section('title','Search')
 
-    <script src="/js/less.js" type="text/javascript">
-    </script>
-</head>
-<body>
-
-    <div class="row">
-        <div class="col-12 menu-bar">
-              <a title="alterbit-home" href="{{URL::to('/')}}">alterBiT<span> | The Unconventional Way of Life</span></a>
-        </div>
-    </div>
-
+@section('content')
+@include('includes.navbar')
+   
+   
     <div class="row">
         <div class="col-1"></div>
           <div class="col-10 src-page-bar">
@@ -58,18 +43,5 @@
   </div>
   @endforeach
 
-<div class="row footer" name="src-foot">
-      <div class="col-10 footer" >
-          <p>Designed by: <a href="https://github.com/fuddi-iyer">&nbsp;Aniruddha</a>&nbsp;and<a href="https://github.com/Dixon-Jose">&nbsp;Dixon</a></p>
-      </div>
-      <div class="col-2 footer">
-          <a href="https://github.com/Dixon-Jose/alterBIT" title="github"></a>
-      </div>
-  </div>
-
-        <script src="/js/jquery.js" type="text/javascript"></script>
-        <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
-        <script src="/js/alterbit.js" type="text/javascript"></script>
-
-</body>
-</html>
+@include('includes.footer')
+@endsection
