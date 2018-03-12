@@ -17,8 +17,14 @@
   <div class="row">
         <div class="col-1"></div>
         <div class="col-10 src-tags">
+        @php
+        $selected=[]; 
+        if(!empty($selectedtags)){
+            $selected=$selectedtags;
+        }
+        @endphp
               @foreach($tags as $tag)
-              <a href="{{route('search',['tag'=>$tag])}}">{{$tag}}</a>
+              <a href="{{route('search',['tag'=>$tag,'s'=>implode(",",$selected)])}}">{{$tag}}</a>
               @endforeach
         </div>
   </div>
@@ -42,6 +48,12 @@
       </a>
   </div>
   @endforeach
+
+  <div style="display:none">
+  @for($i=0;$i<sizeof($selected);$i++)
+  {{$selected[$i]}}
+  @endfor
+  </div>
 
 @include('includes.footer')
 @endsection

@@ -30,10 +30,6 @@ function imgurUpload($payload){
 
 class SuggestionController extends Controller
 {
-    public function view(){
-        $categories=Entity::distinct()->get(['category']);
-        return view ('suggestions',['categories' => $categories]);
-    }
     /**
      * Display a listing of the resource.
      *
