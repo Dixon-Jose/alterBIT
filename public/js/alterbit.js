@@ -104,39 +104,40 @@ $(document).ready(function(){
                     ]
         });
     });
-    
+
     $( "#accord" ).accordion({
       collapsible: true,
       heightStyle: "content",
       active:false,
       animate: 500
     });
-    
+
     $( "#accord1" ).accordion({
       collapsible: true,
       heightStyle: "content",
       active:false,
       animate: 500
     });
-    
-    
+
+
     tags=[];
-    
+
         function addElementsTags(data){
           for (i = 0; i < data.tags.length; i++) {
-            $('.src-tags').append('<a href="" class="cat-tag" style="display:none">' + data.tags[i] + '</a>');
+            $('.sugg-tags').append('<a href="" class="cat-tag" style="display:none">' + data.tags[i] + '</a>');
             $('.cat-tag').fadeIn("slow");
           }
           for (i = 0; i < data.terms.length; i++) {
-            $('.alter').append('<div class="col-3 card-sugg"><h3>' + data.terms[i].name + '</h3><p>' + data.terms[i].description.substr(0, 100) + '</p><input class="alt-sel" type="button" value="Select" ></div>');
+            $('.alter').append('<div class="col-3 card-sugg"><h3>' + data.terms[i].name + '</h3><p>' + data.terms[i].description.substr(0, 100) + '</p><input class="alt-sel" type="button" value="Select" ><br><br><input type="checkbox">Select with alternatives</div>');
+
           }
           $('.cat-tag').each(function () {
             if ($.inArray(this.innerHTML,tags) >= 0) {
               $(this).css("color","black");
             }
-          }); 
+          });
         }
-    
+
     if($('#category-select').length){
       $.ajax({
         url:'/category',
@@ -169,7 +170,7 @@ $(document).ready(function(){
         });
       }
     });
-   
+
     /**
      * Function to filter the elements displayed in the entry form with that of tags
      * each subsequent clicks to different tags add them to tags array, the search is such a way that
@@ -185,7 +186,7 @@ $(document).ready(function(){
       tags.push(this.innerHTML);
       $.getJSON("/category?category=" + $category,"tags="+tags,function(data){
           $('.card-sugg,.cat-tag').remove();
-          addElementsTags(data);  
+          addElementsTags(data);
           });
     });
 
@@ -193,15 +194,24 @@ $(document).ready(function(){
 
     $('body').on('click',".alt-sel",function() {
       if ($(this).val() == "Select"){
-        $(this).parent().css('background-color',' #f2f4f4 ');
+        $(this).parent().css('background-color','#00d2ff');
         $(this).val("Unselect");
     }
       else{
         $(this).parent().css('background-color',' #fff ');
         $(this).val("Select");
     }
-    
+
     });
 
-});
+    $('body').on('click','#img-url',function(){
+      $('#image-file').slideUp();
+        $('#image-url').slideDown();
+    })
 
+    $('body').on('click','#img-file',function(){
+      $('#image-url').slideUp();
+        $('#image-file').slideDown();
+    })
+
+});

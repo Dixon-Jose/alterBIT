@@ -10,7 +10,6 @@
               <table>
                 <tr>
                     <th><a href="" id="src">Search</a></th>
-                    <th><a href="">Forum</a></th>
                     <th><a href="{{ route('suggest') }}">Suggest</a></th>
               </tr>
             </table>
@@ -53,7 +52,7 @@
            <div class="col-2"></div>
         </div>
 
-       
+
         <script>
             function getfocus() {
                 document.getElementById("search").value="";
