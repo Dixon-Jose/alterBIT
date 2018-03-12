@@ -55,9 +55,9 @@
     <div class="col-2"></div>
     <div class="col-8">
       Select Image Upload Type:<br><br>
-      <input type="radio" id="img-url" name="Image-select" >Link
+      <input type="radio" id="img-url" name="Image-select" value="ImageURL" >Link
       &nbsp;
-      <input type="radio"  id="img-file" name="Image-select" >File Upload
+      <input type="radio"  id="img-file" name="Image-select" value="File Upload" >File Upload
       <br>
       <br>
       <div id="image-url" style="display:none">

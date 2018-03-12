@@ -164,7 +164,7 @@ $(document).ready(function(){
           tags=[];
           addElementsTags(data);
           $('html,body').animate({
-            scrollTop: $("#cat-label").offset().top
+            scrollTop: $(".sugg-page-form").offset().top
           },
             'slow');
         });

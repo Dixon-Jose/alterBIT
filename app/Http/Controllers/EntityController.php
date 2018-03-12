@@ -71,11 +71,11 @@ class entityController extends Controller
       else{
           if($request->input('tag')){
               if($request->input('s')){
-                  //each time user clicks a tag
+                  //subsequent tags are added to $t and combined results are returned
                   $t=explode(',',$request->input('s'));
                   $index=array_search($request->tag,$t);
                   if($index!==false){
-                      if(count($t)!==1){
+                      if(count($t)!==1){//this is to prevent element count from getting 0 if user selects an only tag again.
                       unset($t[array_search($request->tag,$t)]);
                       $t=array_values($t);}
                   }
