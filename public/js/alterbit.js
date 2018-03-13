@@ -194,11 +194,11 @@ $(document).ready(function(){
 
     $('body').on('click',".alt-sel",function() {
       if ($(this).val() == "Select"){
-        $(this).parent().css('background-color','#00d2ff');
+        $(this).parent().css({'background-color':'#e5e7e9','border':'1px solid grey'});
         $(this).val("Unselect");
     }
       else{
-        $(this).parent().css('background-color',' #fff ');
+        $(this).parent().css({'background-color':'#fff','border':'1px solid lightgrey'});
         $(this).val("Select");
     }
 
@@ -207,11 +207,13 @@ $(document).ready(function(){
     $('body').on('click','#img-url',function(){
       $('#image-file').slideUp();
         $('#image-url').slideDown();
-    })
+    });
 
     $('body').on('click','#img-file',function(){
       $('#image-url').slideUp();
         $('#image-file').slideDown();
-    })
+    });
+
+
 
 });
