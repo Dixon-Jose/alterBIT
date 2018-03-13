@@ -49,8 +49,10 @@ class entityController extends Controller
             }
             foreach($elements as $key => $element)
             $terms[$key]=array(
+                '_id'=>$element->_id,
                 'name'=>$element->name,
-                'description'=>$element->description
+                'description'=>$element->description,
+                'alternatives'=>$element->alternatives
             );
             return array('terms'=>$terms,'tags'=>array_keys(array_flip($tags)));
         }
@@ -58,6 +60,8 @@ class entityController extends Controller
             return Entity::distinct()->get(['category']);
         }
     }
+
+    
     public function index(Request $request)
     {
         // find using keyword and return search view with elements and tags or an error message
@@ -92,7 +96,6 @@ class entityController extends Controller
       if(count($elements)===0){
             $error=array(
                 'message'=> 'No match on \''.$request->input('q').'\''.'. Please try again.',
-                'q'=>$request->input('q')
             );
             return view ('home')->with($error);
       }
@@ -107,6 +110,7 @@ class entityController extends Controller
     
     return redirect()->route('home');
     }
+
 
     public function show($category,$id)
     {

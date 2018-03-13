@@ -120,16 +120,17 @@ $(document).ready(function(){
     });
 
 
-    tags=[];
-
+    tags=[];//to manage the tags filter
+    elements=[];//to store the element and alternative to later parse(fluctuating data;changes with every ajax request)
+    selectedEle=[];//to store the selected elements
         function addElementsTags(data){
           for (i = 0; i < data.tags.length; i++) {
             $('.sugg-tags').append('<a href="" class="cat-tag" style="display:none">' + data.tags[i] + '</a>');
             $('.cat-tag').fadeIn("slow");
           }
           for (i = 0; i < data.terms.length; i++) {
-            $('.alter').append('<div class="col-3 card-sugg"><h3>' + data.terms[i].name + '</h3><p>' + data.terms[i].description.substr(0, 100) + '</p><input class="alt-sel" type="button" value="Select" ><br><br><input type="checkbox">Select with alternatives</div>');
-
+            $('.alter').append('<div class="col-3 card-sugg"><h3 title='+data.terms[i]._id+'>' + data.terms[i].name + '</h3><p>' + data.terms[i].description.substr(0, 100) + '</p><input class="alt-sel" type="button" value="Select" ><br><br><input type="checkbox">Select with alternatives</div>');
+            elements[data.terms[i]._id]=data.terms[i].alternatives;
           }
           $('.cat-tag').each(function () {
             if ($.inArray(this.innerHTML,tags) >= 0) {
@@ -194,6 +195,15 @@ $(document).ready(function(){
 
     $('body').on('click',".alt-sel",function() {
       if ($(this).val() == "Select"){
+        if($(this).siblings("input:checked").length>0){
+          alternatives = elements[$(this).siblings("h3").attr("title")];
+          $('.card-sugg').each(function(){
+            if($.inArray($(this).children("h3").attr('title'),alternatives)>=0){
+              $(this).css('background-color', '#00d2ff');
+              $(this).children('.alt-sel').val("Unselect");
+            }
+          });
+        }
         $(this).parent().css('background-color','#00d2ff');
         $(this).val("Unselect");
     }
