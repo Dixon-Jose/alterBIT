@@ -195,6 +195,7 @@ $(document).ready(function(){
     $('body').on('click',".alt-sel",function() {
       if ($(this).val() == "Select"){
         $(this).parent().css({'background-color':'#e5e7e9','border':'1px solid grey'});
+        $(this).css('background-color:',' #f2f3f4 ');
         $(this).val("Unselect");
     }
       else{
@@ -213,6 +214,12 @@ $(document).ready(function(){
       $('#image-url').slideUp();
         $('#image-file').slideDown();
     });
+
+    $('body').on('click','.done',function(){
+      $('.sugg-page-form').slideUp(800);
+      $('.final-alt').append('<br><br>Selected alternatives:<br><div class="col-3 final-card"><p>Hello</p></div></div>');
+
+  });
 
 
 
