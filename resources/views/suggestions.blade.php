@@ -15,3 +15,7 @@
           <!-- <h3>Enter new alternative: </h3> -->
   @include('layouts.entityEntry')
 @endsection
+
+@section('script')
+<script src="/js/entityEntry.js" type="text/javascript"></script>
+@endsection

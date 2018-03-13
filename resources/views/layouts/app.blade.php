@@ -30,5 +30,6 @@
     <script src="/js/jquery.js" type="text/javascript"></script>
     <script src="/js/jqueryUI/jquery-ui.js" type="text/javascript"></script>
     <script src="/js/alterbit.js" type="text/javascript"></script>
+    @yield('script')
 </body>
 </html>

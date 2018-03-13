@@ -35,3 +35,6 @@
     <div class="col-2"></div>
 </div>
 @endsection
+@section('script')
+<script src="/js/entityEntry.js" type="text/javascript"></script>
+@endsection
