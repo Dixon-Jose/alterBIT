@@ -199,16 +199,18 @@ $(document).ready(function(){
           alternatives = elements[$(this).siblings("h3").attr("title")];
           $('.card-sugg').each(function(){
             if($.inArray($(this).children("h3").attr('title'),alternatives)>=0){
-              $(this).css('background-color', '#00d2ff');
+              $(this).css({ 'background-color': '#e5e7e9', 'border': '1px solid grey' });
+              $(this).children('.alt-sel').css('background-color:', ' #f2f3f4 ');
               $(this).children('.alt-sel').val("Unselect");
             }
           });
         }
-        $(this).parent().css('background-color','#00d2ff');
+        $(this).parent().css({'background-color':'#e5e7e9','border':'1px solid grey'});
+        $(this).css('background-color:',' #f2f3f4 ');
         $(this).val("Unselect");
     }
       else{
-        $(this).parent().css('background-color',' #fff ');
+        $(this).parent().css({'background-color':'#fff','border':'1px solid lightgrey'});
         $(this).val("Select");
     }
 
@@ -217,11 +219,19 @@ $(document).ready(function(){
     $('body').on('click','#img-url',function(){
       $('#image-file').slideUp();
         $('#image-url').slideDown();
-    })
+    });
 
     $('body').on('click','#img-file',function(){
       $('#image-url').slideUp();
         $('#image-file').slideDown();
-    })
+    });
+
+    $('body').on('click','.done',function(){
+      $('.sugg-page-form').slideUp(800);
+      $('.final-alt').append('<br><br>Selected alternatives:<br><div class="col-3 final-card"><p>Hello</p></div></div>');
+
+  });
+
+
 
 });

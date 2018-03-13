@@ -941,7 +941,7 @@ works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
 
-	border: 1px solid lightgrey;
+	border: 1px solid black;
 	background-color: #fff;
 	font-weight: normal;
 	color:grey;

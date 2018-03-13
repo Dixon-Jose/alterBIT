@@ -16,6 +16,7 @@
           <select id="category-select" name="category" title="Select the category it belongs to" required>
           <option value=" " disabled selected style=""></option>
           </select>
+          <div class="final-alt"></div>
     </div>
     <div class="col-2"></div>
   </div>
@@ -40,7 +41,7 @@
         </div>
       </div>
       <div class=" alter"></div>
-      <input type="button" value="Done">
+      <input type="button" class="done" value="Done">
       <br>
       <br>
       <br>
