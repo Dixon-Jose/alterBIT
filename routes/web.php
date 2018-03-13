@@ -25,7 +25,9 @@ Route::get('admin',function(){
   return view('admin.master');
 })->name('admin');
 
-Route::get('suggest','SuggestionController@view')->name('suggest');
+Route::get('suggest',function(){
+  return view('suggestions');
+})->name('suggest');
 Route::post('suggest','SuggestionController@show')->name('suggestionsInput');
 
 Route::post('entityInsert','AdminController@store')->name('entityInsert');
