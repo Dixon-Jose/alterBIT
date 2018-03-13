@@ -129,7 +129,7 @@ $(document).ready(function(){
             $('.cat-tag').fadeIn("slow");
           }
           for (i = 0; i < data.terms.length; i++) {
-            $('.alter').append('<div class="col-3 card-sugg"><h3 title='+data.terms[i]._id+'>' + data.terms[i].name + '</h3><p>' + data.terms[i].description.substr(0, 100) + '</p><input class="alt-sel" type="button" value="Select" ><br><br><input type="checkbox">Select with alternatives</div>');
+            $('.alter').append('<div class="col-3 card-sugg"><h3 title=' + data.terms[i]._id + '>' + data.terms[i].name + '</h3><p>' + data.terms[i].description.substr(0, 100) + '</p><input class="alt-sel" type="button" value="Select" ><br><br><input type="checkbox"><span id="checkbox">With it\'s Alternatives</span></div>');
             elements[data.terms[i]._id]=data.terms[i].alternatives;
           }
           $('.cat-tag').each(function () {
@@ -162,7 +162,7 @@ $(document).ready(function(){
         $.getJSON("/category?category="+ui.item.value ,function(data){
           $('#alternatives').css('display','block');
           $('.card-sugg,.cat-tag').remove();
-          tags=[];
+          tags=[];elements=[];selectedEle=[];
           addElementsTags(data);
           $('html,body').animate({
             scrollTop: $(".sugg-page-form").offset().top
@@ -188,31 +188,92 @@ $(document).ready(function(){
       $.getJSON("/category?category=" + $category,"tags="+tags,function(data){
           $('.card-sugg,.cat-tag').remove();
           addElementsTags(data);
-          });
+          $('.card-sugg').each(function () {
+            if ($.inArray($(this).children("h3").attr('title'), selectedEle) >= 0) {
+              $(this).css({ 'background-color': '#e5e7e9', 'border': '1px solid grey' })
+                .children('.alt-sel').val("Reject").css('background-color:', ' #f2f3f4 ');
+            }
+          });  
+      });
+       
     });
 
     $( ".controlgroup" ).controlgroup();
 
+
+
+    function selectOrReject(data,action){
+      if(action===true){
+        $.each(data,function(index,value){
+          if($.inArray(value,selectedEle)===-1){
+            selectedEle.push(value);
+          }
+        });
+      }
+      else{
+        if(action===false){
+          $.each(data,function(index,value){
+            selectedEle.splice($.inArray(value, selectedEle), 1);
+          });
+        }
+      }
+    }
+
     $('body').on('click',".alt-sel",function() {
       if ($(this).val() == "Select"){
         if($(this).siblings("input:checked").length>0){
+          alternatives=[];
           alternatives = elements[$(this).siblings("h3").attr("title")];
+          alternatives.push($(this).siblings("h3").attr("title"));
+          selectOrReject(alternatives,true);
           $('.card-sugg').each(function(){
             if($.inArray($(this).children("h3").attr('title'),alternatives)>=0){
-              $(this).css({ 'background-color': '#e5e7e9', 'border': '1px solid grey' });
-              $(this).children('.alt-sel').css('background-color:', ' #f2f3f4 ');
-              $(this).children('.alt-sel').val("Unselect");
+              if($(this).children("input:checked").length>0){
+                $(this).children("input[type=checkbox]").prop("checked", false);
+              }
+              $(this).css({ 'background-color': '#e5e7e9', 'border': '1px solid grey' })
+                     .children('.alt-sel').val("Reject").css('background-color:', ' #f2f3f4 ');
             }
           });
+        }else{
+          alternatives=[];
+          alternatives.push($(this).siblings("h3").attr("title"));
+          selectOrReject(alternatives,true);
+          $(this).val("Reject").css('background-color:', ' #f2f3f4 ');
+          if($(this).siblings("input:checked").length>0){
+            $(this).siblings("input[type=checkbox]").prop("checked",false);
+          }
+          $(this).parent().css({ 'background-color': '#e5e7e9', 'border': '1px solid grey' });
         }
-        $(this).parent().css({'background-color':'#e5e7e9','border':'1px solid grey'});
-        $(this).css('background-color:',' #f2f3f4 ');
-        $(this).val("Unselect");
-    }
+      }
       else{
-        $(this).parent().css({'background-color':'#fff','border':'1px solid lightgrey'});
-        $(this).val("Select");
-    }
+        if($(this).val()=="Reject"){
+          if ($(this).siblings("input:checked").length > 0) {
+            alternatives=[];
+            alternatives = elements[$(this).siblings("h3").attr("title")];
+            alternatives.push($(this).siblings("h3").attr("title"));
+            selectOrReject(alternatives, false);
+            $('.card-sugg').each(function () {
+              if ($.inArray($(this).children("h3").attr('title'), alternatives) >= 0) {
+                if($(this).children("input:checked").length>0){
+                  $(this).children("input[type=checkbox]").prop("checked", false);
+              }
+                $(this).css({ 'background-color': '#fff', 'border': '1px solid lightgrey' })
+                  .children('.alt-sel').val("Select");
+              }
+            });
+         }
+         else{
+            alternatives=[];
+            alternatives.push($(this).siblings("h3").attr("title"));
+            selectOrReject(alternatives, false);
+            if ($(this).siblings("input:checked").length>0) {
+              $(this).siblings("input[type=checkbox]").prop("checked", false);
+            }
+            $(this).val('Select').parent().css({ 'background-color': '#fff', 'border': '1px solid lightgrey' });
+          }
+        }
+      }  
 
     });
 
