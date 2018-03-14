@@ -1,8 +1,8 @@
 <div>
 
-  <div class="row ">
+  <div class="row user-form" style="display:none">
     <div class="col-2"></div>
-    <div class="col-8 user-form">
+    <div class="col-8 ">
       <h3>Enter new alternative: </h3>
         <hr>
         <form method="post" action="{{ route('suggestionsInput') }}" enctype="multipart/form-data">
@@ -41,7 +41,6 @@
         </div>
       </div>
       <div class=" alter"></div>
-      <input type="button" class="done" value="Done">
       <br>
       <br>
       <br>
@@ -50,9 +49,7 @@
     <div class="col-2"></div>
   </div>
 
-
-
-  <div class="row user-form1" >
+  <div class="row user-form1" style="display:none">
     <div class="col-2"></div>
     <div class="col-8">
       Select Image Upload Type:<br><br>
@@ -69,9 +66,42 @@
           <input type="file" title="Select the Image Path ">
       </div>
       <br>
-      <input type="submit" id="submit" value="Submit">
+      <input type="button" class="done" value="Done">
       </form>
     </div>
+  </div>
+
+   <div class="row finalize-alt">
+    <div class="col-2"></div>
+    <div class="col-8" >
+      <h3>Finalize the alternative:</h3>
+      <hr>
+        <form>
+            Name:
+            <input type="text" title="Name of alternative">
+            <br>
+            Description:
+            <textarea title="Description of alternative">
+            <br>
+            Category:
+            <select name="category" title="Category of alternative">
+            <option value="Hello" disabled selected style=""></option>
+            </select>
+            <br>
+            Alternatives:
+            <br>
+            <br>
+            <div>
+              Image Link:
+              <input type="url" title="Image URL">
+            </div>
+            <div>
+              Image Path:
+              <input type="text" title="Local Image Path">
+            </div>
+        </form>
+    </div>
+    <div class="col-2"></div>
   </div>
 
 </div>
