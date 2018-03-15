@@ -1,8 +1,8 @@
 <div>
 
-  <div class="row user-form" style="display:none">
+  <div class="row ">
     <div class="col-2"></div>
-    <div class="col-8 ">
+    <div class="col-8 user-form" style="display:none">
       <h3>Enter new alternative: </h3>
         <hr>
         <form method="post" action="{{ route('suggestionsInput') }}" enctype="multipart/form-data">
@@ -71,37 +71,41 @@
     </div>
   </div>
 
-   <div class="row finalize-alt">
-    <div class="col-2"></div>
-    <div class="col-8" >
-      <h3>Finalize the alternative:</h3>
-      <hr>
-        <form>
-            Name:
-            <input type="text" title="Name of alternative">
-            <br>
-            Description:
-            <textarea title="Description of alternative">
-            <br>
-            Category:
-            <select name="category" title="Category of alternative">
-            <option value="Hello" disabled selected style=""></option>
-            </select>
-            <br>
-            Alternatives:
-            <br>
-            <br>
-            <div>
-              Image Link:
-              <input type="url" title="Image URL">
-            </div>
-            <div>
-              Image Path:
-              <input type="text" title="Local Image Path">
-            </div>
-        </form>
+
+  <div class="finalize-alt">
+
+    <div class="row">
+        <div class="col-2 element"></div>
+        <div class="col-8 element">
+
+                <div class="card-img">
+                    <img src="https://d1qb2nb5cznatu.cloudfront.net/users/2009877-large?1456814117">
+                </div>
+                <h2>Entity Name</h2>
+                <p title="entity">Hello hello hello, is there anybody in there?</p>
+                <hr/>
+        </div>
     </div>
-    <div class="col-2"></div>
+
+    <div class="row">
+        <div class="col-12 partition">
+              <h2>The Alternatives are:</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 alter">
+            <div class="col-2"></div>
+                <div class="col-2 card">
+                    <h3>Name</h3>
+                    <p> lolololol </p>
+                    <a href="">Check out</a>
+                </div>
+           </div>
+        </div>
+        <input type="button" class="edit" value="Edit">
+        <input type="submit" class="submit" value="Submit">
+
   </div>
+
 
 </div>
