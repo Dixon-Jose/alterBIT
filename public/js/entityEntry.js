@@ -171,4 +171,10 @@ $(document).ready(function () {
         $('.final-alt').append('<br><br>Selected alternatives:<br><div class="col-3 final-card"><p>Hello</p></div></div>');
 
     });
+
+    $('body').on('click','#submit',function(event){
+        event.preventDefault();
+        alert($('input[type=text]').val());
+
+    });
 });

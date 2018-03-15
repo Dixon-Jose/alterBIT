@@ -1,9 +1,4 @@
 $(document).ready(function(){
-      $('#submit').click(function () {
-      if (!confirm("Are you sure ?")) {
-        return false;
-      };
-    });
 
     $("#search").autocomplete({
         minLength: 2,

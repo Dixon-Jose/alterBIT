@@ -24,7 +24,11 @@
         }
         @endphp
               @foreach($tags as $tag)
+              @if(in_array($tag,$selectedtags))
+              <a href="{{route('search',['tag'=>$tag,'s'=>implode(",",$selected)])}}" style="color:red">{{$tag}}</a>
+              @else
               <a href="{{route('search',['tag'=>$tag,'s'=>implode(",",$selected)])}}">{{$tag}}</a>
+              @endif
               @endforeach
         </div>
   </div>
@@ -48,12 +52,6 @@
       </a>
   </div>
   @endforeach
-
-  <div style="display:none">
-  @for($i=0;$i<sizeof($selected);$i++)
-  {{$selected[$i]}}
-  @endfor
-  </div>
 
 @include('includes.footer')
 @endsection

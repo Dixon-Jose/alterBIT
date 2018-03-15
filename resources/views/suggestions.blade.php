@@ -17,5 +17,6 @@
 @endsection
 
 @section('script')
+<script src="/js/jquery.validate.js" type="text/javascript"></script>
 <script src="/js/entityEntry.js" type="text/javascript"></script>
 @endsection
