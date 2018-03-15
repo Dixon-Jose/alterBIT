@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link rel="stylesheet/less" type="text/css" href="/css/main.less">
     <link rel="stylesheet" type="text/css" href="{{ URL::to('/js/jqueryUI/jquery-ui.css')}}">
+    @yield('styles')
 </head>
 <body>
     @yield('content')

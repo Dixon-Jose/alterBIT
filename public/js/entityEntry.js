@@ -1,8 +1,10 @@
 $(document).ready(function () {
-    tags = [];//to manage the tags filter
-    elements = [];//to store the element and alternative to later parse(fluctuating data;changes with every ajax request)
-    selectedEle = [];//to store the selected elements
+    var tags = [];//to manage the tags filter
+    var elements = [];//to store the element and alternative to later parse(fluctuating data;changes with every ajax request)
+    var selectedEle = [];//to store the selected elements
+    var datadump=[];//to dump incoming ajax dat to later parse if required
     function addElementsTags(data) {
+        elements = []; datadump = [];
         for (i = 0; i < data.tags.length; i++) {
             $('.sugg-tags').append('<a href="" class="cat-tag" style="display:none">' + data.tags[i] + '</a>');
             $('.cat-tag').fadeIn("slow");
@@ -10,6 +12,7 @@ $(document).ready(function () {
         for (i = 0; i < data.terms.length; i++) {
             $('.alter').append('<div class="col-3 card-sugg"><h3 title=' + data.terms[i]._id + '>' + data.terms[i].name + '</h3><p>' + data.terms[i].description.substr(0, 100) + '</p><input class="alt-sel" type="button" value="Select" ><br><br><input type="checkbox"><span id="checkbox">With it\'s Alternatives</span></div>');
             elements[data.terms[i]._id] = data.terms[i].alternatives;
+            datadump[data.terms[i]._id]=data.terms[i];
         }
         $('.cat-tag').each(function () {
             if ($.inArray(this.innerHTML, tags) >= 0) {
@@ -166,7 +169,86 @@ $(document).ready(function () {
         $('#image-file').slideDown();
     });
 
+    function imgurUpload(){
+        var link='';
+        if($('#img-url:checked').length>0){
+            $.ajax({
+                "async": true,
+                "crossDomain": true,
+                "url": "https://api.imgur.com/3/image",
+                "method": "POST",
+                "headers": {
+                    "Authorization": "Client-ID 6130a8b5bbc1e9f"
+                },
+                "data":{"image":$('#url').val()},
+                "error":function(jqXHR,status,error){
+                    alert(status+":"+error);
+                }  
+            }).done(function(response){
+                link=response.data.link;
+                $('#imgurl').prop('src',link);
+                console.log(response);
+            });
+        }
+        else
+        if($('#img-file:checked').length>0){
+            
+            var file=$("#file").get(0).files;
+            console.log(file);
+            if(file.length){
+                if(file[0].size>$('#file').data('max-size')*1024){
+                    alert('Please Upload a file less than 10mb');
+                    return false;
+                }
+                var form = new FormData();
+                form.append("image", file[0]);
+
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "processData":false,
+                    "contentType":false,
+                    "url": "https://api.imgur.com/3/image",
+                    "method": "POST",
+                    "headers": {
+                        "Authorization": "Client-ID 6130a8b5bbc1e9f"
+                    },
+                    "processData": false,
+                    "contentType": false,
+                    "mimeType": "multipart/form-data",
+                    "data": form
+                }
+        
+                $.ajax(settings).done(function (response) {
+    
+                    var responseJSON=$.parseJSON(response);
+                    console.log(responseJSON);
+                    link = responseJSON.data.link;
+                    $('#imgurl').prop('src', link);
+                });
+
+            }
+    
+        }
+        return link;
+    }
+
     $('body').on('click', '.done', function () {
+        payload=[];
+        payload['imgurl']=imgurUpload();
+        payload['name']=$("input[name=name]").val();
+        payload['description']=$("#description").val();
+        payload['category']=$('#category-select').val();
+        payload['alternatives']=selectedEle;
+        $('#Ent-alt-card').remove();
+        for(i=0;i<selectedEle.length;i++){
+            $('#EntityAlternatives').append('<div class="col-2 card" id="Ent-alt-card"><h3>' + datadump[selectedEle[i]].name + '</h3><p>' + datadump[selectedEle[i]].description.substring(0,100)+'</p></div >');
+        }
+        $('#EntityName').html(payload['name']);
+        $('#EntityDescription').html(payload['description']);
+        $('#category').html(payload['category']);
+        $("html, body").animate({ scrollTop: 0 }, 1000);
+        
         $('.user-form').slideUp(800);
         $('.sugg-page-form').slideUp(800);
         $('.card-sugg').slideUp();
@@ -179,5 +261,6 @@ $(document).ready(function () {
       $('.finalize-alt').slideUp(800);
       $('.user-form').slideDown(800);
       $('.user-form1').slideDown(800);
+    $("html, body").animate({ scrollTop: 0 }, 1000);
     });
 });
