@@ -3,8 +3,8 @@
 
 @section('content')
 @include('includes.navbar')
-   
-   
+
+
     <div class="row">
         <div class="col-1"></div>
           <div class="col-10 src-page-bar">
@@ -18,7 +18,7 @@
         <div class="col-1"></div>
         <div class="col-10 src-tags">
         @php
-        $selected=[]; 
+        $selected=[];
         if(!empty($selectedtags)){
             $selected=$selectedtags;
         }
@@ -39,6 +39,7 @@
           <h3>Results</h3>
     </div>
 </div>
+@section('search-result')
 
   @foreach($entities as $entity)
   <div class="row " >
@@ -52,6 +53,7 @@
       </a>
   </div>
   @endforeach
+@endsection
 
 @include('includes.footer')
 @endsection

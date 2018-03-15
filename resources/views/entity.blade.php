@@ -45,24 +45,6 @@
        </div>
     </div>
 
-    <!-- <div class="row">
-       <div class="col-2"></div>
-        <div class="col-8"></div>
-    </div> -->
 
-<!-- <div class="row">
-   <div class="col-2"></div>
-    <div class="col-8"><hr/></div>
-</div> -->
-
-<!-- <div class="row">
-  <div class="col-2"></div>
-  <div class="col-8 comment" name="entity-page">
-          <h4>Responses</h4>
-          <form>
-                <textarea placeholder="Enter response" ></textarea>
-          </form>
-  </div>
-</div>-->
     @include('includes.footer')
     @endsection

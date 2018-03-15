@@ -77,6 +77,9 @@
     <div class="row">
         <div class="col-2 element"></div>
         <div class="col-8 element">
+          <h3>Element Details:</h3>
+          <hr>
+          <br>
 
                 <div class="card-img">
                     <img src="https://d1qb2nb5cznatu.cloudfront.net/users/2009877-large?1456814117">
@@ -103,8 +106,10 @@
            </div>
         </div>
         <div class="col-2"></div>
-        
+
         <input type="button" class="edit" value="Edit">
+        <br>
+        <br>
         <input type="submit" class="submit" value="Submit">
 
   </div>

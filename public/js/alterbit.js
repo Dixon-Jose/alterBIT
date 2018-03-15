@@ -75,4 +75,6 @@ $(document).ready(function(){
       animate: 500
     });
 
+    $( "#tabs" ).tabs();
+
 });

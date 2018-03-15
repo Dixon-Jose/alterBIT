@@ -3,38 +3,21 @@
   @section('content')
   @include('includes.navbar')
   @include('includes.userModule')
- 
-        <div id="accord">
-              <h3>Insert an Alternative</h3>  
-                @include('layouts.entityEntry')
-                
-              <h3>Delete an alternative: </h3>
-                      <div>
-                          <form method="post" action="{{ route('suggestionsInput') }}">
-                             {{csrf_field()}}
-                            <br>
-                            <input type="text" id="name" class="admin-name" placeholder="Name (of the alternative/entity)" required>
-                            <br>
-                            <input type="submit" id="submit" value="Delete">
-                          </form>
-                    </div>
 
-                    <h3>Update an alternative: </h3>
-                            <div>
-                                <form method="post" action="{{ route('suggestionsInput') }}">
-                                   {{csrf_field()}}
-                                  <br>
-                                  <input type="text" id="name" class="admin-name" placeholder="Name (of the alternative/entity)" required>
-                                  <br>
-                                  <a href=""><input type="button" id="submit" value="Go"></a>
-                                </form>
-                          </div>
+  <ul>
+      <li><a href="#tabs-1">Insert</a></li>
+      <li><a href="#tabs-2">Update and Delete</a></li>
+  </ul>
+  <div id="tabs-1">
+        @include('layouts.entityEntry')
+  </div>
+  <div id="tabs-2">
+  </div>
 
-            </div>
-      </div>
-    <div class="col-2"></div>
 </div>
+@include('includes.footer')
 @endsection
 @section('script')
+<script src="/js/alterbit.js" type="text/javascript"></script>
 <script src="/js/entityEntry.js" type="text/javascript"></script>
 @endsection
