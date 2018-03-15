@@ -2,7 +2,7 @@
 
   <div class="row ">
     <div class="col-2"></div>
-    <div class="col-8 user-form" style="display:none">
+    <div class="col-8 user-form" >
       <h3>Enter new alternative: </h3>
         <hr>
         <form method="post" action="{{ route('suggestionsInput') }}" enctype="multipart/form-data">
@@ -49,7 +49,7 @@
     <div class="col-2"></div>
   </div>
 
-  <div class="row user-form1" style="display:none">
+  <div class="row user-form1">
     <div class="col-2"></div>
     <div class="col-8">
       Select Image Upload Type:<br><br>
@@ -72,7 +72,7 @@
   </div>
 
 
-  <div class="finalize-alt">
+  <div class="finalize-alt" style="display:none">
 
     <div class="row">
         <div class="col-2 element"></div>
@@ -102,6 +102,8 @@
                 </div>
            </div>
         </div>
+        <div class="col-2"></div>
+        
         <input type="button" class="edit" value="Edit">
         <input type="submit" class="submit" value="Submit">
 
