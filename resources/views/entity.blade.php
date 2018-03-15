@@ -1,9 +1,9 @@
     @extends('layouts.app')
     @section('title',$entity->name)
     @section('content')
-    @include('includes.navbar') 
-    
-    
+    @include('includes.navbar')
+
+
 <div class="row">
         <div class="col-1"></div>
         <div class="col-10 src-page-bar">
@@ -45,15 +45,15 @@
        </div>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
        <div class="col-2"></div>
         <div class="col-8"></div>
-    </div>
+    </div> -->
 
-<div class="row">
+<!-- <div class="row">
    <div class="col-2"></div>
     <div class="col-8"><hr/></div>
-</div>
+</div> -->
 
 <!-- <div class="row">
   <div class="col-2"></div>

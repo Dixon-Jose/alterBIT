@@ -7,6 +7,50 @@
     box-sizing: border-box;
 }
 
+@font-face {
+  font-family: Raleway;
+  src:url('../fonts/Raleway/Raleway-Regular.ttf');
+  font-weight:400;
+
+}
+@font-face {
+  font-family: Raleway;
+  src:url('../fonts/Raleway/Raleway-SemiBold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Raleway;
+  src:url('../fonts/Raleway/Raleway-Thin.ttf');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Roboto;
+  src:url('../fonts/Roboto/Roboto-Thin.ttf');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Roboto;
+  src:url('../fonts/Roboto/Roboto-Light.ttf');
+  font-weight: lighter;
+}
+@font-face {
+  font-family:"Open Sans";
+  src:url('../fonts/Open_Sans/OpenSans-Regular.ttf');
+}
+@font-face {
+  font-family:"Open Sans";
+  src:url('../fonts/Open_Sans/OpenSans-Light.ttf');
+  font-weight: lighter;
+}
+@font-face {
+  font-family:"Playfair Display";
+  src:url('../fonts/Arima_Madurai/ArimaMadurai-Regular.ttf');
+}
+
+
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
@@ -512,6 +556,9 @@ input[type="submit"]{
 
         h3 {
           .open-sans;
+          &:first-of-type{
+            text-transform: capitalize;
+          }
         }
 
         p{
@@ -565,32 +612,26 @@ input[type="submit"]{
 
 .footer{
 
-  background-color:#d6dbdf;
-  p{
+  background-color:@body-color;
+border: none;
+border-top: 0.01em solid #eaecee;
+// margin-left: 2%;
+// width: 96%;
+  h3{
         color: #2c3e50;
-        font-family: 'Permanent Marker', sans-serif;
-        font-size: 145%;
-        margin-top: 0%;
+        .open-sans;
+        font-weight:100;
+        font-size: 120%;
+        margin-top:0%;
+        margin-left: 45%;
   }
 
-  a{
-        text-decoration: none;
-        color: #2c3e50;
-        transition: 1s ease 50ms;
-    }
-
-    a:hover{
-          color: black;
-    }
 
     a[title="github"]::before{
             content:url("../images/GitHub.png");
+            margin-left: -15em;
     }
 
-    a[title="design"]{
-          font-family: 'Permanent Marker', sans-serif;
-          font-size: 145%;
-    }
 }
 
 .footer[name="src-foot"]{
@@ -926,6 +967,19 @@ input[type="submit"]{
     }
 
 }
+
+.finalize-alt{
+  margin-top: 7em;
+  // h3{
+  //
+  //      font-family: 'Playfair Display', serif;
+  //      color:black;
+  // }
+  // form{
+  //   .raleway;
+  // }
+}
+
 
 
 

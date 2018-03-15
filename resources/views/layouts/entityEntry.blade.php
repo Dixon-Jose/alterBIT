@@ -2,7 +2,7 @@
 
   <div class="row ">
     <div class="col-2"></div>
-    <div class="col-8 user-form">
+    <div class="col-8 user-form" >
       <h3>Enter new alternative: </h3>
         <hr>
         <form method="post" action="{{ route('suggestionsInput') }}" enctype="multipart/form-data">
@@ -41,7 +41,6 @@
         </div>
       </div>
       <div class=" alter"></div>
-      <input type="button" class="done" value="Done">
       <br>
       <br>
       <br>
@@ -50,9 +49,7 @@
     <div class="col-2"></div>
   </div>
 
-
-
-  <div class="row user-form1" >
+  <div class="row user-form1">
     <div class="col-2"></div>
     <div class="col-8">
       Select Image Upload Type:<br><br>
@@ -69,9 +66,48 @@
           <input type="file" title="Select the Image Path ">
       </div>
       <br>
-      <input type="submit" id="submit" value="Submit">
+      <input type="button" class="done" value="Done">
       </form>
     </div>
   </div>
+
+
+  <div class="finalize-alt" style="display:none">
+
+    <div class="row">
+        <div class="col-2 element"></div>
+        <div class="col-8 element">
+
+                <div class="card-img">
+                    <img src="https://d1qb2nb5cznatu.cloudfront.net/users/2009877-large?1456814117">
+                </div>
+                <h2>Entity Name</h2>
+                <p title="entity">Hello hello hello, is there anybody in there?</p>
+                <hr/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 partition">
+              <h2>The Alternatives are:</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 alter">
+            <div class="col-2"></div>
+                <div class="col-2 card">
+                    <h3>Name</h3>
+                    <p> lolololol </p>
+                    <a href="">Check out</a>
+                </div>
+           </div>
+        </div>
+        <div class="col-2"></div>
+        
+        <input type="button" class="edit" value="Edit">
+        <input type="submit" class="submit" value="Submit">
+
+  </div>
+
 
 </div>

@@ -167,14 +167,17 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '.done', function () {
+        $('.user-form').slideUp(800);
         $('.sugg-page-form').slideUp(800);
-        $('.final-alt').append('<br><br>Selected alternatives:<br><div class="col-3 final-card"><p>Hello</p></div></div>');
+        $('.card-sugg').slideUp();
+        $('.user-form1').slideUp(800);
+        $('.finalize-alt').slideDown(800);
 
     });
 
-    $('body').on('click','#submit',function(event){
-        event.preventDefault();
-        alert($('input[type=text]').val());
-
+    $('body').on('click','.edit',function(){
+      $('.finalize-alt').slideUp(800);
+      $('.user-form').slideDown(800);
+      $('.user-form1').slideDown(800);
     });
 });
