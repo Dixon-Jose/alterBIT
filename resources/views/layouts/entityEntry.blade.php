@@ -41,9 +41,9 @@
         </div>
       </div>
       <div class=" alter"></div>
+      <!-- <br>
       <br>
-      <br>
-      <br>
+      <br> -->
       <hr>
     </div>
     <div class="col-2"></div>
@@ -57,13 +57,13 @@
       &nbsp;
       <input type="radio"  id="img-file" name="Image-select" value="File Upload" >File Upload
       <br>
-      <br>
+      <br> 
       <div id="image-url" style="display:none">
-          <input type="url" placeholder="Enter URL" title="Enter the Image URL">
+          <input id="url" type="url" placeholder="Enter URL" title="Enter the Image URL">
       </div>
 
       <div id="image-file" style="display:none">
-          <input type="file" title="Select the Image Path ">
+          <input id="file" type="file" title="Select the Image Path " accept="image/*" data-max-size="10240">
       </div>
       <br>
       <input type="button" class="done" value="Done">
@@ -82,10 +82,12 @@
           <br>
 
                 <div class="card-img">
-                    <img src="https://d1qb2nb5cznatu.cloudfront.net/users/2009877-large?1456814117">
+                    <!-- <img src="https://d1qb2nb5cznatu.cloudfront.net/users/2009877-large?1456814117"> -->
+                    <img id="imgurl" src="/images/placeholder.jpg">
                 </div>
-                <h2>Entity Name</h2>
-                <p title="entity">Hello hello hello, is there anybody in there?</p>
+                <h2 id="EntityName">Entity Name</h2>
+                <p id="category">|category</p>
+                <p title="entity" id="EntityDescription">Hello hello hello, is there anybody in there?</p>
                 <hr/>
         </div>
     </div>
@@ -96,15 +98,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 alter">
-            <div class="col-2"></div>
-                <div class="col-2 card">
-                    <h3>Name</h3>
-                    <p> lolololol </p>
-                    <a href="">Check out</a>
-                </div>
-           </div>
-        </div>
+    <div class="col-12 alter" id="EntityAlternatives"><div class="col-2"></div>
+    </div>  
         <div class="col-2"></div>
 
         <input type="button" class="edit" value="Edit">
