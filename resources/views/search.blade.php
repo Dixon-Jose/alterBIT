@@ -1,10 +1,9 @@
 @extends('layouts.app')
 @section('title','Search')
-
 @section('content')
 @include('includes.navbar')
-   
-   
+
+
     <div class="row">
         <div class="col-1"></div>
           <div class="col-10 src-page-bar">
@@ -18,7 +17,7 @@
         <div class="col-1"></div>
         <div class="col-10 src-tags">
         @php
-        $selected=[]; 
+        $selected=[];
         if(!empty($selectedtags)){
             $selected=$selectedtags;
         }
@@ -39,19 +38,6 @@
           <h3>Results</h3>
     </div>
 </div>
-
-  @foreach($entities as $entity)
-  <div class="row " >
-      <div class="col-1"></div>
-      <a href="{{route('entity',['category'=>$entity->category,'id'=> $entity->_id])}}">
-          <div class="col-6 search-result">
-                  <div class="src-img"><img src="{{$entity->imgurl }}"></div>
-                  <h2>{{$entity->name}}</h2>
-                  <p>{{substr($entity->description,0,100)}}</p>
-          </div>
-      </a>
-  </div>
-  @endforeach
-
+@include('includes.search-card')
 @include('includes.footer')
 @endsection

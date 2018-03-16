@@ -3,38 +3,56 @@
   @section('content')
   @include('includes.navbar')
   @include('includes.userModule')
- 
-        <div id="accord">
-              <h3>Insert an Alternative</h3>  
-                @include('layouts.entityEntry')
-                
-              <h3>Delete an alternative: </h3>
-                      <div>
-                          <form method="post" action="{{ route('suggestionsInput') }}">
-                             {{csrf_field()}}
-                            <br>
-                            <input type="text" id="name" class="admin-name" placeholder="Name (of the alternative/entity)" required>
-                            <br>
-                            <input type="submit" id="submit" value="Delete">
-                          </form>
-                    </div>
-
-                    <h3>Update an alternative: </h3>
-                            <div>
-                                <form method="post" action="{{ route('suggestionsInput') }}">
-                                   {{csrf_field()}}
-                                  <br>
-                                  <input type="text" id="name" class="admin-name" placeholder="Name (of the alternative/entity)" required>
-                                  <br>
-                                  <a href=""><input type="button" id="submit" value="Go"></a>
-                                </form>
-                          </div>
-
-            </div>
-      </div>
-    <div class="col-2"></div>
+<div class="row home-links-admin">
+<div class="col-2"></div>
+<div class="col-8">
+  <table>
+    <tr>
+      <th><a class="tab1" href="#tabs-1">Insert</a></th>
+      <th><a class="tab2" href="#tabs-2">Suggestions</a></th>
+    </tr>
+  </table>
+  <br>
+  <hr>
 </div>
+</div>
+<!-- <div class="row"> -->
+  <div id="tabs-1">
+        @include('layouts.entityEntry')
+      </div>
+  </div>
+
+  <div id="tabs-2" style="display:none" >
+<!-- apply loop here -->
+    <div class="row" >
+        <div class="col-2"></div>
+        <a href="">
+            <div class="col-6 search-result">
+                    <div class="src-img"><img src="http://d2bhqx49zlo9rr.cloudfront.net/wp-content/uploads/2016/03/26144435/Broadcast_MrRobot_M_002.jpg"></div>
+                    <h2>Entity Name</h2>
+                    <p>Hello hello hello, is there anybody in there?</p>
+            </div>
+        </a>
+        <div class="tab2-options">
+          <br>
+          <br>
+          <input type="button" value="Insert">
+          <br>
+          <br>
+          <a href="{{ route('suggest') }}"><input type="button" value="Edit"></a>
+          <br>
+          <br>
+          <input type="button" value="Delete">
+        </div>
+    </div>
+    <!-- end loop -->
+  </div>
+
+</div>
+<!-- </div> -->
+@include('includes.footer')
 @endsection
 @section('script')
+<script src="/js/alterbit.js" type="text/javascript"></script>
 <script src="/js/entityEntry.js" type="text/javascript"></script>
 @endsection
