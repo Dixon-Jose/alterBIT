@@ -48,7 +48,8 @@ class SuggestionController extends Controller
      */
     public function show(Request $request)
     {
-        return $request->all();
+        Suggestion::create($request->all());
+        return "success";
     }
 
     /**

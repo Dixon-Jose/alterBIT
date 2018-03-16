@@ -10,7 +10,10 @@ class Suggestion extends Moloquent
     protected $guarded = ['_token'];
     public $timestamps = false;
 
-//     public function setAttribute($property,$value){
-//         $this->$property=strtolower($value);
-//     }
+    // public function setAttribute($key,$value){
+    //     if(is_string($value) && $key!='imgurl'){
+    //     $this->attributes[$key]=strtolower($value);}
+    //     else
+    //     $this->attibutes[$key]=$value;
+    // }
  }

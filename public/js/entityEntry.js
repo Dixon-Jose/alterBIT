@@ -27,6 +27,10 @@ $(document).ready(function () {
             success: function (data) {
                 for (i = 0; i < data.length; i++)
                     $('#category-select').append('<option>' + data[i][0] + '</option');
+                $('#category-select').val(null);
+            },
+            error: function(jqXHR,status,error){
+                alert(status+':'+error);
             }
 
         });
@@ -169,11 +173,16 @@ $(document).ready(function () {
         $('#image-file').slideDown();
     });
 
+    function loader(){
+        $('#loader').toggleClass("loader");
+    }
+
     function imgurUpload(){
-        var link='';
+        var link=false;
+        loader();
         if($('#img-url:checked').length>0){
             $.ajax({
-                "async": true,
+                "async": false,
                 "crossDomain": true,
                 "url": "https://api.imgur.com/3/image",
                 "method": "POST",
@@ -183,18 +192,18 @@ $(document).ready(function () {
                 "data":{"image":$('#url').val()},
                 "error":function(jqXHR,status,error){
                     alert(status+":"+error);
+                    loader();
                 }  
             }).done(function(response){
+                loader();
                 link=response.data.link;
                 $('#imgurl').prop('src',link);
-                console.log(response);
             });
         }
         else
         if($('#img-file:checked').length>0){
             
             var file=$("#file").get(0).files;
-            console.log(file);
             if(file.length){
                 if(file[0].size>$('#file').data('max-size')*1024){
                     alert('Please Upload a file less than 10mb');
@@ -204,7 +213,7 @@ $(document).ready(function () {
                 form.append("image", file[0]);
 
                 var settings = {
-                    "async": true,
+                    "async": false,
                     "crossDomain": true,
                     "processData":false,
                     "contentType":false,
@@ -216,13 +225,16 @@ $(document).ready(function () {
                     "processData": false,
                     "contentType": false,
                     "mimeType": "multipart/form-data",
-                    "data": form
+                    "data": form,
+                    "error":function(jqXHR,status,error){
+                        alert(status+":"+error);
+                        loader();
+                    }
                 }
         
                 $.ajax(settings).done(function (response) {
-    
+                    loader();
                     var responseJSON=$.parseJSON(response);
-                    console.log(responseJSON);
                     link = responseJSON.data.link;
                     $('#imgurl').prop('src', link);
                 });
@@ -230,37 +242,93 @@ $(document).ready(function () {
             }
     
         }
+        loader();
         return link;
     }
 
-    $('body').on('click', '.done', function () {
-        payload=[];
-        payload['imgurl']=imgurUpload();
-        payload['name']=$("input[name=name]").val();
-        payload['description']=$("#description").val();
-        payload['category']=$('#category-select').val();
-        payload['alternatives']=selectedEle;
-        $('#Ent-alt-card').remove();
-        for(i=0;i<selectedEle.length;i++){
-            $('#EntityAlternatives').append('<div class="col-2 card" id="Ent-alt-card"><h3>' + datadump[selectedEle[i]].name + '</h3><p>' + datadump[selectedEle[i]].description.substring(0,100)+'</p></div >');
+    var form = $('#inputForm');
+    form.validate({
+        messages: {
+            name: {
+                minlength:"Please enter atleast 2 charecters",
+                required: "Please specify name of the entity",
+            },
+            description:{
+                required:"Please specify description",
+                minlength:"Please describe in atleast 20 words"   
+            },
         }
-        $('#EntityName').html(payload['name']);
-        $('#EntityDescription').html(payload['description']);
-        $('#category').html(payload['category']);
-        $("html, body").animate({ scrollTop: 0 }, 1000);
+    });
+    var subForm=$('#optionalForm');
+    subForm.validate();
+    var payload = [];
+    $('body').on('click', '.done', function () {
         
-        $('.user-form').slideUp(800);
-        $('.sugg-page-form').slideUp(800);
-        $('.card-sugg').slideUp();
-        $('.user-form1').slideUp(800);
-        $('.finalize-alt').slideDown(800);
+        if(form.valid()){
+            if(subForm.valid()){
+                if($('#category-select').val()){
+                    payload={};
+                    var link = imgurUpload();
+                    if (link)
+                        payload['imgurl'] = link;
+                    payload['name'] = $("input[name=name]").val().toLowerCase();
+                    payload['description'] = $("#description").val().toLowerCase();
+                    payload['category'] = $('#category-select').val().toLowerCase();
+                    $('.Ent-alt-card').remove();
+                    if(selectedEle.length){
+                        payload['alternatives'] = selectedEle;
+                        $('#alt-title').html("The Alternatives are:");   
+                    for (i = 0; i < selectedEle.length; i++) {
+                        $('#EntityAlternatives').append('<div class="col-2 card Ent-alt-card"><h3>' + datadump[selectedEle[i]].name + '</h3><p>' + datadump[selectedEle[i]].description.substring(0, 100) + '</p></div >');
+                    }}
+                    else
+                    {$('#alt-title').html("No Selected Alternatives");}
+                    $('#EntityName').html(payload['name']);
+                    $('#EntityDescription').html(payload['description']);
+                    $('#category').html(payload['category']);
+                    $("html, body").animate({ scrollTop: 0 }, 1000);
+    
+                    $('.user-form').slideUp(800);
+                    $('.sugg-page-form').slideUp(800);
+                    $('.card-sugg').slideUp();
+                    $('.user-form1').slideUp(800);
+                    $('.finalize-alt').slideDown(800);
+                }
+                else{
+                    alert('select category!');
+                    return false;
+                }
+            }
+        }
+        
 
     });
 
     $('body').on('click','.edit',function(){
+      $('#category-select').val(null);  
       $('.finalize-alt').slideUp(800);
       $('.user-form').slideDown(800);
       $('.user-form1').slideDown(800);
     $("html, body").animate({ scrollTop: 0 }, 1000);
+    });
+
+    $('body').on('click', '.submit', function () {
+        
+        $.ajax({
+            method:"POST",
+            url: "/suggest",
+            data: payload,
+            headers:{
+                "X-CSRF-TOKEN": $('input[type=hidden]').val()
+            },
+            success:function(data){
+                    alert("form submitted successfully !");
+                    console.log(data);
+                    window.location="/suggest";
+                },
+            error:function(jqXHR,status,error){
+                    alert(status+":"+error);
+                }
+        });
     });
 });

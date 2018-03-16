@@ -1,22 +1,20 @@
-<div>
-
   <div class="row ">
     <div class="col-2"></div>
     <div class="col-8 user-form" >
       <h3>Enter new alternative: </h3>
         <hr>
-        <form method="post" action="{{ route('suggestionsInput') }}" enctype="multipart/form-data">
+        <form method="post" id="inputForm" action="{{ route('suggestionsInput') }}">
           {{csrf_field()}}
-          <input type="text" class="name" placeholder="Name (of the alternative/entity)" name="name" title="Enter the name of the product" required>
+          <input type="text" class="name" placeholder="Name (of the alternative/entity)" name="name" title="Enter the name of the product" minlength=2 required>
           <br>
-          <textarea id="description"  placeholder="Description" name="description" title="Enter the description of the product" required></textarea>
+          <textarea id="description"  placeholder="Description" name="description" title="Enter the description of the product" minlength=20 required></textarea>
           <br>
           <br>
           <label id="cat-label">Select category:</label><br><br>
-          <select id="category-select" name="category" title="Select the category it belongs to" required>
-          <option value=" " disabled selected style=""></option>
+          <select id="category-select" name="category" title="Select the category it belongs to" class="required" >
+          <option value="default" disabled selected></option>
           </select>
-          <div class="final-alt"></div>
+          </form>
     </div>
     <div class="col-2"></div>
   </div>
@@ -44,6 +42,7 @@
       <!-- <br>
       <br>
       <br> -->
+       <div id="loader"></div>
       <hr>
     </div>
     <div class="col-2"></div>
@@ -52,6 +51,7 @@
   <div class="row user-form1">
     <div class="col-2"></div>
     <div class="col-8">
+    <form id="optionalForm">
       Select Image Upload Type:<br><br>
       <input type="radio" id="img-url" name="Image-select" value="ImageURL" >Link
       &nbsp;
@@ -59,7 +59,7 @@
       <br>
       <br> 
       <div id="image-url" style="display:none">
-          <input id="url" type="url" placeholder="Enter URL" title="Enter the Image URL">
+          <input id="url" type="url" placeholder="Enter URL" name="url" title="Enter the Image URL">
       </div>
 
       <div id="image-file" style="display:none">
@@ -91,7 +91,7 @@
 
     <div class="row">
         <div class="col-12 partition">
-              <h2>The Alternatives are:</h2>
+              <h2 id="alt-title">The Alternatives are:</h2>
         </div>
     </div>
     <div class="row">
@@ -103,6 +103,3 @@
         <input type="submit" class="submit" value="Submit">
 
   </div>
-
-
-</div>
