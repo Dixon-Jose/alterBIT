@@ -75,6 +75,15 @@ $(document).ready(function(){
       animate: 500
     });
 
-    $( "#tabs" ).tabs();
+    $( "body" ).on('click','.tab1',function(){
+      $('#tabs-2').slideUp(800);
+      $('#tabs-1').slideDown(800);
+    });
+
+    $( "body" ).on('click','.tab2',function(){
+
+      $('#tabs-1').slideUp(800);
+      $('#tabs-2').slideDown(800);
+    });
 
 });
