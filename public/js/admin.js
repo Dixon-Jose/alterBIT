@@ -20,32 +20,70 @@ $(document).ready(function (){
     $.ajax({
         url: "/suggestions",
         success:function(suggestions){
-            for(var i=0;i<suggestions.data.length;i++){
-                console.log(suggestions.data[i].name);
-                var imgurl= (suggestions.data[i].imgurl) ? suggestions.data[i].imgurl : '/images/placeholder.jpg';
-                suggestion='<div class="row" >\
-                                <div class="col-2"></div>\
-                                <a href="">\
-                                    <div class="col-6 search-result">\
-                                        <div class="src-img"><img src="'+ imgurl +'"></div>\
-                                        <h2>'+suggestions.data[i].name+'</h2>\
-                                        <p>'+ suggestions.data[i].description +'</p>\
+            if(suggestions.data.length){
+                for(var i=0;i<suggestions.data.length;i++){
+                    if (suggestions.data[i].deleted_at)
+                    continue;
+                    var imgurl= (suggestions.data[i].imgurl) ? suggestions.data[i].imgurl : '/images/placeholder.jpg';
+                    suggestion='<div class="row" >\
+                                    <div class="col-2"></div>\
+                                    <a href="">\
+                                        <div class="col-6 search-result">\
+                                            <div class="src-img"><img src="'+ imgurl +'"></div>\
+                                            <span style="display:none">'+suggestions.data[i]._id+'</span>\
+                                            <h2>'+suggestions.data[i].name+'</h2>\
+                                            <p>'+ suggestions.data[i].description +'</p>\
+                                        </div>\
+                                    </a>\
+                                    <div class="tab2-options">\
+                                        <br>\
+                                        <br>\
+                                        <input type="button" class="insert" value="Insert">\
+                                        <br>\
+                                        <br>\
+                                        <input type="button" class="edit" value="Edit">\
+                                        <br>\
+                                        <br>\
+                                        <input type="button" class="delete" value="Delete">\
                                     </div>\
-                                </a>\
-                                <div class="tab2-options">\
-                                    <br>\
-                                    <br>\
-                                    <input type="button" value="Insert">\
-                                    <br>\
-                                    <br>\
-                                    <a href="{{ route("suggest") }}"><input type="button" value="Edit"></a>\
-                                    <br>\
-                                    <br>\
-                                    <input type="button" value="Delete">\
-                                </div>\
-                            </div>';
-                $("#tabs-2").append(suggestion);
+                                </div>';
+                    $("#tabs-2").append(suggestion);
+                }
             }
+            else
+                $("#tabs-2").append("<h2>It seems there were no suggestions</h2>");
+        },
+        error:function(jqXHR,status,error){
+            alert(error+". Try reloading the page again!");
+        }
+    });
+
+
+    $('body').on('click','.delete',function(){
+        var sugg = $(this).parent().parent();
+        var name=sugg.find("h2").html();
+        if(confirm("Are you sure you want to delete '"+name+"' ?")){
+            var id = sugg.find("span").html();
+            $.ajax({
+                url:"/delsuggestion",
+                method:"POST",
+                data: {id:id},
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr('content')
+                },
+                success:function(message){
+                    if(message=="Deleted"){
+                        sugg.slideUp("slow",function(){
+                            sugg.remove();
+                        });
+                    }
+                    else
+                    alert(message);
+                },
+                error:function(jqXHR,status,error){
+                    alert(error + ".Please Try again !");
+                }
+            });
         }
     });
 });

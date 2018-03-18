@@ -20,6 +20,31 @@
 <script src="/js/jquery.validate.js" type="text/javascript"></script>
 <script src="/js/entityEntry.js" type="text/javascript"></script>
 <script src="/js/pace.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+        $('body').on('click', '.submit', function () {
+        
+        $.ajax({
+            method:"POST",
+            url: "/suggest",
+            data: payload,
+            headers:{
+                "X-CSRF-TOKEN": $('input[type=hidden]').val()
+            },
+            success:function(message){
+                    if(message=="success")
+                    {alert("Thank You !!");
+                    window.location="/suggest";}
+                    else
+                    alert(message);
+                },
+            error:function(jqXHR,status,error){
+                    alert(status+":"+error);
+                }
+        });
+    });
+});
+</script>
 @endsection
 
 @section('styles')

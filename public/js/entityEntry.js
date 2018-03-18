@@ -1,3 +1,4 @@
+var payload;
 $(document).ready(function () {
     var tags;//to manage the tags filter
     var elements;//to store the element and alternative to later parse(fluctuating data;changes with every ajax request)
@@ -273,7 +274,6 @@ $(document).ready(function () {
     });
     var subForm=$('#optionalForm');
     subForm.validate();
-    var payload;
     $('body').on('click', '.done', function () {
         
         if(form.valid()){
@@ -326,23 +326,5 @@ $(document).ready(function () {
     $("html, body").animate({ scrollTop: 0 }, 1000);
     });
 
-    $('body').on('click', '.submit', function () {
-        
-        $.ajax({
-            method:"POST",
-            url: "/suggest",
-            data: payload,
-            headers:{
-                "X-CSRF-TOKEN": $('input[type=hidden]').val()
-            },
-            success:function(data){
-                    alert("form submitted successfully !");
-                    console.log(data);
-                    window.location="/suggest";
-                },
-            error:function(jqXHR,status,error){
-                    alert(status+":"+error);
-                }
-        });
-    });
+    
 });
