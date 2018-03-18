@@ -43,7 +43,6 @@
       <!-- <br>
       <br>
       <br> -->
-       <div id="loader"></div>
       <hr>
     </div>
     <div class="col-2"></div>

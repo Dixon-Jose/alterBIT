@@ -184,17 +184,13 @@ $(document).ready(function () {
         $('#image-file').slideDown();
     });
 
-    function loader(){
-        $('#loader').toggleClass("loader");
-    }
 
     function imgurUpload(){
         var link=false;
-        loader();
         if($('#img-url:checked').length>0){
             if($('#url').val().length>0){
                 $.ajax({
-                    "async": false,
+                    "async": true,
                     "crossDomain": true,
                     "url": "https://api.imgur.com/3/image",
                     "method": "POST",
@@ -203,11 +199,9 @@ $(document).ready(function () {
                     },
                     "data":{"image":$('#url').val()},
                     "error":function(jqXHR,status,error){
-                        alert(status+":"+error);
-                        loader();
+                        alert(error+" Image Upload Failed.Try Again !");
                     }  
                 }).done(function(response){
-                    loader();
                     link=response.data.link;
                     $('#imgurl').prop('src',link);
                 });
@@ -226,7 +220,7 @@ $(document).ready(function () {
                 form.append("image", file[0]);
 
                 var settings = {
-                    "async": false,
+                    "async": true,
                     "crossDomain": true,
                     "processData":false,
                     "contentType":false,
@@ -240,13 +234,11 @@ $(document).ready(function () {
                     "mimeType": "multipart/form-data",
                     "data": form,
                     "error":function(jqXHR,status,error){
-                        alert(status+":"+error);
-                        loader();
+                        alert(error + " Image Upload Failed.Try Again !");
                     }
                 }
         
                 $.ajax(settings).done(function (response) {
-                    loader();
                     var responseJSON=$.parseJSON(response);
                     link = responseJSON.data.link;
                     $('#imgurl').prop('src', link);
@@ -255,7 +247,6 @@ $(document).ready(function () {
             }
     
         }
-        $('#loader').removeClass("loader");
         return link;
     }
 
