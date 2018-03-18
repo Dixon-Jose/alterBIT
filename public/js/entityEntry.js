@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    var tags = [];//to manage the tags filter
-    var elements = [];//to store the element and alternative to later parse(fluctuating data;changes with every ajax request)
-    var selectedEle = [];//to store the selected elements
+    var tags;//to manage the tags filter
+    var elements;//to store the element and alternative to later parse(fluctuating data;changes with every ajax request)
+    var selectedEle=[];//to store the selected elements
     var datadump=[];//to dump incoming ajax dat to later parse if required
     function addElementsTags(data) {
-        elements = []; datadump = [];
+        elements = [];
         for (i = 0; i < data.tags.length; i++) {
             $('.sugg-tags').append('<a href="" class="cat-tag" style="display:none">' + data.tags[i] + '</a>');
             $('.cat-tag').fadeIn("slow");
@@ -26,7 +26,8 @@ $(document).ready(function () {
             url: '/category',
             success: function (data) {
                 for (i = 0; i < data.length; i++)
-                    $('#category-select').append('<option>' + data[i][0] + '</option');
+                    $('#category-select').append('<option>' + data[i][0] + '</option>');
+                    $('#category-select').append('<option>' + "select new category" + '</option>');
                 $('#category-select').val(null);
             },
             error: function(jqXHR,status,error){
@@ -42,19 +43,28 @@ $(document).ready(function () {
             }
         });
     }
+
+
     $('#category-select')
         .selectmenu({
             change: function (event, ui) {
-                $.getJSON("/category?category=" + ui.item.value, function (data) {
-                    $('#alternatives').css('display', 'block');
-                    $('.card-sugg,.cat-tag').remove();
-                    tags = []; elements = []; selectedEle = [];
-                    addElementsTags(data);
-                    $('html,body').animate({
-                        scrollTop: $(".sugg-page-form").offset().top
-                    },
-                        'slow');
-                });
+                if (ui.item.value ==="select new category"){
+                    var cat=prompt("Specify the category");
+                    $('#category-select').children('option:selected').html(cat);
+                    $('#category-select').append('<option>' + "select new category" + '</option>').selectmenu('refresh', true);
+                }
+                else{
+                    $.getJSON("/category?category=" + ui.item.value, function (data) {
+                        $('#alternatives').css('display', 'block');
+                        $('.card-sugg,.cat-tag').remove();
+                        tags = []; elements = []; selectedEle = [];
+                        addElementsTags(data);
+                        $('html,body').animate({
+                            scrollTop: $(".sugg-page-form").offset().top
+                        },
+                            'slow');
+                    });
+                }
             }
         });
 
@@ -181,24 +191,26 @@ $(document).ready(function () {
         var link=false;
         loader();
         if($('#img-url:checked').length>0){
-            $.ajax({
-                "async": false,
-                "crossDomain": true,
-                "url": "https://api.imgur.com/3/image",
-                "method": "POST",
-                "headers": {
-                    "Authorization": "Client-ID 6130a8b5bbc1e9f"
-                },
-                "data":{"image":$('#url').val()},
-                "error":function(jqXHR,status,error){
-                    alert(status+":"+error);
+            if($('#url').val().length>0){
+                $.ajax({
+                    "async": false,
+                    "crossDomain": true,
+                    "url": "https://api.imgur.com/3/image",
+                    "method": "POST",
+                    "headers": {
+                        "Authorization": "Client-ID 6130a8b5bbc1e9f"
+                    },
+                    "data":{"image":$('#url').val()},
+                    "error":function(jqXHR,status,error){
+                        alert(status+":"+error);
+                        loader();
+                    }  
+                }).done(function(response){
                     loader();
-                }  
-            }).done(function(response){
-                loader();
-                link=response.data.link;
-                $('#imgurl').prop('src',link);
-            });
+                    link=response.data.link;
+                    $('#imgurl').prop('src',link);
+                });
+            }    
         }
         else
         if($('#img-file:checked').length>0){
@@ -242,7 +254,7 @@ $(document).ready(function () {
             }
     
         }
-        loader();
+        $('#loader').removeClass("loader");
         return link;
     }
 
@@ -255,13 +267,13 @@ $(document).ready(function () {
             },
             description:{
                 required:"Please specify description",
-                minlength:"Please describe in atleast 20 words"   
+                minlength:"Please describe in atleast 20 letters"   
             },
         }
     });
     var subForm=$('#optionalForm');
     subForm.validate();
-    var payload = [];
+    var payload;
     $('body').on('click', '.done', function () {
         
         if(form.valid()){
@@ -287,11 +299,11 @@ $(document).ready(function () {
                     $('#EntityDescription').html(payload['description']);
                     $('#category').html(payload['category']);
                     $("html, body").animate({ scrollTop: 0 }, 1000);
-    
-                    $('.user-form').slideUp(800);
-                    $('.sugg-page-form').slideUp(800);
+                    $('#entityForm').slideUp(800);
+                    // $('.user-form').slideUp(800);
+                    // $('.sugg-page-form').slideUp(800);
                     $('.card-sugg').slideUp();
-                    $('.user-form1').slideUp(800);
+                    // $('.user-form1').slideUp(800);
                     $('.finalize-alt').slideDown(800);
                 }
                 else{
@@ -305,10 +317,12 @@ $(document).ready(function () {
     });
 
     $('body').on('click','.edit',function(){
-      $('#category-select').val(null);  
+    //   $('#category-select').val(null);  
       $('.finalize-alt').slideUp(800);
-      $('.user-form').slideDown(800);
-      $('.user-form1').slideDown(800);
+      $('#entityForm').slideDown(800);
+      $('.card-sugg').slideDown(800);
+    //   $('.user-form').slideDown(800);
+    //   $('.user-form1').slideDown(800);
     $("html, body").animate({ scrollTop: 0 }, 1000);
     });
 

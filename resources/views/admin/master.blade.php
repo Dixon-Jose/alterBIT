@@ -22,37 +22,18 @@
       </div>
   </div>
 
-  <div id="tabs-2" style="display:none" >
-<!-- apply loop here -->
-    <div class="row" >
-        <div class="col-2"></div>
-        <a href="">
-            <div class="col-6 search-result">
-                    <div class="src-img"><img src="http://d2bhqx49zlo9rr.cloudfront.net/wp-content/uploads/2016/03/26144435/Broadcast_MrRobot_M_002.jpg"></div>
-                    <h2>Entity Name</h2>
-                    <p>Hello hello hello, is there anybody in there?</p>
-            </div>
-        </a>
-        <div class="tab2-options">
-          <br>
-          <br>
-          <input type="button" value="Insert">
-          <br>
-          <br>
-          <a href="{{ route('suggest') }}"><input type="button" value="Edit"></a>
-          <br>
-          <br>
-          <input type="button" value="Delete">
-        </div>
-    </div>
-    <!-- end loop -->
-  </div>
+  <div id="tabs-2" style="display:none" ></div>
 
 </div>
 <!-- </div> -->
 @include('includes.footer')
 @endsection
 @section('script')
-<script src="/js/alterbit.js" type="text/javascript"></script>
+<script src="/js/admin.js" type="text/javascript"></script>
+<script src="/js/jquery.validate.js" type="text/javascript"></script>
 <script src="/js/entityEntry.js" type="text/javascript"></script>
+<script src="/js/pace.min.js" type="text/javascript"></script>
+@endsection
+@section('styles')
+<link rel="stylesheet" type="text/css" href="/css/loaders.css">
 @endsection
