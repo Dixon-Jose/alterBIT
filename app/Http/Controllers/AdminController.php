@@ -22,7 +22,6 @@ class AdminController extends Controller
             $entity->description=$request->description;
             $entity->category=$request->category;
             $entity->imgurl=$request->imgurl;
-            $entity->alternatives=$request->alternatives;
             $tags=[];
             foreach($request->tags as $tag){
                 if($tag===null)
@@ -30,9 +29,12 @@ class AdminController extends Controller
                 array_push($tags,$tag);
             }
             $entity->tags=$tags;
-            foreach($entity->alternatives as $alternative){
-                if(!(Entity::where("_id",$alternative)->push('alternatives',$entity->_id)))
-                throw new Exception("alternative updation failed");
+            if($request->alternatives){
+                $entity->alternatives=$request->alternatives;
+                foreach($entity->alternatives as $alternative){
+                    if(!(Entity::where("_id",$alternative)->push('alternatives',$entity->_id)))
+                    throw new Exception("alternative updation failed");
+                }
             }    
             if($entity->save())
             return "success";

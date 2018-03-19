@@ -114,16 +114,20 @@ class entityController extends Controller
             return redirect()->route('home');
         }
         else{
-        foreach($entity->alternatives as $key => $alter){
-            $alternative=Entity::find($alter);
-            $alternatives[$key]=array(
-                "id"=>$alternative->_id,
-                "name"=>$alternative->name,
-                "description"=>$alternative->description,
-                "category"=>$alternative->category
-            );
+        if($entity->alternatives){
+            foreach($entity->alternatives as $key => $alter){
+                $alternative=Entity::find($alter);
+                $alternatives[$key]=array(
+                    "id"=>$alternative->_id,
+                    "name"=>$alternative->name,
+                    "description"=>$alternative->description,
+                    "category"=>$alternative->category
+                );
+            }
+            return view ('entity',['entity' => $entity,'alternatives'=>$alternatives]);
         }
-        return view ('entity',['entity' => $entity,'alternatives'=>$alternatives]);
+        else
+            return view('entity',['entity'=>$entity]);
         }}
     }
 }

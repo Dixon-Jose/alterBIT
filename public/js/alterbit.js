@@ -71,9 +71,9 @@ $(document).ready(function(){
       );
       for(var i=0;i<data.tags.length;i++){
         if($.inArray(data.tags[i],tag)>=0)
-        $('#appendTags').append('<a class="tags" style="color:black" href="#">'+data.tags[i]+'</a>');
+        $('#appendTags').append('<a class="searchtags" style="color:black" href="#">'+data.tags[i]+'</a>');
         else
-        $('#appendTags').append('<a class="tags" href="#">'+data.tags[i]+'</a>');
+        $('#appendTags').append('<a class="searchtags" href="#">'+data.tags[i]+'</a>');
     }
       for(var i=0;i<data.entities.length;i++){
         var entities='<div class="row del" >\
@@ -90,7 +90,7 @@ $(document).ready(function(){
       }  
     }
     var tag=[];
-    $('body').on('click','.tags',function(event){
+  $('body').on('click','.searchtags',function(event){
       event.preventDefault();
       var t = $(this).html();
       if ($.inArray(t,tag)>=0)
