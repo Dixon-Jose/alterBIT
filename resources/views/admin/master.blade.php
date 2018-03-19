@@ -36,24 +36,32 @@
 <script>
 $(document).ready(function(){
         $('body').on('click', '.submit', function () {
-        $.ajax({
-            method:"POST",
-            url: "/entityinput",
-            data: payload,
-            headers:{
-                "X-CSRF-TOKEN": $('input[type=hidden]').val()
-            },
-            success:function(message){
-                    if(message=="success")
-                    {alert("Database Updated");
-                    window.location="/admin";}
-                    else
-                    alert(message);
+          if(payload['imgurl']){
+            payload['_id']=payload['name'].split(" ").join("-");
+            payload['tags']=$('.tags').val().split(",");
+            $.ajax({
+                method:"POST",
+                url: "/entityinput",
+                data: payload,
+                headers:{
+                    "X-CSRF-TOKEN": $('input[type=hidden]').val()
                 },
-            error:function(jqXHR,status,error){
-                    alert(status+":"+error);
-                }
-        });
+                success:function(message){
+                        if(message=="success")
+                        {alert("Database Updated");
+                        window.location="/admin";}
+                        else
+                        alert(message);
+                    },
+                error:function(jqXHR,status,error){
+                        alert(status+":"+error);
+                        console.log(jqXHR);
+                    }
+            });
+        }
+        else{
+          alert("Upload a valid image to Submit!");
+        }  
     });
 });
 </script>

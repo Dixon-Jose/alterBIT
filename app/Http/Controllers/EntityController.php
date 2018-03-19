@@ -32,6 +32,10 @@ class entityController extends Controller
         }
     }
 
+    public function tagComplete(){
+        return Entity::distinct()->get(['tags']);
+    }
+
     //json endpoint for the suggest route to provide alternatives matching the category
     public function category(Request $request){
         if($request->input('category')){

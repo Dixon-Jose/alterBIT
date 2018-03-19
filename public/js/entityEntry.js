@@ -186,7 +186,6 @@ $(document).ready(function () {
 
 
     function imgurUpload(){
-        var link=false;
         if($('#img-url:checked').length>0){
             if($('#url').val().length>0){
                 $.ajax({
@@ -204,6 +203,7 @@ $(document).ready(function () {
                 }).done(function(response){
                     link=response.data.link;
                     $('#imgurl').prop('src',link);
+                    payload['imgurl'] = link;
                 });
             }    
         }
@@ -242,12 +242,13 @@ $(document).ready(function () {
                     var responseJSON=$.parseJSON(response);
                     link = responseJSON.data.link;
                     $('#imgurl').prop('src', link);
+                    payload['imgurl']=link;
                 });
 
             }
     
         }
-        return link;
+        return false;
     }
 
     var form = $('#inputForm');
@@ -271,9 +272,7 @@ $(document).ready(function () {
             if(subForm.valid()){
                 if($('#category-select').val()){
                     payload={};
-                    var link = imgurUpload();
-                    if (link)
-                        payload['imgurl'] = link;
+                    imgurUpload();
                     payload['name'] = $("input[name=name]").val().toLowerCase();
                     payload['description'] = $("#description").val().toLowerCase();
                     payload['category'] = $('#category-select').val().toLowerCase();

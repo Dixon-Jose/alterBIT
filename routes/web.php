@@ -22,8 +22,9 @@ Route::get('suggest',function(){
 Route::post('suggest','SuggestionController@store')->name('suggestionsInput');
 
 //json endpoints
-Route::get('autocomplete','EntityController@autoComplete')->name('autocomplete');
-Route::get('category',"EntityController@category")->name('category');
+Route::get('autocomplete','EntityController@autoComplete');
+Route::get('tagcomplete','EntityController@tagComplete');
+Route::get('category',"EntityController@category");
 Route::get('suggestions','AdminController@suggestions');
 
 //admin or auth routes
