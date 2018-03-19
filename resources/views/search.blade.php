@@ -12,25 +12,16 @@
                   </form>
           </div>
   </div>
-
+<div class="original" id="tag">
   <div class="row">
         <div class="col-1"></div>
         <div class="col-10 src-tags">
-        @php
-        $selected=[];
-        if(!empty($selectedtags)){
-            $selected=$selectedtags;
-        }
-        @endphp
-              @foreach($tags as $tag)
-              @if(in_array($tag,$selectedtags))
-              <a href="{{route('search',['tag'=>$tag,'s'=>implode(",",$selected)])}}" style="color:red">{{$tag}}</a>
-              @else
-              <a href="{{route('search',['tag'=>$tag,'s'=>implode(",",$selected)])}}">{{$tag}}</a>
-              @endif
-              @endforeach
+            @foreach($tags as $tag)
+              <a class="tags" href="#">{{$tag}}</a>
+            @endforeach
         </div>
   </div>
+</div>  
 <br>
 <div class="row">
   <div class="col-1"></div>
@@ -38,6 +29,29 @@
           <h3>Results</h3>
     </div>
 </div>
-@include('includes.search-card')
+
+<div class="original">
+      @foreach($entities as $entity)
+      <div class="row" >
+      <div class="col-1"></div>
+      <a href="{{route('entity',['category'=>$entity->category,'id'=> $entity->_id])}}">
+            <div class="col-6 search-result">
+                  <div class="src-img"><img src="{{$entity->imgurl }}"></div>
+                  <h2>{{$entity->name}}</h2>
+                  <p>{{substr($entity->description,0,100)}}</p>
+            </div>
+      </a>
+      </div>
+      @endforeach
+</div>
+<div id="entities"></div>
+
 @include('includes.footer')
+@endsection
+
+@section('script')
+<script src="/js/pace.min.js" type="text/javascript"></script>
+@endsection
+@section('styles')
+<link rel="stylesheet" type="text/css" href="/css/loaders.css">
 @endsection

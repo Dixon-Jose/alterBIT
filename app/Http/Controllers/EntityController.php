@@ -69,7 +69,7 @@ class entityController extends Controller
     public function index(Request $request)
     {
         // find using keyword and return search view with elements and tags or an error message
-        $elements=[];$t=[];
+        $elements=[];
         if(!empty($request->input('q'))){
           if(strtolower($request->input('q'))==='all'){
               $elements=Entity::all();
@@ -77,25 +77,9 @@ class entityController extends Controller
             $elements=getElement("name",$request->input('q'));
         }    
       else{
-          if($request->input('tag')){
-              if($request->input('s')){
-                  //subsequent tags are added to $t and combined results are returned
-                  $t=explode(',',$request->input('s'));
-                  $index=array_search($request->tag,$t);
-                  if($index!==false){
-                      if(count($t)!==1){//this is to prevent element count from getting 0 if user selects an only tag again.
-                      unset($t[array_search($request->tag,$t)]);
-                      $t=array_values($t);}
-                  }
-                  else
-                  array_push($t,$request->tag);
-                  $elements=Entity::where('tags','all',$t)->get();
-              }
-              else{
-                  array_push($t,$request->tag);
-                  $elements=Entity::where('tags',$request->input('tag'))->get();
-              }
-            }
+          if($request->input('tag'))
+             $t=explode(',',$request->tag);
+             $elements=Entity::where('tags','all',$t)->get();
           }
       if(count($elements)===0){
             $error=array(
@@ -109,8 +93,11 @@ class entityController extends Controller
                     $tags[$key++]=$tag;
                 }
             }
-            $tags=array_unique($tags);
-            return view ('search',['entities' => $elements,'tags' => $tags,'selectedtags' => $t]);
+            $tags=array_keys(array_flip($tags));
+            if($request->input('tag')){
+                return array("entities"=>$elements,"tags"=>$tags);
+            }
+            return view ('search',['entities' => $elements,'tags' => $tags]);
     
     return redirect()->route('home');
     }
