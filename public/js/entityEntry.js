@@ -199,17 +199,17 @@ $(document).ready(function () {
                     "data":{"image":$('#url').val()},
                     "error":function(jqXHR,status,error){
                         alert(error+" Image Upload Failed.Try Again !");
-                    }  
+                    }
                 }).done(function(response){
                     link=response.data.link;
                     $('#imgurl').prop('src',link);
                     payload['imgurl'] = link;
                 });
-            }    
+            }
         }
         else
         if($('#img-file:checked').length>0){
-            
+
             var file=$("#file").get(0).files;
             if(file.length){
                 if(file[0].size>$('#file').data('max-size')*1024){
@@ -237,7 +237,7 @@ $(document).ready(function () {
                         alert(error + " Image Upload Failed.Try Again !");
                     }
                 }
-        
+
                 $.ajax(settings).done(function (response) {
                     var responseJSON=$.parseJSON(response);
                     link = responseJSON.data.link;
@@ -246,7 +246,7 @@ $(document).ready(function () {
                 });
 
             }
-    
+
         }
         return false;
     }
@@ -260,14 +260,14 @@ $(document).ready(function () {
             },
             description:{
                 required:"Please specify description",
-                minlength:"Please describe in atleast 20 letters"   
+                minlength:"Please describe in atleast 20 letters"
             },
         }
     });
     var subForm=$('#optionalForm');
     subForm.validate();
     $('body').on('click', '.done', function () {
-        
+
         if(form.valid()){
             if(subForm.valid()){
                 if($('#category-select').val()){
@@ -279,12 +279,18 @@ $(document).ready(function () {
                     $('.Ent-alt-card').remove();
                     if(selectedEle.length){
                         payload['alternatives'] = selectedEle;
-                        $('#alt-title').html("The Alternatives are:");   
+                        $('#alt-title').html("The Alternatives are:");
                     for (i = 0; i < selectedEle.length; i++) {
                         $('#EntityAlternatives').append('<div class="col-2 card Ent-alt-card"><h3>' + datadump[selectedEle[i]].name + '</h3><p>' + datadump[selectedEle[i]].description.substring(0, 100) + '</p></div >');
                     }}
                     else
-                    {$('#alt-title').html("No Selected Alternatives");}
+                    {$('#alt-title').html("No Selected Alternatives.");
+                    $('#alt-title').css("font-size","130%");
+                    $('#alt-title').css("width","13em");
+                    $('#alt-title').css("margin-left","17%");
+                    $('#EntityAlternatives').css("height","0em");
+
+                    }
                     $('#EntityName').html(payload['name']);
                     $('#EntityDescription').html(payload['description']);
                     $('#category').html(payload['category']);
@@ -302,12 +308,12 @@ $(document).ready(function () {
                 }
             }
         }
-        
+
 
     });
 
     $('body').on('click','.edit',function(){
-    //   $('#category-select').val(null);  
+    //   $('#category-select').val(null);
       $('.finalize-alt').slideUp(800);
       $('#entityForm').slideDown(800);
       $('.card-sugg').slideDown(800);
@@ -316,5 +322,5 @@ $(document).ready(function () {
     $("html, body").animate({ scrollTop: 0 }, 1000);
     });
 
-    
+
 });

@@ -57,7 +57,7 @@
       &nbsp;
       <input type="radio"  id="img-file" name="Image-select" value="File Upload" >File Upload
       <br>
-      <br> 
+      <br>
       <div id="image-url" style="display:none">
           <input id="url" type="url" placeholder="Enter URL" name="url" title="Enter the Image URL">
       </div>
@@ -70,7 +70,7 @@
       </form>
     </div>
   </div>
-</div>  
+</div>
 
 
   <div class="finalize-alt" style="display:none">
@@ -100,12 +100,10 @@
     </div>
     <div class="row">
     <div class="col-12 alter" id="EntityAlternatives"><div class="col-2"></div>
-    </div>  
+    </div>
         <div class="col-2"></div>
-
         <input type="button" class="edit" value="Edit">
-        <br>
-        <br>
         <input type="submit" class="submit" value="Submit">
-
+        <br>
+        <br>
   </div>
