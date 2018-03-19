@@ -78,11 +78,11 @@ $(document).ready(function(){
       for(var i=0;i<data.entities.length;i++){
         var entities='<div class="row del" >\
         <div class="col-1" ></div >\
-        <a href="">\
+        <a href="/'+data.entities[i].category+'/'+data.entities[i]._id+'">\
           <div class="col-6 search-result">\
             <div class="src-img"><img src="'+data.entities[i].imgurl+'"></div>\
               <h2>'+data.entities[i].name+'</h2>\
-              <p>'+data.entities[i].description+'</p>\
+              <p>'+ data.entities[i].description.substr(0,100)+'</p>\
             </div>\
         </a>\
        </div>';
