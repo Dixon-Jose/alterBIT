@@ -52,7 +52,7 @@
       </div>
 
       <div class="form-group">
-              <button type="submit" class="btn ">
+              <button type="submit" class="btn">
                   Reset Password
               </button>
       </div>
