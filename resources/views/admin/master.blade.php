@@ -5,7 +5,7 @@
   @include('includes.userModule')
 <div class="row home-links-admin">
 <div class="col-2"></div>
-<div class="col-8">
+<div class="col-9">
   <table>
     <tr>
       <th><a class="tab1" href="#tabs-1">Insert</a></th>
@@ -61,7 +61,7 @@ $(document).ready(function(){
         }
         else{
           alert("Upload a valid image to Submit!");
-        }  
+        }
     });
 });
 </script>

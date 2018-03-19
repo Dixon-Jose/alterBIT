@@ -656,6 +656,7 @@ border-top: 0.01em solid #eaecee;
   }
 }
 
+
 .src-tags{
   a{
     text-decoration: none;
@@ -717,7 +718,9 @@ border-top: 0.01em solid #eaecee;
 
 /* Search page end*/
 
-/* Suggestions page*/
+// /* Suggestions page*/
+// #name-error #description-error{
+// }
 
 .user-form{
   background-color: @body-color;
@@ -731,6 +734,11 @@ border-top: 0.01em solid #eaecee;
     margin-top: 2em;
     .roboto;
     font-size: 120%;
+    color: red;
+    }
+
+    label[id="cat-label"]{
+      color: black;
     }
 
   form{
@@ -858,7 +866,7 @@ border-top: 0.01em solid #eaecee;
 .user-form1{
   margin-top: 0;
   .roboto;
-  margin-left: 2em;
+  margin-left: 1em;
   font-size: 120%;
   input[type="submit"]{
     padding: 2%;
@@ -870,6 +878,12 @@ border-top: 0.01em solid #eaecee;
       border:1px solid black;
 
     }
+  }
+  label{
+  margin-top: 2em;
+  .roboto;
+  font-size: 100%;
+  color: red;
   }
   input[type="url"]{
     padding: 2%;
@@ -897,11 +911,22 @@ border-top: 0.01em solid #eaecee;
       border: 1px solid black;
     }
   }
+    input[type="text"]{
+      width: 100%;
+      font-size: 100%;
+      color: black;
+      .roboto;
+      background-color: #fff;
+      border: 1px solid black;
+      padding: 2%;
+    }
+
+
 }
 
 .home-links-admin{
 
-    margin-left: -8em;
+    margin-left: -4em;
   table{
     border-spacing: 20px 0;
   }
@@ -1066,7 +1091,6 @@ ul[id='menu']{
     background-color:#8ddad5;
     font-size: 100%;
     padding: 1%;
-    margin-left: 30.66%;
     transition: 500ms ease-out;
     &:hover{
       border: 1px solid black;
@@ -1078,7 +1102,7 @@ ul[id='menu']{
     background-color:#8ddad5;
     font-size: 100%;
     padding: 1%;
-    margin-left: 46.66%;
+    margin-left: 1%;
     transition: 500ms ease-out;
     &:hover{
       border: 1px solid black;
@@ -1172,15 +1196,19 @@ ul[id='menu']{
   }
 
   input[id="name"]{
-    margin-left: 12em;
-    font-size: 100%;
-    .roboto;
+    margin-left: 7em;
+    width:100%;
+    font-size: 120%;
     color: black;
+    .roboto;
+    background-color: #fff;
     border: 1px solid black;
+    padding: 2%;
+
   }
 
   input[type="email"]{
-    margin-left: 10em;
+    margin-left: 7em;
     width:100%;
     font-size: 120%;
     color: black;
@@ -1192,7 +1220,7 @@ ul[id='menu']{
   }
 
   input[type="password"]{
-    margin-left: 10em;
+    margin-left: 7em;
     width:100%;
     font-size: 120%;
     color: black;
@@ -1204,19 +1232,92 @@ ul[id='menu']{
   }
 
   button[type="submit"]{
-    margin-left: 3em;
     font-size: 120%;
     background-color:#8ddad5;
     color:#1c2833;
-    border: none;
-    padding: 2%;
+    border:none;
+    padding: 10%;
     .roboto;
+    transition: 200ms ease-out 50ms;
 
     &:hover{
-      transition: 200ms ease-out 50ms;
+      border: 1px solid black;
       color:black;
     }
   }
+}
 
+// reset
+.reset{
 
+  margin-top: 5em;
+  color: black;
+  margin-top:7em;
+  .panel-body{
+    margin-top: 2em;
+  }
+  h3{
+    font-size: 180%;
+    .raleway;
+  }
+
+  label{
+    font-size: 120%;
+    color: black;
+    .roboto;
+  }
+
+  input[type="email"]
+  {
+    width:100%;
+    font-size: 120%;
+    color: black;
+    .roboto;
+    background-color: #fff;
+    border: 1px solid black;
+    padding: 2%;
+  }
+  input[type="password"]
+  {
+    width:100%;
+    font-size: 120%;
+    color: black;
+    .roboto;
+    background-color: #fff;
+    border: 1px solid black;
+    padding: 2%;
+  }
+
+  button[btn1]{
+    font-size: 100%;
+    background-color:#8ddad5;
+    border:1px solid lightgrey;
+    color: black;
+    padding: 5%;
+    .roboto;
+    transition: 1s ease 50ms;
+
+    &:hover{
+      border: 1px solid black;
+    }
+
+    button[btn]{
+      font-size: 100%;
+      background-color:#8ddad5;
+      border:1px solid lightgrey;
+      color: black;
+      padding: 2%;
+      .roboto;
+      transition: 1s ease 50ms;
+      margin-top: 3%;
+      &:hover{
+        border: 1px solid black;
+      }
+
+  }
+
+  .help-block{
+    .raleway;
+    color: red;
+  }
 }

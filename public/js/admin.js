@@ -90,18 +90,18 @@ $(document).ready(function (){
     });
 
 
-    $('#optionalForm').prepend('<input type="text" class="tags" placeholder="Tags" title="Specify tags (comma seperated,without space in b/w)" required>');
-   
+    $('#optionalForm').prepend('<input type="text" class="tags" placeholder="Tags" title="Specify tags (comma seperated,without space in b/w)" required><br><br>');
+
     function split(val) {
         return val.split(/,\s*/);
     }
-      
+
     function extractLast(term) {
         return split(term).pop();
     }
  var tags=[];
-    
- 
+
+
     $.ajax("/tagcomplete").done(function(data){
         for(var i=0;i<data.length;i++){
             tags.push(data[i][0]);
