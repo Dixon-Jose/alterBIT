@@ -26,7 +26,6 @@
 
 </div>
 <!-- </div> -->
-@include('includes.footer')
 @endsection
 @section('script')
 <script src="/js/admin.js" type="text/javascript"></script>

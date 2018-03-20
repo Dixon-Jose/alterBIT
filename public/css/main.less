@@ -74,11 +74,14 @@
     clear: both;
     display: table;
 }
-
-html, body {
+html { height: 100%; }
+ body {
     background-color: @body-color;
     color: @font-color;
     margin: 0;
+    min-height:100%;
+    position:relative;
+    padding-bottom:85px;
 }
 
 body ::-moz-selection{
@@ -188,6 +191,7 @@ p[title="message"]{
   border-right: 0 solid #fff;
 
 }
+
 .search-tags{
   a[name="tags"]{
         font-size: 75%;
@@ -537,15 +541,14 @@ input[type="submit"]{
 .alter{
   width: 100%;
   height:25em;
-  // padding-top:;
-  padding-bottom: 2%;
+  padding-bottom: 0%;
 }
 .card{
         background-color: @body-color;
         transition: 500ms ease-in 50ms;
         border-radius:2%;
         color: @font-color;
-
+        margin-top: 2%;
         &:hover{
           border-left: 2px solid black;
           border-right: 2px solid black;
@@ -572,6 +575,10 @@ input[type="submit"]{
           }
           a:hover{
             color: black;
+          }
+
+          &:nth-of-type(5n+1){
+            margin-left:18.66%;
           }
       }
 
@@ -606,18 +613,24 @@ input[type="submit"]{
 
 }
 
+.blank{
+  height: 3em;
+}
+
+.clear { clear: both; height: 60px; }
 
 
 .footer{
-
+  //   left: 0;
   background-color:@body-color;
 border: none;
 border-top: 0.01em solid #eaecee;
+
 // margin-left: 2%;
 // width: 96%;
   h3{
         color: #2c3e50;
-        .open-sans;
+        .roboto;
         font-weight:100;
         font-size: 120%;
         margin-top:0%;
@@ -659,6 +672,7 @@ border-top: 0.01em solid #eaecee;
 
 .src-tags{
   a{
+    .raleway;
     text-decoration: none;
     color:grey;
     margin-left: 1em;
@@ -1068,9 +1082,10 @@ ul[id='menu']{
 
     .sugg-tags{
       a{
+        .raleway;
         text-decoration: none;
         color: #34495e ;
-        margin-left: 1em;
+        padding: 2%;
         &:hover{
           color: @font-color;
         }
@@ -1081,6 +1096,7 @@ ul[id='menu']{
 
 .finalize-alt{
   margin-top: 4em;
+  flex: 1 0 auto;
   h3{
     font-family: 'Playfair Display', serif;
     font-size: 150%;
@@ -1092,6 +1108,8 @@ ul[id='menu']{
     font-size: 100%;
     padding: 1%;
     transition: 500ms ease-out;
+    margin-left: 18.66%;
+
     &:hover{
       border: 1px solid black;
     }
@@ -1307,10 +1325,10 @@ ul[id='menu']{
     background-color:#8ddad5;
     border:1px solid lightgrey;
     color: black;
-    padding: 3%;
+    padding: 2%;
     .roboto;
     transition: 1s ease 50ms;
-    margin-top:3em; 
+    margin-top:2em;
     &:hover{
       border: 1px solid black;
     }

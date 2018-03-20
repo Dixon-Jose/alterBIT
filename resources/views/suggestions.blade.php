@@ -15,7 +15,6 @@
           <!-- <h3>Enter new alternative: </h3> -->
   @include('layouts.entityEntry')
 @endsection
-
 @section('script')
 <script src="/js/jquery.validate.js" type="text/javascript"></script>
 <script src="/js/entityEntry.js" type="text/javascript"></script>
@@ -23,7 +22,7 @@
 <script>
 $(document).ready(function(){
         $('body').on('click', '.submit', function () {
-        
+
         $.ajax({
             method:"POST",
             url: "/suggest",

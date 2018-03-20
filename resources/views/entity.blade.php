@@ -42,9 +42,10 @@
                 <a href="{{route('entity',['category'=>$alternative['category'],'id'=> $alternative['id']])}}">Check out</a>
             </div>
             @endforeach
+            <div class="clear"></div>
+            @include('includes.footer')
        </div>
     </div>
 
 
-    @include('includes.footer')
-    @endsection
+        @endsection

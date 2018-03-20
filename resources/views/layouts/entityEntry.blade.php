@@ -28,9 +28,6 @@
       <div>
         <br>
         <h3 id="mainh3">Select alternatives: </h3>
-        <div class="controlgroup">
-          <input type="search" id="search" placeholder="Search">
-        </div>
       </div>
 
       <div class="row">
@@ -43,7 +40,6 @@
       <!-- <br>
       <br>
       <br> -->
-      <hr>
     </div>
     <div class="col-2"></div>
   </div>
@@ -101,9 +97,6 @@
     <div class="row">
     <div class="col-12 alter" id="EntityAlternatives"><div class="col-2"></div>
     </div>
-        <div class="col-2"></div>
-        <input type="button" class="edit" value="Edit">
-        <input type="submit" class="submit" value="Submit">
-        <br>
-        <br>
+    <br><br>
+
   </div>

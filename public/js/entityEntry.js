@@ -282,7 +282,9 @@ $(document).ready(function () {
                         $('#alt-title').html("The Alternatives are:");
                     for (i = 0; i < selectedEle.length; i++) {
                         $('#EntityAlternatives').append('<div class="col-2 card Ent-alt-card"><h3>' + datadump[selectedEle[i]].name + '</h3><p>' + datadump[selectedEle[i]].description.substring(0, 100) + '</p></div >');
-                    }}
+                    }
+                      $('#EntityAlternatives').append('<div class="clear"></div><input type="button" class="edit" value="Edit"><input type="submit" class="submit" value="Submit"> <br><br> <div class="row footer"><div class="col-10" ><h3>alterBIT | The Unconventional Way of Life</h3><a href="https://github.com/Dixon-Jose/alterBIT" title="github"></a></div></div>');
+                  }
                     else
                     {$('#alt-title').html("No Selected Alternatives.");
                     $('#alt-title').css("font-size","130%");
@@ -301,6 +303,7 @@ $(document).ready(function () {
                     $('.card-sugg').slideUp();
                     // $('.user-form1').slideUp(800);
                     $('.finalize-alt').slideDown(800);
+
                 }
                 else{
                     alert('select category!');
