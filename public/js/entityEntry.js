@@ -271,8 +271,10 @@ $(document).ready(function () {
         if(form.valid()){
             if(subForm.valid()){
                 if($('#category-select').val()){
-                    payload={};
-                    imgurUpload();
+                    if(payload==null){
+                        payload={};
+                        imgurUpload();
+                    }
                     payload['name'] = $("input[name=name]").val().toLowerCase();
                     payload['description'] = $("#description").val().toLowerCase();
                     payload['category'] = $('#category-select').val().toLowerCase();
@@ -325,5 +327,48 @@ $(document).ready(function () {
     $("html, body").animate({ scrollTop: 0 }, 1000);
     });
 
+    /**
+     * Proceed button in admin/suggestion
+     */
+    $('body').on('click', '.proceed', function () {
+        var sugg = $(this).parent().parent();
+        var id = sugg.find("span").html();
+        for(var i=0;i<suggest.length;i++){
+            if(suggest[i]._id===id){
+                var suggestion=suggest[i];
+                break;
+            }
+        }
+        console.log(suggestion);
+        $("#category-select").val(suggestion.category).selectmenu('refresh', true);
+        $.getJSON("/category?category="+suggestion.category, function (data) {
+            $('#alternatives').css('display', 'block');
+            $('.card-sugg,.cat-tag').remove();
+            tags = []; elements = []; selectedEle = [];
+            addElementsTags(data);
+            selectedEle=suggestion.alternatives;
+            $('.card-sugg').each(function () {
+                if ($.inArray($(this).children("h3").attr('title'), selectedEle) >= 0) {
+                    $(this).css({ 'background-color': '#e5e7e9', 'border': '1px solid grey' })
+                        .children('.alt-sel').val("Reject").css('background-color:', ' #f2f3f4 ');
+                }
+            });
+        });
 
+        $("input[name=name]").val(suggestion.name);
+        $("#description").val(suggestion.description);
+        $('#url').val(suggestion.imgurl);
+        $('#image-url').slideDown();
+        $('#imgurl').prop('src', suggestion.imgurl);
+        payload={};
+        payload['imgurl'] = suggestion.imgurl;
+
+
+
+        $("html, body").animate({ scrollTop: 0 }, 1000);
+        $('#tabs-2').slideUp(800);
+        $('#tabs-1').slideDown(800);
+        $(".tab1").css("color", "black");
+        $('.tab2').css("color", "#566573");
+    });
 });

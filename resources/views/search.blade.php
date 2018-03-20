@@ -17,7 +17,7 @@
         <div class="col-1"></div>
         <div class="col-10 src-tags">
             @foreach($tags as $tag)
-              <a class="tags" href="#">{{$tag}}</a>
+              <a class="searchtags" href="#">{{$tag}}</a>
             @endforeach
         </div>
   </div>

@@ -29,9 +29,14 @@
 
 <div class="row">
     <div class="col-12 partition">
+     @if(isset($alternatives))
           <h2>The Alternatives are:</h2>
+     @else     
+          <h2>No alternatives Found</h2>
+    @endif
     </div>
 </div>
+        @if(isset($alternatives))
 <div class="row">
     <div class="col-12 alter">
         <div class="col-2"></div>
@@ -46,6 +51,9 @@
             @include('includes.footer')
        </div>
     </div>
+    @else
+    <br><br><br><br><br><br><br><br>
+        @endif
 
 
         @endsection

@@ -1,3 +1,4 @@
+var suggest=[];
 $(document).ready(function (){
 
     $("body").on('click', '.tab1', function () {
@@ -20,6 +21,7 @@ $(document).ready(function (){
     $.ajax({
         url: "/suggestions",
         success:function(suggestions){
+            suggest=suggestions.data;
             if(suggestions.data.length){
                 for(var i=0;i<suggestions.data.length;i++){
                     if (suggestions.data[i].deleted_at)
@@ -27,7 +29,7 @@ $(document).ready(function (){
                     var imgurl= (suggestions.data[i].imgurl) ? suggestions.data[i].imgurl : '/images/placeholder.jpg';
                     suggestion='<div class="row" >\
                                     <div class="col-2"></div>\
-                                    <a href="">\
+                                    <a href="#">\
                                         <div class="col-6 search-result">\
                                             <div class="src-img"><img src="'+ imgurl +'"></div>\
                                             <span style="display:none">'+suggestions.data[i]._id+'</span>\
@@ -38,10 +40,7 @@ $(document).ready(function (){
                                     <div class="tab2-options">\
                                         <br>\
                                         <br>\
-                                        <input type="button" class="insert" value="Insert">\
-                                        <br>\
-                                        <br>\
-                                        <input type="button" class="edit" value="Edit">\
+                                        <input type="button" class="proceed" value="Proceed">\
                                         <br>\
                                         <br>\
                                         <input type="button" class="delete" value="Delete">\
@@ -54,11 +53,11 @@ $(document).ready(function (){
                 $("#tabs-2").append("<h2>It seems there were no suggestions</h2>");
         },
         error:function(jqXHR,status,error){
-            alert(error+". Try reloading the page again!");
+            alert(error+". Try reloading the page!");
         }
     });
 
-
+    
     $('body').on('click','.delete',function(){
         var sugg = $(this).parent().parent();
         var name=sugg.find("h2").html();
